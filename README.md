@@ -9,6 +9,6 @@ Originally written for wireless access point polling (specifically Trango M900 a
 
 Definitions:
   query: a snmp query for data that generally is not graphable or is otherwise not interesting enough to graph. Examples would include firmware versions or any other non-number string
-  monitor: a snmp query that returns a number, which can be stored in a .rrd file and graphed
-  graph: a png display of data retrieved from a .rrd file
+monitor: a snmp query that returns a number, which can be stored in a .rrd file and graphed
+graph: a png display of data retrieved from a .rrd file
     
