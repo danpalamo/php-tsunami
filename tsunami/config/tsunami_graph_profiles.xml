@@ -1,0 +1,723 @@
+<tsunami>
+	<graphProfile
+		name="ASSOCIATION"
+		desc="Association status"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="Association"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--upper-limit=3
+			DEF:a="$filenameRRD":ASSOCIATION:AVERAGE
+			DEF:b="$filenameRRD":ASSOCIATION:AVERAGE
+			CDEF:aLim=a,0,1,LIMIT
+			CDEF:bLim=b,1.0001,4,LIMIT
+			AREA:aLim#6699FF:"Associated"
+			AREA:bLim#3366CC:"Unassociated"'
+	/>
+	<graphProfile
+		name="ETH_TRAFFIC_B"
+		desc="Ethernet traffic in bytes"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="bits per sec"
+			--base=1024
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--slope-mode
+			DEF:a="$filenameRRD":ETH_IN_B:AVERAGE
+			DEF:b="$filenameRRD":ETH_OUT_B:AVERAGE
+			CDEF:cdefa=a,8,*
+			CDEF:cdefe=b,8,*
+			AREA:cdefa#00CF00:"Inbound"
+			GPRINT:cdefa:LAST:" Cur\:%8.2lf %s"
+			GPRINT:cdefa:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefa:MAX:"Max\:%8.2lf %s\l"
+			LINE1:cdefe#002A97:"Outbound"
+			GPRINT:cdefe:LAST:"Cur\:%8.2lf %s"
+			GPRINT:cdefe:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefe:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="ETH_TRAFFIC_KBPS"
+		desc="Ethernet traffic in kbps"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="bits per sec"
+			--base=1024
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--slope-mode
+			DEF:a="$filenameRRD":ETH_IN_KBPS:AVERAGE
+			DEF:b="$filenameRRD":ETH_OUT_KBPS:AVERAGE
+			CDEF:cdefa=a,1024,*
+			CDEF:cdefe=b,1024,*
+			AREA:cdefa#00CF00:"Inbound"
+			GPRINT:cdefa:LAST:" Cur\:%8.2lf %s"
+			GPRINT:cdefa:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefa:MAX:"Max\:%8.2lf %s\l"
+			LINE1:cdefe#002A97:"Outbound"
+			GPRINT:cdefe:LAST:"Cur\:%8.2lf %s"
+			GPRINT:cdefe:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefe:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="EPMP_RF_TRAFFIC_KBPS"
+		desc="RF traffic in kbps"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="bits per sec"
+			--base=1024
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--slope-mode
+			DEF:a="$filenameRRD":RF_IN_KBPS:AVERAGE
+			DEF:b="$filenameRRD":RF_OUT_KBPS:AVERAGE
+			CDEF:cdefa=a,1024,*
+			CDEF:cdefe=b,1024,*
+			AREA:cdefa#00CF00:"Inbound"
+			GPRINT:cdefa:LAST:" Cur\:%8.2lf %s"
+			GPRINT:cdefa:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefa:MAX:"Max\:%8.2lf %s\l"
+			LINE1:cdefe#002A97:"Outbound"
+			GPRINT:cdefe:LAST:"Cur\:%8.2lf %s"
+			GPRINT:cdefe:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefe:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="RF_DROP"
+		desc="RF dropped in packets"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="pckts per sec"
+			--base=1000
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--upper-limit=20
+			--slope-mode
+			DEF:a="$filenameRRD":RF_DROP_P:AVERAGE
+			AREA:a#FF4444:"Dropped"
+			GPRINT:a:LAST:" Cur\:%8.2lf %s"
+			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:a:MAX:"Max\:%8.2lf %s\l"'
+	/>
+	<graphProfile
+		name="RF_RETRY"
+		desc="RF retry in packets"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="pckts per sec"
+			--base=1000
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--slope-mode
+			DEF:a="$filenameRRD":RF_AP_RETRY:AVERAGE
+			DEF:b="$filenameRRD":RF_SU_RETRY:AVERAGE
+			AREA:a#FF3333:"AP Retry"
+			GPRINT:a:LAST:" Cur\:%8.2lf %s"
+			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
+			LINE1:b#660000:"SU Retry"
+			GPRINT:b:LAST:"Cur\:%8.2lf %s"
+			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:b:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="RF_SU_RETRY"
+		desc="RF retry in packets"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="pckts per sec"
+			--base=1000
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--slope-mode
+			DEF:a="$filenameRRD":RF_RETRY:AVERAGE
+			AREA:a#FF3333:"AP Retry"
+			GPRINT:a:LAST:" Cur\:%8.2lf %s"
+			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:a:MAX:"Max\:%8.2lf %s\l"'
+	/>
+	<graphProfile
+		name="RF_TRAFFIC_B"
+		desc="RF traffic in bytes"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="bits per sec"
+			--base=1000
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--slope-mode
+			DEF:defa="$filenameRRD":RF_IN_B:AVERAGE
+			DEF:defb="$filenameRRD":RF_OUT_B:AVERAGE
+			CDEF:a=defa,8,*
+			CDEF:b=defb,8,*
+			AREA:a#00CF00:"Inbound"
+			GPRINT:a:LAST:" Cur\:%8.2lf %s"
+			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
+			LINE1:b#002A97:"Outbound"
+			GPRINT:b:LAST:"Cur\:%8.2lf %s"
+			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:b:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="RF_TRAFFIC_O"
+		desc="RF traffic in octets"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="bits per sec"
+			--base=1000
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--slope-mode
+			DEF:defa="$filenameRRD":RF_IN_O:AVERAGE
+			DEF:defb="$filenameRRD":RF_OUT_O:AVERAGE
+			CDEF:a=defa,8,*
+			CDEF:b=defb,8,*
+			AREA:a#00CF00:"Inbound"
+			GPRINT:a:LAST:" Cur\:%8.2lf %s"
+			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
+			LINE1:b#002A97:"Outbound"
+			GPRINT:b:LAST:"Cur\:%8.2lf %s"
+			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:b:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="RF_TRAFFIC_P"
+		desc="RF traffic in packets"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="pckts per sec"
+			--base=1000
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--slope-mode
+			DEF:a="$filenameRRD":RF_IN_P:AVERAGE
+			DEF:b="$filenameRRD":RF_OUT_P:AVERAGE
+			AREA:a#00CF00:"Inbound"
+			GPRINT:a:LAST:" Cur\:%8.2lf %s"
+			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
+			LINE1:b#002A97:"Outbound"
+			GPRINT:b:LAST:"Cur\:%8.2lf %s"
+			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:b:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="RSSI"
+		desc="RSSI in dB"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="dBm"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=-90
+			--upper-limit=-45
+			--alt-autoscale-max
+			--slope-mode
+			DEF:a="$filenameRRD":AP_RSSI:AVERAGE
+			DEF:b="$filenameRRD":SU_RSSI:AVERAGE
+			CDEF:aLim=a,-100,-35,LIMIT
+			CDEF:bLim=b,-100,-35,LIMIT
+			CDEF:cdefa=aLim,100,+
+			CDEF:cdefe=bLim,100,+
+			LINE1:-100
+			AREA:cdefa#00CF00:"RSSI at AP":STACK
+			GPRINT:aLim:LAST:"Cur\:%6.1lf dBm"
+			GPRINT:aLim:AVERAGE:"Avg\:%6.1lf dBm"
+			GPRINT:aLim:MAX:"Max\:%6.1lf dBm\l"
+			LINE1:-100
+			LINE2:cdefe#002A97:"RSSI at SU":STACK
+			GPRINT:bLim:LAST:"Cur\:%6.1lf dBm"
+			GPRINT:bLim:AVERAGE:"Avg\:%6.1lf dBm"
+			GPRINT:bLim:MAX:"Max\:%6.1lf dBm"'
+	/>
+	<graphProfile
+		name="FRAME_UTIL"
+		desc="Layer 2 wireless frame utilization percentage"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="percent"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--upper-limit=100
+			--alt-autoscale-max
+			--slope-mode
+			DEF:a="$filenameRRD":FRAME_UTIL_UP:AVERAGE
+			DEF:b="$filenameRRD":FRAME_UTIL_DN:AVERAGE
+			AREA:a#FFBF00:"Inbound":STACK
+			GPRINT:a:LAST:" Cur\:%8.2lf %s"
+			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
+			LINE1:b#806000:"Outbound"
+			GPRINT:b:LAST:"Cur\:%8.2lf %s"
+			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:b:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="EPMP_FRAME_USED_UP"
+		desc="Layer 2 wireless upstream frame usage"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="frames"
+			--base=1000
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--alt-autoscale-max
+			--slope-mode
+			DEF:a="$filenameRRD":FRAME_AVAIL_UP:AVERAGE
+			DEF:b="$filenameRRD":FRAME_USED_UP:AVERAGE
+			LINE1:a#FFBF00:"Available":STACK
+			GPRINT:a:LAST:" Cur\:%8.2lf %s"
+			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
+			LINE2:b#806000:"Used"
+			GPRINT:b:LAST:"Cur\:%8.2lf %s"
+			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:b:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="EPMP_FRAME_USED_DOWN"
+		desc="Layer 2 wireless downstream frame usage"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="frames"
+			--base=1000
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--alt-autoscale-max
+			--slope-mode
+			DEF:a="$filenameRRD":FRAME_AVAIL_DN:AVERAGE
+			DEF:b="$filenameRRD":FRAME_USED_DN:AVERAGE
+			LINE1:a#FFBF00:"Available":STACK
+			GPRINT:a:LAST:" Cur\:%8.2lf %s"
+			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
+			LINE2:b#806000:"Used"
+			GPRINT:b:LAST:"Cur\:%8.2lf %s"
+			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:b:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="RSSI_C_SU"
+		desc="RSSI in dB"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="dBm"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=-90
+			--upper-limit=-45
+			--alt-autoscale-max
+			--slope-mode
+			DEF:a="$filenameRRD":AP_RSSI:AVERAGE
+			DEF:b="$filenameRRD":SU_RSSI:AVERAGE
+			CDEF:aLim=a,-100,-25,LIMIT
+			CDEF:bLim=b,-100,-25,LIMIT
+			CDEF:cdefa=aLim,100,+
+			CDEF:cdefe=bLim,100,+
+			LINE1:-100
+			AREA:cdefa#00CF00:"RSSI at AP":STACK
+			GPRINT:aLim:LAST:"Cur\:%6.1lf dBm"
+			GPRINT:aLim:AVERAGE:"Avg\:%6.1lf dBm"
+			GPRINT:aLim:MAX:"Max\:%6.1lf dBm\l"
+			LINE1:-100
+			LINE2:cdefe#002A97:"RSSI at AP":STACK
+			GPRINT:bLim:LAST:"Cur\:%6.1lf dBm"
+			GPRINT:bLim:AVERAGE:"Avg\:%6.1lf dBm"
+			GPRINT:bLim:MAX:"Max\:%6.1lf dBm"'
+	/>
+	<graphProfile
+		name="RSSI_SU"
+		desc="RSSI in dB"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="dBm"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=-90
+			--upper-limit=-45
+			--alt-autoscale-max
+			--slope-mode
+			DEF:a="$filenameRRD":SU_RSSI:AVERAGE
+			CDEF:aLim=a,-100,-35,LIMIT
+			CDEF:cdefa=aLim,100,+
+			LINE1:-100
+			AREA:cdefa#00CF00:"RSSI at AP":STACK
+			GPRINT:aLim:LAST:"Cur\:%6.1lf dBm"
+			GPRINT:aLim:AVERAGE:"Avg\:%6.1lf dBm"
+			GPRINT:aLim:MAX:"Max\:%6.1lf dBm\l"'
+	/>
+	<graphProfile
+		name="SU_COUNT"
+		desc="SU Count"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="SUs"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--alt-autoscale-max
+			--slope-mode
+			DEF:a="$filenameRRD":SU_COUNT:AVERAGE
+			AREA:a#999999:"SU Count"
+			GPRINT:a:LAST:"Cur\:%8.0lf SUs"
+			GPRINT:a:MAX:"Max\:%8.0lf SUs"'
+	/>
+	<graphProfile
+		name="GPS_STATUS"
+		desc="GPS_STATUS"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="Status"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--alt-autoscale-max
+			--slope-mode
+			DEF:a="$filenameRRD":GPS_STATUS:AVERAGE
+			AREA:a#00FFFF:"GPS Status"
+			GPRINT:a:LAST:"Cur\:%8.0lf"
+			COMMENT:"1=sync, 2=lostsync, 3=gensync"'
+	/>
+	<graphProfile
+		name="EPMP_GPS_STATUS"
+		desc="EPMP_GPS_STATUS"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="Status"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--alt-autoscale-max
+			--slope-mode
+			DEF:a="$filenameRRD":GPS_STATUS:AVERAGE
+			AREA:a#00FFFF:"GPS Status"
+			GPRINT:a:LAST:"Cur\:%8.0lf"
+			COMMENT:"\\n"
+			COMMENT:"0=init, 1=nosync, 2=sync, 3=holdoff, 4=regain, 5=freerun"'
+	/>
+
+	<graphProfile
+		name="EPMP_GPS_SATS_STATS"
+		desc="GPS Satellites Info"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="#satellites"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--alt-autoscale-max
+			--slope-mode
+			DEF:a="$filenameRRD":GPS_SATS_SEEN:AVERAGE
+			DEF:b="$filenameRRD":GPS_SATS_USED:AVERAGE
+			LINE2:a#9D8D89:"Sats Seen"
+			GPRINT:a:LAST:"Cur\:%6.1lf dBm"
+			GPRINT:a:AVERAGE:"Avg\:%6.1lf dBm"
+			GPRINT:a:MAX:"Max\:%6.1lf dBm"
+			AREA:b#E35633:"Sats Used"
+			GPRINT:b:LAST:"Cur\:%6.1lf dBm"
+			GPRINT:b:AVERAGE:"Avg\:%6.1lf dBm"
+			GPRINT:b:MAX:"Max\:%6.1lf dBm\l"'
+	/>
+	<graphProfile
+		name="EPMP_SNR"
+		desc="ePMP SNR Info"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="dBm"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--alt-autoscale-max
+			--slope-mode
+			DEF:a="$filenameRRD":SU_SNR:AVERAGE
+			DEF:b="$filenameRRD":AP_SNR:AVERAGE
+			AREA:b#56D0E3:"SNR at AP"
+			GPRINT:b:LAST:"Cur\:%6.1lf dBm"
+			GPRINT:b:AVERAGE:"Avg\:%6.1lf dBm"
+			GPRINT:b:MAX:"Max\:%6.1lf dBm\l"
+			LINE2:a#9D8D89:"SNR at SU"
+			GPRINT:a:LAST:"Cur\:%6.1lf dBm"
+			GPRINT:a:AVERAGE:"Avg\:%6.1lf dBm"
+			GPRINT:a:MAX:"Max\:%6.1lf dBm"'
+	/>
+	<graphProfile
+		name="EPMP_MCS"
+		desc="ePMP MCS Info"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="MCS"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--alt-autoscale-max
+			--slope-mode
+			DEF:a="$filenameRRD":SU_MCS:AVERAGE
+			DEF:b="$filenameRRD":AP_MCS:AVERAGE
+			AREA:b#E3B056:"MCS at AP"
+			GPRINT:b:LAST:"Cur\:%6.1lf"
+			GPRINT:b:AVERAGE:"Avg\:%6.1lf"
+			GPRINT:b:MAX:"Max\:%6.1lf\l"
+			LINE2:a#9D8D89:"MCS at SU"
+			GPRINT:a:LAST:"Cur\:%6.1lf"
+			GPRINT:a:AVERAGE:"Avg\:%6.1lf"
+			GPRINT:a:MAX:"Max\:%6.1lf"'
+	/>
+	<graphProfile
+		name="SU_TXPOWER"
+		desc="SU Transmit Power"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="dBm"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--upper-limit=30
+			--alt-autoscale-max
+			--slope-mode
+			DEF:a="$filenameRRD":SU_TXPOWER:AVERAGE
+			AREA:a#008800:"SU Tx Power"
+			GPRINT:a:LAST:"Cur\:%6.1lf dBm"
+			GPRINT:a:AVERAGE:"Avg\:%6.1lf dBm"
+			GPRINT:a:MAX:"Max\:%6.1lf dBm"'
+	/>
+	<graphProfile
+		name="TEMPERATURE"
+		desc="Temperature"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="degrees F"
+			--base=1000
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--alt-autoscale-max
+			--slope-mode
+			DEF:c="$filenameRRD":TEMPERATURE:AVERAGE
+			CDEF:f=9,5,/,c,*,32,+
+			HRULE:32#0000CF
+			AREA:f#00CF00:"Temperature"
+			GPRINT:f:LAST:"Cur\:%6.1lf F"
+			GPRINT:f:AVERAGE:"Avg\:%6.1lf F"
+			GPRINT:f:MAX:"Max\:%6.1lf F"'
+	/>
+	<graphProfile
+		name="UPTIME"
+		desc="Uptime"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="days"
+			--base=1000
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--alt-autoscale-max
+			--slope-mode
+			DEF:defa="$filenameRRD":UPTIME:AVERAGE
+			CDEF:a=defa,8640000,/
+			AREA:a#6699FF:"Uptime"
+			GPRINT:a:LAST:"Cur\:%6.1lf days"
+			GPRINT:a:AVERAGE:"Avg\:%6.1lf days"
+			GPRINT:a:MAX:"Max\:%6.1lf days"'
+	/>
+	<graphProfile
+		name="SES_UPTIME"
+		desc="Session Uptime"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="days"
+			--base=1000
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--alt-autoscale-max
+			--slope-mode
+			DEF:defa="$filenameRRD":SES_UPTIME:AVERAGE
+			CDEF:a=defa,8640000,/
+			AREA:a#6699FF:"Ses Uptime"
+			GPRINT:a:LAST:"Cur\:%4.1lf days"
+			GPRINT:a:AVERAGE:"Avg\:%4.1lf days"
+			GPRINT:a:MAX:"Max\:%4.1lf days"'
+	/>
+	<graphProfile
+		name="U24_STA_QUAL"
+		desc="Station Quality"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="percent"
+			--base=1000
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--lower-limit=100
+			--slope-mode
+			DEF:a="$filenameRRD":U24_CCQ:AVERAGE
+			DEF:b="$filenameRRD":U24_AMQ:AVERAGE
+			DEF:c="$filenameRRD":U24_AMC:AVERAGE
+			AREA:a#FFBF00:"CCQ":STACK
+			GPRINT:a:LAST:"Cur\:%5.2lf %s"
+			GPRINT:a:AVERAGE:"Avg\:%5.2lf %s"
+			GPRINT:a:MAX:"Max\:%5.2lf %s\l"
+			LINE1:b#806000:"AMQ"
+			GPRINT:b:LAST:"Cur\:%5.2lf %s"
+			GPRINT:b:AVERAGE:"Avg\:%5.2lf %s"
+			GPRINT:b:MAX:"Max\:%5.2lf %s\l"
+			LINE2:c#FF5733:"AMC"
+			GPRINT:c:LAST:"Cur\:%5.2lf %s"
+			GPRINT:c:AVERAGE:"Avg\:%5.2lf %s"
+			GPRINT:c:MAX:"Max\:%5.2lf %s\l"'
+	/>
+	<graphProfile
+		name="U24_AP_QUAL"
+		desc="AP Quality"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="percent"
+			--base=1000
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--lower-limit=100
+			--slope-mode
+			DEF:a="$filenameRRD":U24_AP_CCQ:AVERAGE
+			DEF:b="$filenameRRD":U24_AP_AMQ:AVERAGE
+			DEF:c="$filenameRRD":U24_AP_AMC:AVERAGE
+			AREA:a#FFBF00:"CCQ":STACK
+			GPRINT:a:LAST:" Cur\:%8.2lf %s"
+			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
+			LINE1:b#806000:"AMQ"
+			GPRINT:b:LAST:"Cur\:%8.2lf %s"
+			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:b:MAX:"Max\:%8.2lf %s\l"
+			LINE2:c#FF5733:"AMC"
+			GPRINT:c:LAST:"Cur\:%8.2lf %s"
+			GPRINT:c:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:c:MAX:"Max\:%8.2lf %s"'
+	/>
+</tsunami>

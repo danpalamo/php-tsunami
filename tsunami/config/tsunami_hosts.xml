@@ -1,0 +1,39 @@
+<tsunami>
+<!--	host = human-readable string, id = URL-friendly identifier -->
+	<host desc="MCF e58 North"	id="MCFE58N"	community="public"	host="10.0.4.4"		profile="Cambium ePMP"/>
+	<host desc="MCF e24 North"	id="MCFE24N"	community="public"	host="10.0.4.5"		profile="Cambium ePMP"/>
+	<host desc="MCF e58 East"	id="MCFE58E"	community="public"	host="10.0.4.6"		profile="Cambium ePMP"/>
+	<host desc="MCF e24 East"	id="MCFE24E"	community="public"	host="10.0.4.7"		profile="Cambium ePMP"/>
+	<host desc="MCF e58 South"	id="MCFE58S"	community="public"	host="10.0.4.8"		profile="Cambium ePMP"/>
+	<host desc="MCF e24 South"	id="MCFE24S"	community="public"	host="10.0.4.9"		profile="Cambium ePMP"/>
+	<host desc="MCF e58 West"	id="MCFE58W"	community="public"	host="10.0.4.10"	profile="Cambium ePMP"/>
+	<host desc="MCF e24 West"	id="MCFE24W"	community="public"	host="10.0.4.11"	profile="Cambium ePMP"/>
+	<host desc="NUW e58 Northeast"	id="NUWE58NE"	community="public"	host="10.0.1.5"		profile="Cambium ePMP"/>
+	<host desc="NUW e24 Northeast"	id="NUWE24NE"	community="public"	host="10.0.1.13"	profile="Cambium ePMP"/>
+	<host desc="WEN e58 Southeast"	id="WENE58SE"	community="public"	host="10.0.3.6"		profile="Cambium ePMP"/>
+
+	<host desc="JON U5AC East"	id="JONU5ACE"	community="public"	host="10.0.5.5"		profile="Ubiquiti AC"/>
+	<host desc="JON U5AC South"	id="JONU5ACS"	community="public"	host="10.0.5.6"		profile="Ubiquiti AC"/>
+	<host desc="JON U5AC West"	id="JONU5ACW"	community="public"	host="10.0.5.7"		profile="Ubiquiti AC"/>
+	<host desc="MIN U5AC North"	id="MINU5ACN"	community="public"	host="10.0.2.4"		profile="Ubiquiti AC"/>
+	<host desc="MIN U5AC Northeast"	id="MINU5ACNE"	community="public"	host="10.0.2.5"		profile="Ubiquiti AC"/>
+	<host desc="MIN U5AC Southeast"	id="MINU5ACSE"	community="public"	host="10.0.2.6"		profile="Ubiquiti AC"/>
+	<host desc="MIN U5AC South"	id="MINU5ACS"	community="public"	host="10.0.2.7"		profile="Ubiquiti AC"/>
+	<host desc="MIN U5AC Southwest"	id="MINU5ACSW"	community="public"	host="10.0.2.8"		profile="Ubiquiti AC"/>
+	<host desc="MIN U5AC Northwest"	id="MINU5ACNW"	community="public"	host="10.0.2.9"		profile="Ubiquiti AC"/>
+	<host desc="NUW U5AC North"	id="NUWU5ACN"	community="public"	host="10.0.1.4"		profile="Ubiquiti AC"/>
+	<host desc="NUW U5AC Southeast"	id="NUWU5ACSE"	community="public"	host="10.0.1.6"		profile="Ubiquiti AC"/>
+	<host desc="NUW U5AC South"	id="NUWU5ACS"	community="public"	host="10.0.1.7"		profile="Ubiquiti AC"/>
+<!--	<host desc="NUW U5AC Southwest"	id="NUWU5ACSW"	community="public"	host="10.0.1.8"		profile="Ubiquiti AC"/> --> <!-- comments work -->
+	<host desc="NUW U5AC Northwest"	id="NUWU5ACNW"	community="public"	host="10.0.1.9"		profile="Ubiquiti AC"/>
+	<host desc="WEN U5AC North"	id="WENU5ACN"	community="public"	host="10.0.3.4"		profile="Ubiquiti AC"/>
+	<host desc="WEN U5AC Northeast"	id="WENU5ACNE"	community="public"	host="10.0.3.5"		profile="Ubiquiti AC"/>
+	<host desc="WEN U5AC South"	id="WENU5ACS"	community="public"	host="10.0.3.7"		profile="Ubiquiti AC"/>
+	<host desc="WEN U5AC Southwest"	id="WENU5ACSW"	community="public"	host="10.0.3.8"		profile="Ubiquiti AC"/>
+	<host desc="WEN U5AC Northwest"	id="WENU5ACNW"	community="public"	host="10.0.3.9"		profile="Ubiquiti AC"/>
+
+<!--	<host desc="Airport 900MHz Omni"		id="AIR900"	community="public"	host="192.168.66.10"	profile="Trango m900"/> -->
+<!--	<host desc="Small Town 2.4GHz N"		id="BAC24N"	community="public"	host="192.168.55.11"	profile="Trango m2400"/> -->
+<!--	<host desc="Canyon Alvarion 2.4Ghz Omni"	id="LBC24"	community="readcomm"	host="192.168.77.2"	profile="Alvarion BreezeACCESS II"/> -->
+<!--	<host desc="North City 5.8GHz N"		id="NFL58N"	community="public"	host="192.168.100.21"	profile="Trango m5830"/> -->
+</tsunami>

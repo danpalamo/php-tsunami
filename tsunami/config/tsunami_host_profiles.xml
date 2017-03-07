@@ -1,0 +1,309 @@
+<tsunami>
+	<hostProfile name="Cambium PMP450"> <!-- http://support.cambiumnetworks.com/framed/onlinetools/content.WHISP-APS-MIB.html -->
+		<monitor desc="Uptime"				id="UPTIME"		oid="1.3.6.1.2.1.1.3.0"/>
+		<monitor desc="Eth in (bits)"			id="ETH_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.1"/>
+		<monitor desc="Eth out (bits)"			id="ETH_OUT_B"		oid="1.3.6.1.2.1.2.2.1.16.1"/>
+		<monitor desc="RF in (bits)"			id="RF_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.2"/>
+		<monitor desc="RF out (bits)"			id="RF_OUT_B"		oid="1.3.6.1.2.1.2.2.1.16.2"/>
+		<monitor desc="GPS Status	"		id="GPS_STATUS"		oid="1.3.6.1.4.1.161.19.3.1.3.1.0"/> <!-- whispGPSStats -->
+		<monitor desc="RF Discards"			id="RF_DROP_P"		oid="1.3.6.1.2.1.2.2.1.19.2"/> <!-- outdiscards (wireless) -->
+		<monitor desc="SU count"			id="SU_COUNT"		oid="1.3.6.1.4.1.161.19.3.1.7.1.0"/> <!-- regCount -->
+		<monitor desc="Frame Utilization Upstream"	id="FRAME_UTIL_UP"	oid="1.3.6.1.4.1.161.19.3.1.12.1.2.0"/> <!-- frUtlLowTotalUplinkUtilization -->
+		<monitor desc="Frame Utilization Downstream"	id="FRAME_UTIL_DN"	oid="1.3.6.1.4.1.161.19.3.1.12.1.1.0"/> <!-- frUtlLowTotalDownlinkUtilization -->
+
+		<graph title="Uptime"					profile="UPTIME"/>
+		<graph title="Ethernet Traffic"				profile="ETH_TRAFFIC_B"		preview="yes"/>
+		<graph title="RF Traffic"				profile="RF_TRAFFIC_B"/>
+		<graph title="GPS Status"				profile="GPS_STATUS"		preview="yes"/>
+		<graph title="RF Dropped"				profile="RF_DROP"		preview="yes"/>
+		<graph title="SU Count"					profile="SU_COUNT"		preview="yes"/>
+		<graph title="RF Frame Utilization"			profile="FRAME_UTIL"		preview="yes"/>
+
+		<query desc="Color Code"			id="COLOR_CODE"		oid="1.3.6.1.4.1.161.19.3.1.10.1.1.6.1"/> <!-- radioColorCode -->
+
+		<walk>
+			<monitor desc="SUID"				id="SUID"		oid="1.3.6.1.4.1.161.19.3.1.4.1.20"/>
+			<monitor desc="Association status"		id="ASSOCIATION"	oid="1.3.6.1.4.1.161.19.3.1.4.1.19"/>
+			<monitor desc="Session Uptime"			id="SES_UPTIME"		oid="1.3.6.1.4.1.161.19.3.1.4.1.46"/> <!-- smSessionTmr -->
+			<monitor desc="RSSI at AP (dB)"			id="SU_RSSI"		oid="1.3.6.1.4.1.161.19.3.1.4.1.35"/> <!--lastPowerLevel ... pmp450 doesn't have RSSI at SU -->
+			<monitor desc="RSSI at AP (dB)"			id="AP_RSSI"		oid="1.3.6.1.4.1.161.19.3.1.4.1.35"/> <!-- lastPowerLevel -->
+
+<!--			<monitor desc="Vertical RSSI at AP (dB)"	id="SU_RSSI"		oid="1.3.6.1.4.1.161.19.3.1.4.1.88"/> --> <!-- linkRadioDbmVertical -->
+<!--			<monitor desc="RSSI at AP (dB)"			id="AP_RSSI"		oid="1.3.6.1.4.1.161.19.3.1.4.1.87"/> --> <!-- linkRadioDbmHorizontal -->
+<!--			<monitor desc="SU Tx power (dB)"		id="SU_TXPOWER"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.18"/> 
+			<monitor desc="Eth in (bytes)"			id="ETH_IN_B"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.19"/>
+			<monitor desc="Eth out (bytes)"			id="ETH_OUT_B"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.20"/>
+			<monitor desc="RF in (packets)"			id="RF_IN_P"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.21"/>
+			<monitor desc="RF out (packets)"		id="RF_OUT_P"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.22"/>
+			<monitor desc="RF in dropped (packets)"		id="RF_DROP_P"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.23"/>
+			<monitor desc="RF out retry"			id="RF_AP_RETRY"	oid="1.3.6.1.4.1.5454.1.30.3.6.1.24"/>
+			<monitor desc="RF in retry"			id="RF_SU_RETRY"	oid="1.3.6.1.4.1.5454.1.30.3.6.1.26"/>
+-->
+			<monitor desc="RF in (octets)"			id="RF_IN_O"		oid="1.3.6.1.4.1.161.19.3.1.4.1.7"/> <!-- linkInOctets -->
+			<monitor desc="RF out (octets)"			id="RF_OUT_O"		oid="1.3.6.1.4.1.161.19.3.1.4.1.13"/> <!-- linkOutOctets -->
+
+			<graph title="Association"			profile="ASSOCIATION"		preview="yes"/>
+			<graph title="Session Uptime"			profile="SES_UPTIME"		preview="yes"/>
+			<graph title="RSSI"				profile="RSSI_C_SU"		preview="yes"/>
+
+<!--			<graph title="SU Tx Power"			profile="SU_TXPOWER"/>
+			<graph title="Ethernet Traffic"			profile="ETH_TRAFFIC_B"		preview="yes"/>
+			<graph title="RF Dropped"			profile="RF_DROP"/>
+			<graph title="RF Retry"				profile="RF_RETRY"/>
+-->
+			<graph title="RF Traffic"			profile="RF_TRAFFIC_O"		preview="yes"/>
+
+			<query desc="MAC address"			id="MAC"		oid="1.3.6.1.4.1.161.19.3.1.4.1.3"/> <!-- linkPhysAddress -->
+			<query desc="IP address"			id="IP"			oid="1.3.6.1.4.1.161.19.3.1.4.1.69"/> <!-- linkManagementIP -->
+			<query desc="Site Name"				id="SITE_NAME"		oid="1.3.6.1.4.1.161.19.3.1.4.1.33"/> <!-- linkSiteName -->
+			<query desc="HW version"			id="HW_VER"		oid="1.3.6.1.4.1.161.19.3.1.4.1.32"/> <!-- fpgaVersion -->
+			<query desc="FW version"			id="FW_VER"		oid="1.3.6.1.4.1.161.19.3.1.4.1.30"/> <!-- softwareVersion -->
+			<query desc="Distance"				id="DISTANCE"		oid="1.3.6.1.4.1.161.19.3.1.4.1.66"/> <!-- linkAirDelayns -->
+			<query desc="CIR down"				id="CIR_DOWN"		oid="1.3.6.1.4.1.161.19.3.1.4.1.36"/> <!-- sesDownLinkRate -->
+			<query desc="CIR up"				id="CIR_UP"		oid="1.3.6.1.4.1.161.19.3.1.4.1.38"/> <!-- sesUpLinkRate -->
+			<query desc="MIR down"				id="MIR_DOWN"		oid="1.3.6.1.4.1.161.19.3.1.4.1.37"/> <!-- sesDownLinkLimit -->
+			<query desc="MIR up"				id="MIR_UP"		oid="1.3.6.1.4.1.161.19.3.1.4.1.39"/> <!-- sesUpLinkLimit -->
+			<query desc="Link Reg"				id="LINK_REG"		oid="1.3.6.1.4.1.161.19.3.1.4.1.25"/> <!-- linkRegCount -->
+			<query desc="Link Rereg"			id="LINK_REREG"		oid="1.3.6.1.4.1.161.19.3.1.4.1.26"/> <!-- linkReRegCount -->
+		</walk>
+
+		<template type="hostPreview"	src="pmp450/host_preview.php"/>
+		<template type="subhostPreview"	src="pmp450/subhost_preview.php"/>
+		<template type="hostPage"	src="pmp450/host_page.php"/>
+		<template type="subhostPage"	src="pmp450/subhost_page.php"/>
+	</hostProfile>
+	
+	<hostProfile name="Cambium ePMP"> <!-- http://support.cambiumnetworks.com/framed/onlinetools/content.CAMBIUM-PMP80211-MIB.html -->
+		<monitor desc="Uptime"				id="UPTIME"		oid="1.3.6.1.2.1.1.3.0"/>
+		<monitor desc="Eth in (bits)"			id="ETH_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.1"/>
+		<monitor desc="Eth out (bits)"			id="ETH_OUT_B"		oid="1.3.6.1.2.1.2.2.1.16.1"/>
+		<monitor desc="RF in (bits)"			id="RF_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.2"/>
+		<monitor desc="RF out (bits)"			id="RF_OUT_B"		oid="1.3.6.1.2.1.2.2.1.16.2"/>
+		<monitor desc="GPS Status	"		id="GPS_STATUS"		oid="1.3.6.1.4.1.17713.21.1.3.1.0"/> <!-- cambiumGPSCurrentSyncState -->
+		<monitor desc="GPS Satellites Seen"		id="GPS_SATS_SEEN"	oid="1.3.6.1.4.1.17713.21.1.3.7.0"/> <!-- cambiumGPSNumVisibleSat -->
+		<monitor desc="GPS Satellites Used"		id="GPS_SATS_USED"	oid="1.3.6.1.4.1.17713.21.1.3.6.0"/> <!-- cambiumGPSNumTrackedSat -->
+		<monitor desc="Frame Avail Upstream"		id="FRAME_AVAIL_UP"	oid="1.3.6.1.4.1.17713.21.2.1.51.0"/> <!-- ulWLanTotalAvailableFrameTimePerSecond -->
+		<monitor desc="Frame Avail Downstream"		id="FRAME_AVAIL_DN"	oid="1.3.6.1.4.1.17713.21.2.1.52.0"/> <!-- dlWLanTotalAvailableFrameTimePerSecond -->
+		<monitor desc="Frame Used Upstream"		id="FRAME_USED_UP"	oid="1.3.6.1.4.1.17713.21.2.1.53.0"/> <!-- ulWLanTotalUsedFrameTimePerSecond -->
+		<monitor desc="Frame Used Downstream"		id="FRAME_USED_DN"	oid="1.3.6.1.4.1.17713.21.2.1.54.0"/> <!-- dlWLanTotalUsedFrameTimePerSecond -->
+		<monitor desc="SU count"			id="SU_COUNT"		oid="1.3.6.1.4.1.17713.21.1.2.10.0"/> <!-- cambiumAPNumberOfConnectedSTA -->
+		<monitor desc="RF Discards"			id="RF_DROP_P"		oid="1.3.6.1.2.1.2.2.1.19.2"/>  <!-- ifOutDiscards (.2, wireless) -->
+
+		<graph title="Uptime"					profile="UPTIME"/>
+		<graph title="Ethernet Traffic"				profile="ETH_TRAFFIC_B"		preview="yes"/>
+		<graph title="RF Traffic"				profile="RF_TRAFFIC_B"/>
+		<graph title="GPS Status"				profile="EPMP_GPS_STATUS"	preview="yes"/>
+		<graph title="GPS Sats Stats"				profile="EPMP_GPS_SATS_STATS"	preview="yes"/>
+		<graph title="RF Dropped"				profile="RF_DROP"		preview="yes"/>
+		<graph title="SU Count"					profile="SU_COUNT"		preview="yes"/>
+		<graph title="RF Frame Up Usage"			profile="EPMP_FRAME_USED_UP"	preview="yes"/>
+		<graph title="RF Frame Down Usage"			profile="EPMP_FRAME_USED_DOWN"	preview="yes"/>
+
+		<query desc="AP SSID"			id="AP_SSID"		oid="1.3.6.1.4.1.17713.21.3.8.2.2.0"/> <!-- wirelessInterfaceSSID -->
+		<query desc="Firmware Version"		id="FW_VER"		oid="1.3.6.1.4.1.17713.21.1.1.1.0"/> <!-- cambiumCurrentSWInfo -->
+		<query desc="Hardware Version"		id="HW_VER"		oid="1.3.6.1.4.1.17713.21.1.1.2.0"/> <!-- cambiumHWInfo -->
+		<query desc="Channel Frequency"		id="CHAN_FREQ"		oid="1.3.6.1.4.1.17713.21.1.2.1.0"/> <!-- cambiumSTAConnectedRFFrequency -->
+		<query desc="Channel Width"		id="CHAN_WIDTH"		oid="1.3.6.1.4.1.17713.21.1.2.2.0"/> <!-- cambiumSTAConnectedRFBandwidth -->
+
+		<walk>
+			<monitor desc="MAC address"			id="MAC"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.1"/> <!-- connectedSTAMAC -->
+			<monitor desc="SUID"				id="SUID"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.2"/> <!-- connectedSTAAID -->
+			<monitor desc="Session Uptime"			id="SES_UPTIME"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.27"/> <!-- connectedSTASessionTime -->
+			<monitor desc="RSSI at SU (dB)"			id="SU_RSSI"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.5"/> <!-- connectedSTADLRSSI -->
+			<monitor desc="RSSI at AP (dB)"			id="AP_RSSI"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.4"/> <!-- connectedSTAULRSSI -->
+			<monitor desc="SNR at SU (dB)"			id="SU_SNR"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.7"/> <!-- connectedSTADLSNR-->
+			<monitor desc="SNR at AP (dB)"			id="AP_SNR"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.6"/> <!-- connectedSTAULSNR-->
+			<monitor desc="MCS at SU (dB)"			id="SU_MCS"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.9"/> <!-- connectedSTADLMCS-->
+			<monitor desc="MCS at AP (dB)"			id="AP_MCS"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.8"/> <!-- connectedSTAULMCS-->
+			<monitor desc="RF in (kbits/sec)"		id="RF_IN_KBPS"		oid="1.3.6.1.4.1.17713.21.2.1.46.1.4"/> <!-- dlWLanPerUserKbitCount -->
+			<monitor desc="RF out (kbits/sec)"		id="RF_OUT_KBPS"	oid="1.3.6.1.4.1.17713.21.2.1.46.1.3"/> <!-- ulWLanPerUserKbitCount -->
+			<monitor desc="RF in (packets)"			id="RF_IN_P"		oid="1.3.6.1.4.1.17713.21.2.1.46.1.6"/> <!-- dlWLanPerUserTotalPacketCount -->
+			<monitor desc="RF out (packets)"		id="RF_OUT_P"		oid="1.3.6.1.4.1.17713.21.2.1.46.1.5"/> <!-- ulWLanPerUserTotalPacketCount -->
+<!--			<monitor desc="RF in dropped (packets)"		id="RF_DROP_P"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.23"/>
+			<monitor desc="RF out retry"			id="RF_AP_RETRY"	oid="1.3.6.1.4.1.5454.1.30.3.6.1.24"/>
+			<monitor desc="RF in retry"			id="RF_SU_RETRY"	oid="1.3.6.1.4.1.5454.1.30.3.6.1.26"/>
+			<monitor desc="RF in (octets)"			id="RF_IN_O"		oid="1.3.6.1.4.1.161.19.3.1.4.1.7"/> --> <!-- linkInOctets -->
+<!--			<monitor desc="RF out (octets)"			id="RF_OUT_O"		oid="1.3.6.1.4.1.161.19.3.1.4.1.13"/> --> <!-- linkOutOctets -->
+
+<!--			<graph title="Association"			profile="ASSOCIATION"		preview="yes"/> -->
+			<graph title="Session Uptime"			profile="SES_UPTIME"		preview="yes"/>
+			<graph title="RSSI"				profile="RSSI"			preview="yes"/>
+			<graph title="RF Traffic"			profile="EPMP_RF_TRAFFIC_KBPS"	preview="yes"/>
+			<graph title="RF SNR"				profile="EPMP_SNR"		preview="yes"/>
+			<graph title="MCS Info"				profile="EPMP_MCS"		preview='yes'/>
+			<graph title="RF Packets"			profile="RF_TRAFFIC_P"		preview="yes"/>
+<!--			<graph title="RF Dropped"			profile="RF_DROP"/>
+			<graph title="RF Retry"				profile="RF_RETRY"/> -->
+
+			<query desc="IP address"			id="IP"			oid="1.3.6.1.4.1.17713.21.1.2.30.1.10"/> <!-- connectedSTAIP -->
+			<query desc="Priority"				id="PRIORITY"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.11"/> <!-- connectedSTAPriority -->
+			<query desc="MIR down"				id="MIR_DOWN"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.14"/> <!-- connectedSTAMirDLRate -->
+			<query desc="MIR up"				id="MIR_UP"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.13"/> <!-- connectedSTAMirULRate -->
+			<query desc="Site Name"				id="SITE_NAME"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.18"/> <!-- connectedSTAClickTHostName -->
+			<query desc="Distance"				id="DISTANCE"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.29"/> <!-- connectedSTADistance -->
+<!--			<query desc="Session Uptime"			id="SES_UPTIME"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.27"/> --> <!-- connectedSTASessionTime -->
+		</walk>
+
+		<template type="hostPreview"	src="epmp/host_preview.php"/>
+		<template type="subhostPreview"	src="epmp/subhost_preview.php"/>
+		<template type="hostPage"	src="epmp/host_page.php"/>
+		<template type="subhostPage"	src="epmp/subhost_page.php"/>
+	</hostProfile>
+	
+	<hostProfile name="Ubiquiti u24" snmpversion="1">
+		<monitor desc="Uptime"					id="UPTIME"		oid="1.3.6.1.2.1.1.3.0"/>
+		<monitor desc="Eth in (bits)"				id="ETH_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.2"/> <!-- eth0 in -->
+		<monitor desc="Eth out (bits)"				id="ETH_OUT_B"		oid="1.3.6.1.2.1.2.2.1.16.2"/> <!-- eth0 out -->
+		<monitor desc="RF in (bits)"				id="RF_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.8"/> <!-- ath0 in -->
+		<monitor desc="RF out (bits)"				id="RF_OUT_B"		oid="1.3.6.1.2.1.2.2.1.16.2"/> <!-- ath0 out -->
+		<monitor desc="RF dropped (packets)"			id="RF_DROP_P"		oid="1.3.6.1.2.1.2.2.1.20.8"/> <!-- probably ath0 outerrors -->
+		<monitor desc="SU count"				id="SU_COUNT"		oid="1.3.6.1.4.1.41112.1.4.5.1.15.1"/>
+		<monitor desc="AP AMQ"					id="U24_AP_AMQ"		oid="1.3.6.1.4.1.41112.1.4.6.1.3.1"/> <!-- ubntAirMaxQuality -->
+		<monitor desc="AP AMC"					id="U24_AP_AMC"		oid="1.3.6.1.4.1.41112.1.4.6.1.4.1"/> <!-- ubntAirMaxCapacity -->
+		<monitor desc="AP CCQ"					id="U24_AP_CCQ"		oid="1.3.6.1.4.1.41112.1.4.5.1.7.1"/> <!-- ubntWIStatCcq -->
+
+		<graph title="Uptime"					profile="UPTIME"/>
+		<graph title="Ethernet Traffic"				profile="ETH_TRAFFIC_B"		preview="yes"/>
+		<graph title="RF Traffic"				profile="RF_TRAFFIC_B"/>
+		<graph title="RF Dropped"				profile="RF_DROP"		preview="yes"/>
+		<graph title="SU Count"					profile="SU_COUNT"		preview="yes"/>
+		<graph title="AP Quality"				profile="U24_AP_QUAL"		preview="yes"/>
+
+		<query desc="SSID"					id="SSID"		oid="1.3.6.1.4.1.41112.1.4.5.1.2.1"/>
+
+		<walk>
+			<monitor desc="SUID"				id="SUID"		oid="1.3.6.1.4.1.41112.1.4.7.1.1.1"/>
+                        <monitor desc="Session Uptime"                  id="SES_UPTIME"         oid="1.3.6.1.4.1.41112.1.4.7.1.15.1"/>
+			<monitor desc="RSSI at AP (dB)"			id="SU_RSSI"		oid="1.3.6.1.4.1.41112.1.4.7.1.3.1"/> <!-- u24 doesn't have RSSI at SU -->
+			<monitor desc="RSSI at AP (dB)"			id="AP_RSSI"		oid="1.3.6.1.4.1.41112.1.4.7.1.3.1"/>
+			<monitor desc="RF in (bits)"			id="RF_IN_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.14.1"/>
+			<monitor desc="RF out (bits)"			id="RF_OUT_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.13.1"/>
+			<monitor desc="CCQ"				id="U24_CCQ"		oid="1.3.6.1.4.1.41112.1.4.7.1.6.1"/>
+			<monitor desc="AMQ"				id="U24_AMQ"		oid="1.3.6.1.4.1.41112.1.4.7.1.8.1"/>
+			<monitor desc="AMC"				id="U24_AMC"		oid="1.3.6.1.4.1.41112.1.4.7.1.9.1"/>
+
+			<graph title="Session Uptime"			profile="SES_UPTIME"		preview="yes"/>
+			<graph title="RSSI"				profile="RSSI_C_SU"		preview="yes"/>
+			<graph title="RF Traffic"			profile="RF_TRAFFIC_B"		preview="yes"/>
+			<graph title="Station Quality"			profile="U24_STA_QUAL"		preview="yes"/>
+
+			<query desc="MAC address"			id="MAC"		oid="1.3.6.1.4.1.41112.1.4.7.1.1.1"/>
+			<query desc="IP address"			id="IP"			oid="1.3.6.1.4.1.41112.1.4.7.1.10.1"/>
+			<query desc="Site Name"				id="SITE_NAME"		oid="1.3.6.1.4.1.41112.1.4.7.1.2.1"/>
+			<query desc="Distance"				id="DISTANCE"		oid="1.3.6.1.4.1.41112.1.4.7.1.5.1"/>
+		</walk>
+
+		<template type="hostPreview"	src="u24/host_preview.php"/>
+		<template type="subhostPreview"	src="u24/subhost_preview.php"/>
+		<template type="hostPage"	src="u24/host_page.php"/>
+		<template type="subhostPage"	src="u24/subhost_page.php"/>
+	</hostProfile>
+	
+	<hostProfile name="Ubiquiti AC" snmpversion="1">
+		<monitor desc="Uptime"					id="UPTIME"		oid="1.3.6.1.2.1.1.3.0"/>
+		<monitor desc="Eth in (bits)"				id="ETH_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.4"/> <!-- eth0 in -->
+		<monitor desc="Eth out (bits)"				id="ETH_OUT_B"		oid="1.3.6.1.2.1.2.2.1.16.4"/> <!-- eth0 out -->
+		<monitor desc="RF in (bits)"				id="RF_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.10"/> <!-- ath0 in -->
+		<monitor desc="RF out (bits)"				id="RF_OUT_B"		oid="1.3.6.1.2.1.2.2.1.16.10"/> <!-- ath0 out -->
+		<monitor desc="RF dropped (packets)"			id="RF_DROP_P"		oid="1.3.6.1.2.1.2.2.1.20.10"/> <!-- probably ath0 outerrors -->
+		<monitor desc="SU count"				id="SU_COUNT"		oid="1.3.6.1.4.1.41112.1.4.5.1.15.1"/> <!-- ubntWIStatStaCount -->
+<!--		<monitor desc="AP AMQ"					id="U24_AP_AMQ"		oid="1.3.6.1.4.1.41112.1.4.6.1.3.1"/> --> <!-- ubntAirMaxQuality -->
+<!--		<monitor desc="AP AMC"					id="U24_AP_AMC"		oid="1.3.6.1.4.1.41112.1.4.6.1.4.1"/> --> <!-- ubntAirMaxCapacity -->
+<!--		<monitor desc="AP CCQ"					id="U24_AP_CCQ"		oid="1.3.6.1.4.1.41112.1.4.5.1.7.1"/> --> <!-- ubntWIStatCcq -->
+
+		<graph title="Uptime"					profile="UPTIME"/>
+		<graph title="Ethernet Traffic"				profile="ETH_TRAFFIC_B"		preview="yes"/>
+		<graph title="RF Traffic"				profile="RF_TRAFFIC_B"/>
+		<graph title="RF Dropped"				profile="RF_DROP"		preview="yes"/>
+		<graph title="SU Count"					profile="SU_COUNT"		preview="yes"/>
+<!--		<graph title="AP Quality"				profile="U24_AP_QUAL"		preview="yes"/> -->
+
+		<query desc="SSID"			id="SSID"		oid="1.3.6.1.4.1.41112.1.4.5.1.2.1"/> <!-- ubntWIStatSsid -->
+		<query desc="Firmware Version"		id="FW_VER"		oid="1.2.840.10036.3.1.2.1.4.10"/> <!-- dot11manufacturerProductVersion -->
+		<query desc="Hardware Version"		id="HW_VER"		oid="1.2.840.10036.3.1.2.1.3.10"/> <!-- dot11manufacturerProductName -->
+		<query desc="Channel Frequency"		id="CHAN_FREQ"		oid="1.3.6.1.4.1.41112.1.4.1.1.4.1"/> <!-- ubntRadioFreq -->
+		<query desc="Channel Width"		id="CHAN_WIDTH"		oid="1.3.6.1.4.1.41112.1.4.5.1.14.1"/> <!-- ubntWIStatChanWidth  -->
+
+		<walk>
+			<monitor desc="SUID"				id="SUID"		oid="1.3.6.1.4.1.41112.1.4.7.1.1.1"/>
+                        <monitor desc="Session Uptime"                  id="SES_UPTIME"         oid="1.3.6.1.4.1.41112.1.4.7.1.15.1"/> <!-- ubntStaConnTime -->
+			<monitor desc="RSSI at AP (dB)"			id="SU_RSSI"		oid="1.3.6.1.4.1.41112.1.4.7.1.3.1"/> <!-- uAC doesnt' have RSSI at SU -->
+			<monitor desc="RSSI at AP (dB)"			id="AP_RSSI"		oid="1.3.6.1.4.1.41112.1.4.7.1.3.1"/>
+			<monitor desc="RF in (bits)"			id="RF_IN_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.14.1"/>
+			<monitor desc="RF out (bits)"			id="RF_OUT_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.13.1"/>
+			<monitor desc="CCQ"				id="U24_CCQ"		oid="1.3.6.1.4.1.41112.1.4.7.1.6.1"/>
+			<monitor desc="AMQ"				id="U24_AMQ"		oid="1.3.6.1.4.1.41112.1.4.7.1.8.1"/>
+			<monitor desc="AMC"				id="U24_AMC"		oid="1.3.6.1.4.1.41112.1.4.7.1.9.1"/>
+
+			<graph title="Session Uptime"			profile="SES_UPTIME"		preview="yes"/>
+			<graph title="RSSI"				profile="RSSI_C_SU"		preview="yes"/>
+			<graph title="RF Traffic"			profile="RF_TRAFFIC_B"		preview="yes"/>
+			<graph title="Station Quality"			profile="U24_STA_QUAL"		preview="yes"/>
+
+			<query desc="MAC address"			id="MAC"		oid="1.3.6.1.4.1.41112.1.4.7.1.1.1"/>
+			<query desc="IP address"			id="IP"			oid="1.3.6.1.4.1.41112.1.4.7.1.10.1"/>
+			<query desc="Site Name"				id="SITE_NAME"		oid="1.3.6.1.4.1.41112.1.4.7.1.2.1"/>
+			<query desc="Distance"				id="DISTANCE"		oid="1.3.6.1.4.1.41112.1.4.7.1.5.1"/> <!-- ubntStaDistance -->
+			<query desc="Latency"				id="LATENCY_MS"		oid="1.3.6.1.4.1.41112.1.4.7.1.21.1"/> <!-- ubntStaTxLatency -->
+		</walk>
+
+		<template type="hostPreview"	src="uac/host_preview.php"/>
+		<template type="subhostPreview"	src="uac/subhost_preview.php"/>
+		<template type="hostPage"	src="uac/host_page.php"/>
+		<template type="subhostPage"	src="uac/subhost_page.php"/>
+	</hostProfile>
+
+	<hostProfile name="Trango m900">
+		<monitor desc="Uptime"					id="UPTIME"		oid="1.3.6.1.2.1.1.3"/>
+		<monitor desc="Eth in (bytes)"				id="ETH_IN_B"		oid="1.3.6.1.4.1.5454.1.30.1.15.1"/>
+		<monitor desc="Eth out (bytes)"				id="ETH_OUT_B"		oid="1.3.6.1.4.1.5454.1.30.1.15.2"/>
+		<monitor desc="RF in (packets)"				id="RF_IN_P"		oid="1.3.6.1.4.1.5454.1.30.1.15.3"/>
+		<monitor desc="RF out (packets)"			id="RF_OUT_P"		oid="1.3.6.1.4.1.5454.1.30.1.15.4"/>
+		<monitor desc="RF dropped (packets)"			id="RF_DROP_P"		oid="1.3.6.1.4.1.5454.1.30.1.15.5"/>
+		<monitor desc="SU count"				id="SU_COUNT"		oid="1.3.6.1.4.1.5454.1.30.3.1"/>
+
+		<graph title="Uptime"					profile="UPTIME"/>
+		<graph title="Ethernet Traffic"				profile="ETH_TRAFFIC_B"		preview="yes"/>
+		<graph title="RF Traffic"				profile="RF_TRAFFIC_P"/>
+		<graph title="RF Dropped"				profile="RF_DROP"		preview="yes"/>
+		<graph title="SU Count"					profile="SU_COUNT"/>
+
+		<walk>
+			<monitor desc="SUID"				id="SUID"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.1"/>
+			<monitor desc="Association status"		id="ASSOCIATION"	oid="1.3.6.1.4.1.5454.1.30.3.6.1.14"/>
+			<monitor desc="RSSI at SU (dB)"			id="SU_RSSI"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.16"/>
+			<monitor desc="RSSI at AP (dB)"			id="AP_RSSI"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.17"/>
+			<monitor desc="SU Tx power (dB)"		id="SU_TXPOWER"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.18"/>
+			<monitor desc="Eth in (bytes)"			id="ETH_IN_B"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.19"/>
+			<monitor desc="Eth out (bytes)"			id="ETH_OUT_B"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.20"/>
+			<monitor desc="RF in (packets)"			id="RF_IN_P"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.21"/>
+			<monitor desc="RF out (packets)"		id="RF_OUT_P"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.22"/>
+			<monitor desc="RF in dropped (packets)"		id="RF_DROP_P"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.23"/>
+			<monitor desc="RF out retry"			id="RF_AP_RETRY"	oid="1.3.6.1.4.1.5454.1.30.3.6.1.24"/>
+			<monitor desc="RF in retry"			id="RF_SU_RETRY"	oid="1.3.6.1.4.1.5454.1.30.3.6.1.26"/>
+
+			<graph title="Association"			profile="ASSOCIATION" preview="yes"/>
+			<graph title="RSSI"				profile="RSSI"			preview="yes"/>
+			<graph title="SU Tx Power"			profile="SU_TXPOWER"/>
+			<graph title="Ethernet Traffic"			profile="ETH_TRAFFIC_B"		preview="yes"/>
+			<graph title="RF Traffic"			profile="RF_TRAFFIC_P"/>
+			<graph title="RF Dropped"			profile="RF_DROP"/>
+			<graph title="RF Retry"				profile="RF_RETRY"/>
+
+			<query desc="MAC address"			id="MAC"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.2"/>
+			<query desc="IP address"			id="IP"			oid="1.3.6.1.4.1.5454.1.30.3.6.1.5"/>
+			<query desc="HW version"			id="HW_VER"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.9"/>
+			<query desc="FW version"			id="FW_VER"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.10"/>
+			<query desc="Distance"				id="DISTANCE"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.15"/>
+			<query desc="CIR down"				id="CIR_DOWN"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.34"/>
+			<query desc="CIR up"				id="CIR_UP"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.35"/>
+			<query desc="MIR down"				id="MIR_DOWN"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.36"/>
+			<query desc="MIR up"				id="MIR_UP"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.37"/>
+		</walk>
+
+		<template type="hostPreview"	src="trango900/host_preview.php"/>
+		<template type="subhostPreview"	src="trango900/subhost_preview.php"/>
+		<template type="hostPage"	src="trango900/host_page.php"/>
+		<template type="subhostPage"	src="trango900/subhost_page.php"/>
+	</hostProfile>
+</tsunami>

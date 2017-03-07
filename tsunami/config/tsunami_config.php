@@ -1,0 +1,35 @@
+<?php
+
+//configuration file
+
+//grapher concurrency limit
+$grapherConcurrency	= 4;
+
+//paths
+$pathApp		= "/usr/local/tsunami/";
+$pathConfig		= $pathApp."config/";
+$pathRRD		= $pathApp."rrd/";
+$pathTemplates		= $pathApp."templates/";
+$pathWeb		= $pathApp."web/";
+
+$pathWWW		= "/var/www/html/tsunami/";
+#$wwwHostname		= "tsunami.yourdomain.org/"; #FQDN works best, unsure of training slash
+#$wwwHostname		= "localhost/tsunami/"; #also works in simple cases
+$wwwHostname		= "172.25.1.210/tsunami/"; #simple network address
+$wwwPathGraphs		= "graphs/";
+$wwwPathCache		= "cache/";
+
+//filenames
+$fileGraphProfiles	= $pathConfig."tsunami_graph_profiles.xml"; 
+$fileHostProfiles	= $pathConfig."tsunami_host_profiles.xml"; 
+$fileHosts		= $pathConfig."tsunami_hosts.xml";
+$fileCollected		= $pathConfig."tsunami_collected.xml";
+$fileWWWTemplate	= $pathTemplates."mainTemplate.php";
+
+//create graphing timeframes - format is (name, start, end)
+$aGraphTimeframes[]	= new GraphTimeframe("1D", "-1d", "-300");
+$aGraphTimeframes[]	= new GraphTimeframe("1W", "-1w", "-300");
+$aGraphTimeframes[]	= new GraphTimeframe("1M", "-1m", "-300");
+$aGraphTimeframes[]	= new GraphTimeframe("1Y", "-1y", "-300");
+
+?>
