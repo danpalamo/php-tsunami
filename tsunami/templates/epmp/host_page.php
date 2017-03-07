@@ -10,7 +10,7 @@
 			<b>Firmware Version</b> <?php _e('FW_VER'); ?><br/>
 			<b>Uptime</b> <?php printf("%.1f",__e("UPTIME")/(24*60*60*100)); ?> days<br/>
 <!--			<b>GPS Status</b> <?php echo __e("GPS_STATUS") > 0 ? 'Up' : 'Down'; ?><br/> -->
-	                <b>GPS Status</b> 
+	                <b>GPS Status</b>
                         <?php $gpsarray = array(
                                 '0' => 'init',
                                 '1' => 'nosync',
@@ -42,6 +42,7 @@
 
 <table class="subhost_preview">
 	<tr class="host_preview_header">
+		<td></td>
 		<td>
 			Session Uptime
 		</td>
