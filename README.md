@@ -5,7 +5,16 @@ Original code written by Alan Horne circa 2007. Various edits / changes / templa
 
 tsunami is a set of PHP scripts to poll SNMP-enabled hosts for arbitrary data, store said data, and display data in html. tsunami does not require MIBs to be installed on the polling host. tsunami templates are flexible and can be customized to query, monitor, and graph any subset of data available via SNMP.
 
-Originally written for wireless access point polling (specifically Trango M900 and Alvarion BreezeCom), tsunami can be adapted to any SNMP application for gathering and displaying data.
+Originally written for wireless access point polling (specifically Trango M900 and Alvarion BreezeCom), tsunami can be adapted to any SNMP application for gathering and displaying data. As of March 2017, the following platforms are templated:
+
+Alvarion BAII
+Cambium ePMP
+Cambium PMP-450
+Trango M900
+Trango M2400
+Trango M5830
+Ubiquiti AirMax M-series
+Ubiquiti Airmax AC-series
 
 Definitions:
 
