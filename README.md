@@ -11,8 +11,7 @@ Alvarion BAII
 Cambium ePMP
 Cambium PMP-450
 Trango M900
-Trango M2400
-Trango M5830
+Trango M2400 (same as M900, I believe)
 Ubiquiti AirMax M-series
 Ubiquiti Airmax AC-series
 
