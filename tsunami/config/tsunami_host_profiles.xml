@@ -30,7 +30,7 @@
 
 <!--			<monitor desc="Vertical RSSI at AP (dB)"	id="SU_RSSI"		oid="1.3.6.1.4.1.161.19.3.1.4.1.88"/> --> <!-- linkRadioDbmVertical -->
 <!--			<monitor desc="RSSI at AP (dB)"			id="AP_RSSI"		oid="1.3.6.1.4.1.161.19.3.1.4.1.87"/> --> <!-- linkRadioDbmHorizontal -->
-<!--			<monitor desc="SU Tx power (dB)"		id="SU_TXPOWER"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.18"/> 
+<!--			<monitor desc="SU Tx power (dB)"		id="SU_TXPOWER"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.18"/>
 			<monitor desc="Eth in (bytes)"			id="ETH_IN_B"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.19"/>
 			<monitor desc="Eth out (bytes)"			id="ETH_OUT_B"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.20"/>
 			<monitor desc="RF in (packets)"			id="RF_IN_P"		oid="1.3.6.1.4.1.5454.1.30.3.6.1.21"/>
@@ -72,7 +72,7 @@
 		<template type="hostPage"	src="pmp450/host_page.php"/>
 		<template type="subhostPage"	src="pmp450/subhost_page.php"/>
 	</hostProfile>
-	
+
 	<hostProfile name="Cambium ePMP"> <!-- http://support.cambiumnetworks.com/framed/onlinetools/content.CAMBIUM-PMP80211-MIB.html -->
 		<monitor desc="Uptime"				id="UPTIME"		oid="1.3.6.1.2.1.1.3.0"/>
 		<monitor desc="Eth in (bits)"			id="ETH_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.1"/>
@@ -149,7 +149,7 @@
 		<template type="hostPage"	src="epmp/host_page.php"/>
 		<template type="subhostPage"	src="epmp/subhost_page.php"/>
 	</hostProfile>
-	
+
 	<hostProfile name="Ubiquiti u24" snmpversion="1">
 		<monitor desc="Uptime"					id="UPTIME"		oid="1.3.6.1.2.1.1.3.0"/>
 		<monitor desc="Eth in (bits)"				id="ETH_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.2"/> <!-- eth0 in -->
@@ -176,8 +176,8 @@
                         <monitor desc="Session Uptime"                  id="SES_UPTIME"         oid="1.3.6.1.4.1.41112.1.4.7.1.15.1"/>
 			<monitor desc="RSSI at AP (dB)"			id="SU_RSSI"		oid="1.3.6.1.4.1.41112.1.4.7.1.3.1"/> <!-- u24 doesn't have RSSI at SU -->
 			<monitor desc="RSSI at AP (dB)"			id="AP_RSSI"		oid="1.3.6.1.4.1.41112.1.4.7.1.3.1"/>
-			<monitor desc="RF in (bits)"			id="RF_IN_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.14.1"/>
-			<monitor desc="RF out (bits)"			id="RF_OUT_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.13.1"/>
+			<monitor desc="RF in (bits)"			id="RF_IN_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.13.1"/>
+			<monitor desc="RF out (bits)"			id="RF_OUT_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.14.1"/>
 			<monitor desc="CCQ"				id="U24_CCQ"		oid="1.3.6.1.4.1.41112.1.4.7.1.6.1"/>
 			<monitor desc="AMQ"				id="U24_AMQ"		oid="1.3.6.1.4.1.41112.1.4.7.1.8.1"/>
 			<monitor desc="AMC"				id="U24_AMC"		oid="1.3.6.1.4.1.41112.1.4.7.1.9.1"/>
@@ -198,7 +198,7 @@
 		<template type="hostPage"	src="u24/host_page.php"/>
 		<template type="subhostPage"	src="u24/subhost_page.php"/>
 	</hostProfile>
-	
+
 	<hostProfile name="Ubiquiti AC" snmpversion="1">
 		<monitor desc="Uptime"					id="UPTIME"		oid="1.3.6.1.2.1.1.3.0"/>
 		<monitor desc="Eth in (bits)"				id="ETH_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.4"/> <!-- eth0 in -->
@@ -229,8 +229,8 @@
                         <monitor desc="Session Uptime"                  id="SES_UPTIME"         oid="1.3.6.1.4.1.41112.1.4.7.1.15.1"/> <!-- ubntStaConnTime -->
 			<monitor desc="RSSI at AP (dB)"			id="SU_RSSI"		oid="1.3.6.1.4.1.41112.1.4.7.1.3.1"/> <!-- uAC doesnt' have RSSI at SU -->
 			<monitor desc="RSSI at AP (dB)"			id="AP_RSSI"		oid="1.3.6.1.4.1.41112.1.4.7.1.3.1"/>
-			<monitor desc="RF in (bits)"			id="RF_IN_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.14.1"/>
-			<monitor desc="RF out (bits)"			id="RF_OUT_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.13.1"/>
+			<monitor desc="RF in (bits)"			id="RF_IN_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.13.1"/>
+			<monitor desc="RF out (bits)"			id="RF_OUT_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.14.1"/>
 			<monitor desc="CCQ"				id="U24_CCQ"		oid="1.3.6.1.4.1.41112.1.4.7.1.6.1"/>
 			<monitor desc="AMQ"				id="U24_AMQ"		oid="1.3.6.1.4.1.41112.1.4.7.1.8.1"/>
 			<monitor desc="AMC"				id="U24_AMC"		oid="1.3.6.1.4.1.41112.1.4.7.1.9.1"/>
