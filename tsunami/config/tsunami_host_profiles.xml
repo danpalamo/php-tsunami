@@ -93,11 +93,11 @@
 		<graph title="Ethernet Traffic"				profile="ETH_TRAFFIC_B"		preview="yes"/>
 		<graph title="RF Traffic"				profile="RF_TRAFFIC_B"/>
 		<graph title="GPS Status"				profile="EPMP_GPS_STATUS"	preview="yes"/>
-		<graph title="GPS Sats Stats"				profile="EPMP_GPS_SATS_STATS"	preview="yes"/>
-		<graph title="RF Dropped"				profile="RF_DROP"		preview="yes"/>
+		<graph title="GPS Sats Stats"				profile="EPMP_GPS_SATS_STATS"/>
+		<graph title="RF Dropped"				profile="RF_DROP"/>
 		<graph title="SU Count"					profile="SU_COUNT"		preview="yes"/>
-		<graph title="RF Frame Up Usage"			profile="EPMP_FRAME_USED_UP"	preview="yes"/>
-		<graph title="RF Frame Down Usage"			profile="EPMP_FRAME_USED_DOWN"	preview="yes"/>
+<!--		<graph title="RF Frame Up Usage"			profile="EPMP_FRAME_USED_UP"	preview="yes"/>
+		<graph title="RF Frame Down Usage"			profile="EPMP_FRAME_USED_DOWN"	preview="yes"/> -->
 
 		<query desc="AP SSID"			id="AP_SSID"		oid="1.3.6.1.4.1.17713.21.3.8.2.2.0"/> <!-- wirelessInterfaceSSID -->
 		<query desc="Firmware Version"		id="FW_VER"		oid="1.3.6.1.4.1.17713.21.1.1.1.0"/> <!-- cambiumCurrentSWInfo -->
@@ -126,12 +126,12 @@
 <!--			<monitor desc="RF out (octets)"			id="RF_OUT_O"		oid="1.3.6.1.4.1.161.19.3.1.4.1.13"/> --> <!-- linkOutOctets -->
 
 <!--			<graph title="Association"			profile="ASSOCIATION"		preview="yes"/> -->
-			<graph title="Session Uptime"			profile="SES_UPTIME"		preview="yes"/>
+			<graph title="Session Uptime"			profile="EPMP_SES_UPTIME"	preview="yes"/>
 			<graph title="RSSI"				profile="RSSI"			preview="yes"/>
 			<graph title="RF Traffic"			profile="EPMP_RF_TRAFFIC_KBPS"	preview="yes"/>
 			<graph title="RF SNR"				profile="EPMP_SNR"		preview="yes"/>
-			<graph title="MCS Info"				profile="EPMP_MCS"		preview='yes'/>
-			<graph title="RF Packets"			profile="RF_TRAFFIC_P"		preview="yes"/>
+			<graph title="MCS Info"				profile="EPMP_MCS"/>
+			<graph title="RF Packets"			profile="RF_TRAFFIC_P"/>
 <!--			<graph title="RF Dropped"			profile="RF_DROP"/>
 			<graph title="RF Retry"				profile="RF_RETRY"/> -->
 
@@ -214,7 +214,7 @@
 		<graph title="Uptime"					profile="UPTIME"/>
 		<graph title="Ethernet Traffic"				profile="ETH_TRAFFIC_B"		preview="yes"/>
 		<graph title="RF Traffic"				profile="RF_TRAFFIC_B"/>
-		<graph title="RF Dropped"				profile="RF_DROP"		preview="yes"/>
+		<graph title="RF Dropped"				profile="RF_DROP"/>
 		<graph title="SU Count"					profile="SU_COUNT"		preview="yes"/>
 <!--		<graph title="AP Quality"				profile="U24_AP_QUAL"		preview="yes"/> -->
 

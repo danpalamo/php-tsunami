@@ -10,7 +10,7 @@
 			<b>Firmware Version</b> <?php _e('FW_VER'); ?><br/>
 			<b>Uptime</b> <?php printf("%.1f",__e("UPTIME")/(24*60*60*100)); ?> days<br/>
 <!--			<b>GPS Status</b> <?php echo __e("GPS_STATUS") > 0 ? 'Up' : 'Down'; ?><br/> -->
-	                <b>GPS Status</b>
+	                <b>GPS Status</b> 
                         <?php $gpsarray = array(
                                 '0' => 'init',
                                 '1' => 'nosync',
@@ -33,6 +33,8 @@
 			<?php _g("RF_DROP"); ?><br/><hr/>
 			<?php _g("EPMP_GPS_STATUS"); ?><br/><hr/>
 			<?php _g("EPMP_GPS_SATS_STATS"); ?><br/><hr/>
+<!--			<?php _g("EPMP_FRAME_USED_UP"); ?><br/><hr/>
+			<?php _g("EPMP_FRAME_USED_DOWN"); ?><br/><hr/> -->
 			<?php _g("SU_COUNT"); ?><br/>
 		</td>
 	</tr>

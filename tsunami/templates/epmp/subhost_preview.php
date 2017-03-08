@@ -6,7 +6,7 @@
 		<b>Distance(meters)</b> <?php _e('DISTANCE', true); ?><br/>
 	</td>
 	<td class="center">
-		<?php _g("SES_UPTIME", true, true); ?>
+		<?php _g("EPMP_SES_UPTIME", true, true); ?>
 	</td>
 	<td class="center">
 		<?php _g("RSSI", true, true); ?>

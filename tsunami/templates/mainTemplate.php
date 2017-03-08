@@ -25,7 +25,6 @@ if(isset($_GET["timeframe"]))
 		<table>
 			<tr>
 				<td class="td_menu"  width=100>
-					<!-- a handy place to put URLs -->	
 					<a href="//github.com/danpalamo/php-tsunami/">php-tsunami github</a><br>
 					<a href="//ipchicken.com">ipchicken.com</a><br>
 				<td class="td_main">

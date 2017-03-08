@@ -322,23 +322,24 @@
 			--base=1000
 			--height=$height
 			--width=$width
+			--rigid
 			--lower-limit=0
 			--alt-autoscale-max
 			--slope-mode
 			DEF:a="$filenameRRD":FRAME_AVAIL_UP:AVERAGE
 			DEF:b="$filenameRRD":FRAME_USED_UP:AVERAGE
-			LINE1:a#FFBF00:"Available":STACK
-			GPRINT:a:LAST:" Cur\:%8.2lf %s"
-			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
-			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
-			LINE2:b#806000:"Used"
-			GPRINT:b:LAST:"Cur\:%8.2lf %s"
-			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
-			GPRINT:b:MAX:"Max\:%8.2lf %s"'
+			AREA:a#9D8D89:"Available"
+			GPRINT:a:LAST:"Cur\:%6.1lf"
+			GPRINT:a:AVERAGE:"Avg\:%6.1lf"
+			GPRINT:a:MAX:"Max\:%6.1lf\l"
+			LINE2:b#E35633:"Used"
+			GPRINT:b:LAST:"Cur\:%6.1lf"
+			GPRINT:b:AVERAGE:"Avg\:%6.1lf"
+			GPRINT:b:MAX:"Max\:%6.1lf\l"'
 	/>
 	<graphProfile
 		name="EPMP_FRAME_USED_DOWN"
-		desc="Layer 2 wireless downstream frame usage"
+		desc="Layer 2 wireless stream frame usage"
 		cmdline='rrdtool graph $filenamePNG
 			--imgformat=PNG
 			--start=$timeStart
@@ -348,19 +349,20 @@
 			--base=1000
 			--height=$height
 			--width=$width
+			--rigid
 			--lower-limit=0
 			--alt-autoscale-max
 			--slope-mode
 			DEF:a="$filenameRRD":FRAME_AVAIL_DN:AVERAGE
 			DEF:b="$filenameRRD":FRAME_USED_DN:AVERAGE
-			LINE1:a#FFBF00:"Available":STACK
-			GPRINT:a:LAST:" Cur\:%8.2lf %s"
-			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
-			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
-			LINE2:b#806000:"Used"
-			GPRINT:b:LAST:"Cur\:%8.2lf %s"
-			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
-			GPRINT:b:MAX:"Max\:%8.2lf %s"'
+			AREA:a#9D8D89:"Available"
+			GPRINT:a:LAST:"Cur\:%6.1lf"
+			GPRINT:a:AVERAGE:"Avg\:%6.1lf"
+			GPRINT:a:MAX:"Max\:%6.1lf\l"
+			LINE2:b#E35633:"Used"
+			GPRINT:b:LAST:"Cur\:%6.1lf"
+			GPRINT:b:AVERAGE:"Avg\:%6.1lf"
+			GPRINT:b:MAX:"Max\:%6.1lf\l"'
 	/>
 	<graphProfile
 		name="RSSI_C_SU"
@@ -482,7 +484,7 @@
 			--slope-mode
 			DEF:a="$filenameRRD":GPS_STATUS:AVERAGE
 			AREA:a#00FFFF:"GPS Status"
-			GPRINT:a:LAST:"Cur\:%8.0lf"
+			GPRINT:a:LAST:"Cur\:%1.0lf"
 			COMMENT:"\\n"
 			COMMENT:"0=init, 1=nosync, 2=sync, 3=holdoff, 4=regain, 5=freerun"'
 	/>
@@ -506,13 +508,13 @@
 			DEF:a="$filenameRRD":GPS_SATS_SEEN:AVERAGE
 			DEF:b="$filenameRRD":GPS_SATS_USED:AVERAGE
 			LINE2:a#9D8D89:"Sats Seen"
-			GPRINT:a:LAST:"Cur\:%6.1lf dBm"
-			GPRINT:a:AVERAGE:"Avg\:%6.1lf dBm"
-			GPRINT:a:MAX:"Max\:%6.1lf dBm"
+			GPRINT:a:LAST:"Cur\:%2.0lf"
+			GPRINT:a:AVERAGE:"Avg\:%2.0lf"
+			GPRINT:a:MAX:"Max\:%2.0lf\l"
 			AREA:b#E35633:"Sats Used"
-			GPRINT:b:LAST:"Cur\:%6.1lf dBm"
-			GPRINT:b:AVERAGE:"Avg\:%6.1lf dBm"
-			GPRINT:b:MAX:"Max\:%6.1lf dBm\l"'
+			GPRINT:b:LAST:"Cur\:%2.0lf"
+			GPRINT:b:AVERAGE:"Avg\:%2.0lf"
+			GPRINT:b:MAX:"Max\:%2.0lf\l"'
 	/>
 	<graphProfile
 		name="EPMP_SNR"
@@ -560,13 +562,13 @@
 			DEF:a="$filenameRRD":SU_MCS:AVERAGE
 			DEF:b="$filenameRRD":AP_MCS:AVERAGE
 			AREA:b#E3B056:"MCS at AP"
-			GPRINT:b:LAST:"Cur\:%6.1lf"
-			GPRINT:b:AVERAGE:"Avg\:%6.1lf"
-			GPRINT:b:MAX:"Max\:%6.1lf\l"
+			GPRINT:b:LAST:"Cur\:%2.0lf"
+			GPRINT:b:AVERAGE:"Avg\:%2.0lf"
+			GPRINT:b:MAX:"Max\:%2.0lf\l"
 			LINE2:a#9D8D89:"MCS at SU"
-			GPRINT:a:LAST:"Cur\:%6.1lf"
-			GPRINT:a:AVERAGE:"Avg\:%6.1lf"
-			GPRINT:a:MAX:"Max\:%6.1lf"'
+			GPRINT:a:LAST:"Cur\:%2.0lf"
+			GPRINT:a:AVERAGE:"Avg\:%2.0lf"
+			GPRINT:a:MAX:"Max\:%2.0lf"'
 	/>
 	<graphProfile
 		name="SU_TXPOWER"
@@ -653,6 +655,28 @@
 			--slope-mode
 			DEF:defa="$filenameRRD":SES_UPTIME:AVERAGE
 			CDEF:a=defa,8640000,/
+			AREA:a#6699FF:"Ses Uptime"
+			GPRINT:a:LAST:"Cur\:%4.1lf days"
+			GPRINT:a:AVERAGE:"Avg\:%4.1lf days"
+			GPRINT:a:MAX:"Max\:%4.1lf days"'
+	/>
+	<graphProfile
+		name="EPMP_SES_UPTIME"
+		desc="Session Uptime"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="days"
+			--base=1000
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--alt-autoscale-max
+			--slope-mode
+			DEF:defa="$filenameRRD":SES_UPTIME:AVERAGE
+			CDEF:a=defa,86400,/
 			AREA:a#6699FF:"Ses Uptime"
 			GPRINT:a:LAST:"Cur\:%4.1lf days"
 			GPRINT:a:AVERAGE:"Avg\:%4.1lf days"
