@@ -1,8 +1,8 @@
 <table class="host_info">
 	<tr>
 		<td>
-			<b style='font-size:20px;'><a href="/tsunami/<?php _host(); ?>/"><?php _host(); ?></a></b> <span style="font-size:12px;line-height:20px;">(<a target="blank" href="//<?php _host('m_host'); ?>"><?php _host('m_host'); ?></a>)</span><br/>
-			<b style='font-size:20px;'><a href="/tsunami/<?php _host(); ?>/<?php _subhost(); ?>/"><?php _subhost(); ?></a></b> <span style="font-size:12px;line-height:20px;">(<a target="blank" href="//<?php _e('IP', true); ?>"><?php _e('IP', true); ?></a>)</span><br/>
+			<b style='font-size:20px;'><a href=".."><?php _host(); ?></a></b> <span style="font-size:12px;line-height:20px;">(<a target="blank" href="//<?php _host('m_host'); ?>"><?php _host('m_host'); ?></a>)</span><br/>
+			<b style='font-size:20px;'><a href="."><?php _subhost(); ?></a></b> <span style="font-size:12px;line-height:20px;">(<a target="blank" href="//<?php _e('IP', true); ?>"><?php _e('IP', true); ?></a>)</span><br/>
 			<b>Site Name</b> <?php _e('SITE_NAME', true); ?><br/>
 			<b>MAC</b> <?php _e('MAC', true); ?><br/>
 			<b>Priority</b> <?php _e('PRIORITY', true); ?><br/>

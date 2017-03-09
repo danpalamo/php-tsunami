@@ -1,7 +1,7 @@
 <table class="host_info">
 	<tr>
 		<td>
-			<b style='font-size:20px;'><a href="<?php echo ".."; ?>"><?php echo $host->m_id; ?></a></b> (<a href="http://<?php echo $host->m_host ?>"><?php echo $host->m_host; ?></a>)<br>
+			<b style='font-size:20px;'><a href=".."><?php echo $host->m_id; ?></a></b> (<a href="http://<?php echo $host->m_host ?>"><?php echo $host->m_host; ?></a>)<br>
 			<b style='font-size:20px;'><a href="."><?php echo $subhost ?></a></b> (<a href="http://<?php echo insertSubhostQuery($host, $subhost, 'IP'); ?>"><?php echo insertSubhostQuery($host, $subhost, 'IP'); ?></a>)<br>
 			<b><?php insertSubhostQuery($host, $subhost, 'ASSOCIATION'); ?></b><br>
 			<b>Range</b> <?php insertSubhostQuery($host, $subhost, 'DISTANCE'); ?> mi<br>
