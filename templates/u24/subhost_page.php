@@ -5,6 +5,7 @@
 			<b style='font-size:20px;'><a href="."><?php _subhost(); ?></a></b> <span style="font-size:12px;line-height:20px;">(<a target="blank" href="//<?php _e('IP', true); ?>"><?php _e('IP', true); ?></a>)</span><br/>
 			<b>Site Name</b> <?php _e('SITE_NAME', true); ?><br/>
 			<b>Delay</b> <?php _e('DISTANCE', true); ?> ns<br/>
+			<b>Latency</b> <?php _e('LATENCY_MS', true); ?> ms<br/>
 		</td>
 		<td class="center">
 			<?php _g("SES_UPTIME", true, false); ?><br/><hr/>

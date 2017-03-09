@@ -226,7 +226,7 @@
 
 		<walk>
 			<monitor desc="SUID"				id="SUID"		oid="1.3.6.1.4.1.41112.1.4.7.1.1.1"/>
-                        <monitor desc="Session Uptime"                  id="SES_UPTIME"         oid="1.3.6.1.4.1.41112.1.4.7.1.15.1"/> <!-- ubntStaConnTime -->
+			<monitor desc="Session Uptime"                  id="SES_UPTIME"         oid="1.3.6.1.4.1.41112.1.4.7.1.15.1"/> <!-- ubntStaConnTime -->
 			<monitor desc="RSSI at AP (dB)"			id="SU_RSSI"		oid="1.3.6.1.4.1.41112.1.4.7.1.3.1"/> <!-- uAC doesnt' have RSSI at SU -->
 			<monitor desc="RSSI at AP (dB)"			id="AP_RSSI"		oid="1.3.6.1.4.1.41112.1.4.7.1.3.1"/>
 			<monitor desc="RF in (bits)"			id="RF_IN_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.14.1"/>

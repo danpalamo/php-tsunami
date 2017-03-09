@@ -4,7 +4,7 @@
 			<b style='font-size:20px;'><a href=".."><?php _host(); ?></a></b> <span style="font-size:12px;line-height:20px;">(<a target="blank" href="//<?php _host('m_host'); ?>"><?php _host('m_host'); ?></a>)</span><br/>
 			<b style='font-size:20px;'><a href="."><?php _subhost(); ?></a></b> <span style="font-size:12px;line-height:20px;">(<a target="blank" href="//<?php _e('IP', true); ?>"><?php _e('IP', true); ?></a>)</span><br/>
 			<b>Site Name</b> <?php _e('SITE_NAME', true); ?><br/>
-			<b>Distance</b> <?php _e('DISTANCE', true); ?> ??<br/>
+			<b>Distance</b> <?php _e('DISTANCE', true); ?> meters<br/>
 			<b>Latency</b> <?php _e('LATENCY_MS', true); ?> ms<br/>
 		</td>
 		<td class="center">
