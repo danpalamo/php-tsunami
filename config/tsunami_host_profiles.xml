@@ -176,8 +176,8 @@
                         <monitor desc="Session Uptime"                  id="SES_UPTIME"         oid="1.3.6.1.4.1.41112.1.4.7.1.15.1"/>
 			<monitor desc="RSSI at AP (dB)"			id="SU_RSSI"		oid="1.3.6.1.4.1.41112.1.4.7.1.3.1"/> <!-- u24 doesn't have RSSI at SU -->
 			<monitor desc="RSSI at AP (dB)"			id="AP_RSSI"		oid="1.3.6.1.4.1.41112.1.4.7.1.3.1"/>
-			<monitor desc="RF in (bits)"			id="RF_IN_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.13.1"/>
-			<monitor desc="RF out (bits)"			id="RF_OUT_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.14.1"/>
+			<monitor desc="RF in (bits)"			id="RF_IN_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.14.1"/>
+			<monitor desc="RF out (bits)"			id="RF_OUT_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.13.1"/>
 			<monitor desc="CCQ"				id="U24_CCQ"		oid="1.3.6.1.4.1.41112.1.4.7.1.6.1"/>
 			<monitor desc="AMQ"				id="U24_AMQ"		oid="1.3.6.1.4.1.41112.1.4.7.1.8.1"/>
 			<monitor desc="AMC"				id="U24_AMC"		oid="1.3.6.1.4.1.41112.1.4.7.1.9.1"/>
@@ -229,8 +229,8 @@
                         <monitor desc="Session Uptime"                  id="SES_UPTIME"         oid="1.3.6.1.4.1.41112.1.4.7.1.15.1"/> <!-- ubntStaConnTime -->
 			<monitor desc="RSSI at AP (dB)"			id="SU_RSSI"		oid="1.3.6.1.4.1.41112.1.4.7.1.3.1"/> <!-- uAC doesnt' have RSSI at SU -->
 			<monitor desc="RSSI at AP (dB)"			id="AP_RSSI"		oid="1.3.6.1.4.1.41112.1.4.7.1.3.1"/>
-			<monitor desc="RF in (bits)"			id="RF_IN_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.13.1"/>
-			<monitor desc="RF out (bits)"			id="RF_OUT_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.14.1"/>
+			<monitor desc="RF in (bits)"			id="RF_IN_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.14.1"/>
+			<monitor desc="RF out (bits)"			id="RF_OUT_B"		oid="1.3.6.1.4.1.41112.1.4.7.1.13.1"/>
 			<monitor desc="CCQ"				id="U24_CCQ"		oid="1.3.6.1.4.1.41112.1.4.7.1.6.1"/>
 			<monitor desc="AMQ"				id="U24_AMQ"		oid="1.3.6.1.4.1.41112.1.4.7.1.8.1"/>
 			<monitor desc="AMC"				id="U24_AMC"		oid="1.3.6.1.4.1.41112.1.4.7.1.9.1"/>
