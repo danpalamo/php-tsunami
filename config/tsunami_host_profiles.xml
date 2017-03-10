@@ -15,7 +15,7 @@
 		<graph title="Ethernet Traffic"				profile="ETH_TRAFFIC_B"		preview="yes"/>
 		<graph title="RF Traffic"				profile="RF_TRAFFIC_B"/>
 		<graph title="GPS Status"				profile="GPS_STATUS"		preview="yes"/>
-		<graph title="RF Dropped"				profile="RF_DROP"		preview="yes"/>
+		<graph title="RF Dropped"				profile="RF_DROP"/>
 		<graph title="SU Count"					profile="SU_COUNT"		preview="yes"/>
 		<graph title="RF Frame Utilization"			profile="FRAME_UTIL"		preview="yes"/>
 
@@ -148,6 +148,20 @@
 		<template type="subhostPreview"	src="epmp/subhost_preview.php"/>
 		<template type="hostPage"	src="epmp/host_page.php"/>
 		<template type="subhostPage"	src="epmp/subhost_page.php"/>
+	</hostProfile>
+
+	<hostProfile name="Mikrotik 1eth1rf">
+		<monitor desc="Uptime"			id="UPTIME"		oid="1.3.6.1.2.1.1.3.0"/> <!-- sysUpTimeInstance -->
+
+		<query desc="Hardware Version"		id="HW_VER"		oid="1.3.6.1.2.1.1.1.0"/> <!-- sysDescr -->
+		<walk>
+			<monitor desc="MAC address"			id="MAC"		oid=".1.3.6.1.4.1.14988.1.1.1.2.1.1"/> <!-- mtxrWIRtabAddr -->
+		</walk>
+
+		<template type="hostPreview"	src="mtk1-1/host_preview.php"/>
+		<template type="subhostPreview"	src="mtk1-1/subhost_preview.php"/>
+		<template type="hostPage"	src="mtk1-1/host_page.php"/>
+		<template type="subhostPage"	src="mtk1-1/subhost_page.php"/>
 	</hostProfile>
 
 	<hostProfile name="Ubiquiti u24" snmpversion="1">

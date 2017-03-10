@@ -14,6 +14,7 @@
 			--rigid
 			--lower-limit=0
 			--upper-limit=3
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":ASSOCIATION:AVERAGE
 			DEF:b="$filenameRRD":ASSOCIATION:AVERAGE
 			CDEF:aLim=a,0,1,LIMIT
@@ -36,6 +37,7 @@
 			--rigid
 			--lower-limit=0
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":ETH_IN_B:AVERAGE
 			DEF:b="$filenameRRD":ETH_OUT_B:AVERAGE
 			CDEF:cdefa=a,8,*
@@ -63,6 +65,7 @@
 			--width=$width
 			--lower-limit=0
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":ETH_IN_KBPS:AVERAGE
 			DEF:b="$filenameRRD":ETH_OUT_KBPS:AVERAGE
 			CDEF:cdefa=a,1024,*
@@ -90,6 +93,7 @@
 			--width=$width
 			--lower-limit=0
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":RF_IN_KBPS:AVERAGE
 			DEF:b="$filenameRRD":RF_OUT_KBPS:AVERAGE
 			CDEF:cdefa=a,1024,*
@@ -118,6 +122,7 @@
 			--lower-limit=0
 			--upper-limit=20
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":RF_DROP_P:AVERAGE
 			AREA:a#FF4444:"Dropped"
 			GPRINT:a:LAST:" Cur\:%8.2lf %s"
@@ -138,6 +143,7 @@
 			--width=$width
 			--lower-limit=0
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":RF_AP_RETRY:AVERAGE
 			DEF:b="$filenameRRD":RF_SU_RETRY:AVERAGE
 			AREA:a#FF3333:"AP Retry"
@@ -163,6 +169,7 @@
 			--width=$width
 			--lower-limit=0
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":RF_RETRY:AVERAGE
 			AREA:a#FF3333:"AP Retry"
 			GPRINT:a:LAST:" Cur\:%8.2lf %s"
@@ -183,6 +190,7 @@
 			--width=$width
 			--lower-limit=0
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:defa="$filenameRRD":RF_IN_B:AVERAGE
 			DEF:defb="$filenameRRD":RF_OUT_B:AVERAGE
 			CDEF:a=defa,8,*
@@ -210,6 +218,7 @@
 			--width=$width
 			--lower-limit=0
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:defa="$filenameRRD":RF_IN_O:AVERAGE
 			DEF:defb="$filenameRRD":RF_OUT_O:AVERAGE
 			CDEF:a=defa,8,*
@@ -237,6 +246,7 @@
 			--width=$width
 			--lower-limit=0
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":RF_IN_P:AVERAGE
 			DEF:b="$filenameRRD":RF_OUT_P:AVERAGE
 			AREA:a#00CF00:"Inbound"
@@ -265,6 +275,7 @@
 			--upper-limit=-45
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":AP_RSSI:AVERAGE
 			DEF:b="$filenameRRD":SU_RSSI:AVERAGE
 			CDEF:aLim=a,-100,-35,LIMIT
@@ -299,6 +310,7 @@
 			--upper-limit=100
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":FRAME_UTIL_UP:AVERAGE
 			DEF:b="$filenameRRD":FRAME_UTIL_DN:AVERAGE
 			AREA:a#FFBF00:"Inbound":STACK
@@ -326,6 +338,7 @@
 			--lower-limit=0
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":FRAME_AVAIL_UP:AVERAGE
 			DEF:b="$filenameRRD":FRAME_USED_UP:AVERAGE
 			AREA:a#9D8D89:"Available"
@@ -353,6 +366,7 @@
 			--lower-limit=0
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":FRAME_AVAIL_DN:AVERAGE
 			DEF:b="$filenameRRD":FRAME_USED_DN:AVERAGE
 			AREA:a#9D8D89:"Available"
@@ -381,6 +395,7 @@
 			--upper-limit=-45
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":AP_RSSI:AVERAGE
 			DEF:b="$filenameRRD":SU_RSSI:AVERAGE
 			CDEF:aLim=a,-100,-25,LIMIT
@@ -415,6 +430,7 @@
 			--upper-limit=-45
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":SU_RSSI:AVERAGE
 			CDEF:aLim=a,-100,-35,LIMIT
 			CDEF:cdefa=aLim,100,+
@@ -440,6 +456,7 @@
 			--lower-limit=0
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":SU_COUNT:AVERAGE
 			AREA:a#999999:"SU Count"
 			GPRINT:a:LAST:"Cur\:%8.0lf SUs"
@@ -461,6 +478,7 @@
 			--lower-limit=0
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":GPS_STATUS:AVERAGE
 			AREA:a#00FFFF:"GPS Status"
 			GPRINT:a:LAST:"Cur\:%8.0lf"
@@ -482,6 +500,7 @@
 			--lower-limit=0
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":GPS_STATUS:AVERAGE
 			AREA:a#00FFFF:"GPS Status"
 			GPRINT:a:LAST:"Cur\:%1.0lf"
@@ -505,6 +524,7 @@
 			--lower-limit=0
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":GPS_SATS_SEEN:AVERAGE
 			DEF:b="$filenameRRD":GPS_SATS_USED:AVERAGE
 			LINE2:a#9D8D89:"Sats Seen"
@@ -532,6 +552,7 @@
 			--lower-limit=0
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":SU_SNR:AVERAGE
 			DEF:b="$filenameRRD":AP_SNR:AVERAGE
 			AREA:b#56D0E3:"SNR at AP"
@@ -559,6 +580,7 @@
 			--lower-limit=0
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":SU_MCS:AVERAGE
 			DEF:b="$filenameRRD":AP_MCS:AVERAGE
 			AREA:b#E3B056:"MCS at AP"
@@ -587,6 +609,7 @@
 			--upper-limit=30
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":SU_TXPOWER:AVERAGE
 			AREA:a#008800:"SU Tx Power"
 			GPRINT:a:LAST:"Cur\:%6.1lf dBm"
@@ -608,6 +631,7 @@
 			--lower-limit=0
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:c="$filenameRRD":TEMPERATURE:AVERAGE
 			CDEF:f=9,5,/,c,*,32,+
 			HRULE:32#0000CF
@@ -631,6 +655,7 @@
 			--lower-limit=0
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:defa="$filenameRRD":UPTIME:AVERAGE
 			CDEF:a=defa,8640000,/
 			AREA:a#6699FF:"Uptime"
@@ -653,6 +678,7 @@
 			--lower-limit=0
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:defa="$filenameRRD":SES_UPTIME:AVERAGE
 			CDEF:a=defa,8640000,/
 			AREA:a#6699FF:"Ses Uptime"
@@ -675,6 +701,7 @@
 			--lower-limit=0
 			--alt-autoscale-max
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:defa="$filenameRRD":SES_UPTIME:AVERAGE
 			CDEF:a=defa,86400,/
 			AREA:a#6699FF:"Ses Uptime"
@@ -697,6 +724,7 @@
 			--lower-limit=0
 			--lower-limit=100
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":U24_CCQ:AVERAGE
 			DEF:b="$filenameRRD":U24_AMQ:AVERAGE
 			DEF:c="$filenameRRD":U24_AMC:AVERAGE
@@ -731,6 +759,7 @@
 			--lower-limit=0
 			--lower-limit=100
 			--slope-mode
+			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":U24_AP_CCQ:AVERAGE
 			DEF:b="$filenameRRD":U24_AP_AMQ:AVERAGE
 			DEF:c="$filenameRRD":U24_AP_AMC:AVERAGE
