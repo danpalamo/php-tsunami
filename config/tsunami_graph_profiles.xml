@@ -690,7 +690,7 @@
 			--start=$timeStart
 			--end=$timeEnd
 			--title="$title"
-			--vertical-label="dBm"
+			--vertical-label="percent"
 			--base=1000
 			--height=$height
 			--width=$width
@@ -704,17 +704,17 @@
 			CDEF:cdefb=b,10,/
 			CDEF:cdefc=c,10,/
 			AREA:cdefa#FFBF00:"CCQ":STACK
-			GPRINT:cdefa:LAST:"Cur\:%2.1lf %s"
-			GPRINT:cdefa:AVERAGE:"Avg\:%2.1lf %s"
-			GPRINT:cdefa:MAX:"Max\:%2.1lf %s\l"
+			GPRINT:cdefa:LAST:"Cur\:%2.1lf %%"
+			GPRINT:cdefa:AVERAGE:"Avg\:%2.1lf %%"
+			GPRINT:cdefa:MAX:"Max\:%2.1lf %%\l"
 			LINE1:cdefb#806000:"AMQ"
-			GPRINT:cdefb:LAST:"Cur\:%2.1lf %s"
-			GPRINT:cdefb:AVERAGE:"Avg\:%2.1lf %s"
-			GPRINT:cdefb:MAX:"Max\:%2.1lf %s\l"
+			GPRINT:cdefb:LAST:"Cur\:%2.1lf %%"
+			GPRINT:cdefb:AVERAGE:"Avg\:%2.1lf %%"
+			GPRINT:cdefb:MAX:"Max\:%2.1lf %%\l"
 			LINE2:cdefc#FF5733:"AMC"
-			GPRINT:cdefc:LAST:"Cur\:%2.1lf %s"
-			GPRINT:cdefc:AVERAGE:"Avg\:%2.1lf %s"
-			GPRINT:cdefc:MAX:"Max\:%2.1lf %s\l"'
+			GPRINT:cdefc:LAST:"Cur\:%2.1lf %%"
+			GPRINT:cdefc:AVERAGE:"Avg\:%2.1lf %%"
+			GPRINT:cdefc:MAX:"Max\:%2.1lf %%\l"'
 	/>
 	<graphProfile
 		name="U24_AP_QUAL"
@@ -735,16 +735,16 @@
 			DEF:b="$filenameRRD":U24_AP_AMQ:AVERAGE
 			DEF:c="$filenameRRD":U24_AP_AMC:AVERAGE
 			AREA:a#FFBF00:"CCQ":STACK
-			GPRINT:a:LAST:" Cur\:%2.1lf %s"
-			GPRINT:a:AVERAGE:"Avg\:%2.1lf %s"
-			GPRINT:a:MAX:"Max\:%2.1lf %s\l"
+			GPRINT:a:LAST:" Cur\:%2.1lf %%"
+			GPRINT:a:AVERAGE:"Avg\:%2.1lf %%"
+			GPRINT:a:MAX:"Max\:%2.1lf %%\l"
 			LINE1:b#806000:"AMQ"
-			GPRINT:b:LAST:"Cur\:%2.1lf %s"
-			GPRINT:b:AVERAGE:"Avg\:%2.1lf %s"
-			GPRINT:b:MAX:"Max\:%2.1lf %s\l"
+			GPRINT:b:LAST:"Cur\:%2.1lf %%"
+			GPRINT:b:AVERAGE:"Avg\:%2.1lf %%"
+			GPRINT:b:MAX:"Max\:%2.1lf %%\l"
 			LINE2:c#FF5733:"AMC"
-			GPRINT:c:LAST:"Cur\:%2.1lf %s"
-			GPRINT:c:AVERAGE:"Avg\:%2.1lf %s"
-			GPRINT:c:MAX:"Max\:%2.1lf %s"'
+			GPRINT:c:LAST:"Cur\:%2.1lf %%"
+			GPRINT:c:AVERAGE:"Avg\:%2.1lf %%"
+			GPRINT:c:MAX:"Max\:%2.1lf %%"'
 	/>
 </tsunami>
