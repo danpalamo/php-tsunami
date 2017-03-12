@@ -8,9 +8,6 @@
 			<b>Priority</b> <?php _e('PRIORITY', true); ?><br/>
 			<b>Distance</b> <?php _e('DISTANCE', true); ?> meters<br/>
 			<b>MIR D/U</b> <?php _e('MIR_DOWN', true); ?>/<?php _e('MIR_UP', true); ?><br/>
-<!--			<br>
-			<b>HW ver</b> <?php _e('HW_VER', true); ?><br/>
-			<b>FW ver</b> <?php _e('FW_VER', true); ?><br/> -->
 		</td>
 		<td class="center">
 			<?php _g("EPMP_SES_UPTIME", true, false); ?><br/>

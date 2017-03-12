@@ -31,7 +31,7 @@ function ClassifySNMPResult($result)
 
 function CleanSNMPSUIDResult($result)
 {
-	return str_replace(" ", "-", trim(CleanSNMPResult($result)));
+	return str_replace(" ", ".", trim(strtolower(CleanSNMPResult($result))));
 }
 
 function CleanSNMPResult($result)
@@ -63,6 +63,13 @@ function CleanSNMPResult($result)
 	if(preg_match("/^Hex-STRING/", $result))
 	{
 		$ret = str_replace("Hex-STRING: ", "", $result);
+		if(
+			preg_match("/^([0-9a-fA-F][0-9a-fA-F][ :-]){5}([0-9a-fA-F][0-9a-fA-F])$/", $ret)
+		)	{
+				$ret = str_replace(":", ".", $ret);
+				$ret = str_replace("-", ".", $ret);
+				$ret = str_replace(" ", ".", $ret);
+			}
 	}
 		
 	//IP
