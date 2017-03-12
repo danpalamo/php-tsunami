@@ -1,0 +1,60 @@
+# /IT MUST BE ASSUMED/ that the php-tsunami scripts, particularly
+# those exposed via the web are /UNSAFE/ and may be subject to
+# various bugs and exploits
+
+# /IT IS HIGHLY RECOMMENDED/ that the web access be restricted
+# via htpasswd and/or any other security features to limit
+# access to these scripts
+
+# installation tested with ubuntu 16.04-lts
+# the following packages must be installed...bits of php-tsunami
+# might silently fail if these packages are not installed
+
+# snmp
+# rrdtool
+# apache2
+# libapache2-mod-php7.0
+# php7.0-json
+# php7.0-snmp
+# php7.0-xml
+
+# default paths
+# tsunami home : /usr/local/tsunami/
+# tsunami web : /var/www/html/tsunami/
+# tsunami rrds : /usr/local/tsunami/rrd/
+# tsunami graphs : /var/www/html/tsunami/graphs/
+# tsunami logs : /var/log/tsunami/
+
+# copy the contents of php-tsunami/web/ to your web directory
+# example:
+# cp -r /usr/local/tsunami/web/* /var/www/html/tsunami/
+
+# tsunami assumes a 5-minute interval for polling
+# tsunami generally can poll several dozen hosts in this time
+# period, provided there are no down hosts
+# down hosts significantly increase the time it takes tsunami
+# to poll, and if the poll time exceeds 5 minutes, generally
+# bad things might happen, such as missing or out-of-order data
+# being placed into your rrd files
+
+# EXAMPLE crontab entry for poller
+# */5 * * * * /usr/bin/php /usr/local/tsunami_collector.php >> /var/log/tsunami/tsunami_collector.log
+
+# log rotation is needed to keep this file from growing
+# EXAMPLE tsunami.logrotate
+# /var/log/tsunami/*.log {
+# rotate 9
+# maxsize 10M
+#  daily
+#  compress
+#  missingok
+#  delaycompress
+#}
+
+# the grapher can generally be run a few times per day, depending
+# on your needs
+# it is not recommended to run the grapher too often as it is
+# very cpu-intensive and might affect polling data while running
+
+# the viewer can be run very quickly and can be run any time the
+# grapher runs
