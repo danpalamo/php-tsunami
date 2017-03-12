@@ -50,6 +50,11 @@ table
 	border-spacing:0px;
 }
 
+table tr:nth-child(even)
+{
+        background-color: #def;
+}
+
 td
 {
 	text-align:left;
