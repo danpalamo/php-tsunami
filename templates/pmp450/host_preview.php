@@ -4,6 +4,7 @@
 		<?php _host('m_desc') ?><br/>
 		<b>Uptime</b> <?php printf("%.1f",__e("UPTIME")/(24*60*60*100)); ?> days<br/>
 		<b>GPS Status</b> <?php echo __e("GPS_STATUS") > 0 ? 'Up' : 'Down'; ?><br/>
+		<b>%/R/C</b> <?php _e("DL_PERCENT"); echo "/"; _e("MAX_RANGE"); echo "/"; _e("CONTROL_SLOTS"); ?><br/>
 		<b>SUs</b> <?php _e("SU_COUNT"); ?><br/>
 	</td>
 	<td class="center">
