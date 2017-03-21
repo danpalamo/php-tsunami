@@ -12,13 +12,13 @@ if(isset($_GET["timeframe"]))
 
 <head>
 	<title><?php echo $pageTitle?></title>
-	<style type="text/css" media="all">@import "//<?php echo $wwwHostname ?>style.css";</style>
+	<style type="text/css" media="all">@import "//<?php echo $wwwHostname ?>/style.css";</style>
 </head>
 
 <body>
 <div class="div_main">
 	<div class="div_header">
-		<a href="//<?php echo $wwwHostname ?>"><img src="/tsunami/images/tsunami.png"></a>
+		<a href="//<?php echo $wwwHostname ?>"><img src="/images/tsunami.png"></a>
 	</div>
 
 	<div class="div_content">

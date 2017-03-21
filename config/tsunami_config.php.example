@@ -15,13 +15,13 @@ $pathWeb		= $pathApp."web/";
 $pathWWW		= "/var/www/html/tsunami/";
 #$wwwHostname		= "tsunami.yourdomain.org/"; #FQDN works best, unsure of training slash
 #$wwwHostname		= "localhost/tsunami/"; #also works in simple cases
-$wwwHostname		= "172.25.1.210/tsunami/"; #simple network address
+$wwwHostname		= "172.25.1.210/tsunami/"; #simple network address, no trailing slash for best pretty
 $wwwPathGraphs		= "graphs/";
 $wwwPathCache		= "cache/";
 
 //filenames
-$fileGraphProfiles	= $pathConfig."tsunami_graph_profiles.xml"; 
-$fileHostProfiles	= $pathConfig."tsunami_host_profiles.xml"; 
+$fileGraphProfiles	= $pathConfig."tsunami_graph_profiles.xml";
+$fileHostProfiles	= $pathConfig."tsunami_host_profiles.xml";
 $fileHosts		= $pathConfig."tsunami_hosts.xml";
 $fileCollected		= $pathConfig."tsunami_collected.xml";
 $fileWWWTemplate	= $pathTemplates."mainTemplate.php";
