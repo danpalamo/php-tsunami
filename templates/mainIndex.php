@@ -2,12 +2,12 @@
 	<tr class="host_preview_header">
 		<td>
 		<td>
-			Ethernet Traffic
+<!--			Ethernet Traffic -->
 		<td>
-			Frame Utilization
+<!--			Frame Utilization -->
 		<td>
-			GPS Status
+<!--			GPS Status -->
 		<td>
-			SU Count
+<!--			SU Count -->
 		<?php echo $content ?>
 </table>
