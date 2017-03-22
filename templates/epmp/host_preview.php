@@ -20,6 +20,7 @@
 		<b>SUs</b> <?php _e("SU_COUNT"); ?><br/>
 	</td>
 	<td class="center">
+		Ethernet Traffic<br>
 		<?php _g("ETH_TRAFFIC_B", false, true); ?>
 	</td>
 	<td class="center">
@@ -28,9 +29,11 @@
 		<?php _g("FRAME_UTIL", false, true); ?> -->
 	</td>
 	<td class="center">
+		GPS Status<br>
 		<?php _g("EPMP_GPS_STATUS", false, true); ?>
 	</td>
 	<td class="center">
+		SU Count<br>
 		<?php _g("SU_COUNT", false, true); ?>
 	</td>
 </tr>
