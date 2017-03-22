@@ -7,9 +7,8 @@
 
 # Originally written for wireless access point polling (specifically Trango M900 and Alvarion BreezeCom), tsunami can be adapted to any SNMP application for gathering and displaying data. As of March 2017, the following platforms are templated:
 
-# Alvarion BAII
 # Cambium ePMP
-# Cambium PMP-450
+# Cambium PMP-450 (requires release 14 or higher)
 # Trango M900
 # Trango M2400 (same as M900, I believe)
 # Ubiquiti AirMax M-series
@@ -22,3 +21,7 @@
 # monitor: a snmp query that returns a number, which can be stored in a .rrd file and graphed
 
 # graph: a png display of data retrieved from a .rrd file
+
+# Additional Notes:
+
+# php-tsunami will assume it's being hosted at a FQDN, nested web path structures may require local changes not supported in the main branch
