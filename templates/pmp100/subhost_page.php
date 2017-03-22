@@ -19,7 +19,7 @@
 			<?php _g("ASSOCIATION", true, false); ?><br/><hr/>
 			<?php _g("SES_UPTIME", true, false); ?><br/><hr/>
 			<?php _g("RSSI_C_SU", true, false); ?><br/><hr/>
-			<?php _g("JITTER_M"), true, false); ?><br><hr/>
+			<?php _g("JITTER_M", true, false); ?><br><hr/>
 			<?php _g("RF_TRAFFIC_O", true, false); ?><br>
 		</td>
 	</tr>
