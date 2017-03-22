@@ -12,8 +12,6 @@
 		<?php _g("ETH_TRAFFIC_B", false, true); ?>
 	</td>
 	<td class="center">
-		Frame Utilization<br>
-		<?php _g("FRAME_UTIL", false, true); ?>
 	</td>
 	<td class="center">
 		GPS Status<br>

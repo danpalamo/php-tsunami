@@ -7,9 +7,11 @@
 			<b>Firmware</b> <?php _e("FW_VER"); ?><br/>
 			<b>Uptime</b> <?php printf("%.1f",__e("UPTIME")/(24*60*60*100)); ?> days<br/>
 			<b>GPS Status</b> <?php echo __e("GPS_STATUS") > 0 ? 'Up' : 'Down'; ?><br/>
+			<b>Sync Source</b> <?php _e("SYNC_SOURCE"); ?><br>
 			<b>Downlink Percentage</b> <?php _e("DL_PERCENT"); ?><br>
 			<b>Maximum Range</b> <?php _e("MAX_RANGE"); ?> miles<br>
 			<b>Control Slots</b> <?php _e("CONTROL_SLOTS"); ?><br>
+			<b>SM Target RSSI</b> <?php _e("RECV_TARGET"); ?><br>
 			<b>Color Code</b> <?php _e('COLOR_CODE'); ?><br/>
 			<b>SUs</b> <?php _e("SU_COUNT"); ?><br/>
 		</td>
@@ -17,7 +19,6 @@
 			<?php _g("UPTIME"); ?><br/><hr/>
 			<?php _g("ETH_TRAFFIC_B"); ?><br/><hr/>
 			<?php _g("RF_TRAFFIC_B"); ?><br/><hr/>
-			<?php _g("FRAME_UTIL"); ?><br/>
 			<?php _g("RF_DROP"); ?><br/><hr/>
 			<?php _g("GPS_STATUS"); ?><br/><hr/>
 			<?php _g("SU_COUNT"); ?><br/>
@@ -31,10 +32,10 @@
 	<tr class="host_preview_header">
 		<td/>
 		<td>
-			Association
+			Session Uptime
 		</td>
 		<td>
-			Session Uptime
+			Jitter
 		</td>
 		<td>
 			RSSI
