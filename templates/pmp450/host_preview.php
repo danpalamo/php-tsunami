@@ -1,6 +1,6 @@
 <tr>
 	<td>
-		<b style='font-size:20px;'><a href="<?php _host(); ?>"><?php _host(); ?></a></b> (<a target="blank" href="//<?php _host('m_host'); ?>"><?php _host('m_host'); ?></a>)<br/>
+		<b style='font-size:20px;'><a href="<?php _host(); ?>"><?php _host(); ?></a></b> (<a target="blank" href="http://<?php _host('m_host'); ?>"><?php _host('m_host'); ?></a>)<br/>
 		<?php _host('m_desc') ?><br/>
 		<b>Firmware</b> <?php _e("FW_VER"); ?><br/>
 		<b>Uptime</b> <?php printf("%.1f",__e("UPTIME")/(24*60*60*100)); ?> days<br>
