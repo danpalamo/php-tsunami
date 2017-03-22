@@ -10,7 +10,7 @@
 			<b>Reg/ReReg</b> <?php _e('LINK_REG', true); ?>/<?php _e('LINK_REREG', true); ?><br/>
 			<b>CIR D/U</b> <?php _e('CIR_DOWN', true); ?>/<?php _e('CIR_UP', true); ?><br/>
 			<b>MIR D/U</b> <?php _e('MIR_DOWN', true); ?>/<?php _e('MIR_UP', true); ?><br/>
-			<b>Adapt Rate</b> <?php _e('ADAPT_RATE'), true); ?><br>
+			<b>Adapt Rate</b> <?php _e('ADAPT_RATE', true); ?><br>
 			<br>
 			<b>HW ver</b> <?php _e('HW_VER', true); ?><br/>
 			<b>FW ver</b> <?php _e('FW_VER', true); ?><br/>
