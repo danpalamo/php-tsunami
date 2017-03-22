@@ -294,6 +294,35 @@
 			GPRINT:bLim:MAX:"Max\:%6.1lf dBm"'
 	/>
 	<graphProfile
+		name="JITTER_M"
+		desc="Average and Current Jitter"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="jitter"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--upper-limit=100
+			--alt-autoscale-max
+			--slope-mode
+			--disable-rrdtool-tag
+			DEF:a="$filenameRRD":JITTER_AVG:AVERAGE
+			DEF:b="$filenameRRD":JITTER_CUR:AVERAGE
+			AREA:a#FFBF00:"Average":STACK
+			GPRINT:a:LAST:" Cur\:%8.2lf %s"
+			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
+			LINE1:b#806000:"Last"
+			GPRINT:b:LAST:"Cur\:%8.2lf %s"
+			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:b:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
 		name="FRAME_UTIL"
 		desc="Layer 2 wireless frame utilization percentage"
 		cmdline='rrdtool graph $filenamePNG

@@ -8,6 +8,7 @@
 # Originally written for wireless access point polling (specifically Trango M900 and Alvarion BreezeCom), tsunami can be adapted to any SNMP application for gathering and displaying data. As of March 2017, the following platforms are templated:
 
 # Cambium ePMP
+# Cambium PMP-100 (former Motorola Canopy)(FSK)
 # Cambium PMP-450 (requires release 14 or higher)
 # Trango M900
 # Trango M2400 (same as M900, I believe)

@@ -35,10 +35,20 @@
 # down hosts significantly increase the time it takes tsunami
 # to poll, and if the poll time exceeds 5 minutes, generally
 # bad things might happen, such as missing or out-of-order data
-# being placed into your rrd files
+# being placed into your rrd files or the web cache
 
-# EXAMPLE crontab entry for poller
-# */5 * * * * /usr/bin/php /usr/local/tsunami_collector.php >> /var/log/tsunami/tsunami_collector.log
+# the grapher can generally be run a few times per day, depending
+# on your needs
+# it is not recommended to run the grapher too often as it is
+# very cpu-intensive and might affect polling data while running
+
+# the viewer can be run very quickly and can be run any time the
+# grapher runs
+
+# EXAMPLE crontab entries
+#*/5 * * * * /usr/bin/php /usr/local/tsunami/tsunami_collector.php >> /var/log/tsunami/tsunami_collector.log 2>&1
+#57 */4 * * * /usr/bin/php /usr/local/tsunami/tsunami_grapher.php >> /var/log/tsunami/tsunami_collector.log 2>&1
+#9 */4 * * * /usr/bin/php /usr/local/tsunami/tsunami_viewer.php >> /var/log/tsunami/tsunami_collector.log 2>&1
 
 # log rotation is needed to keep this file from growing
 # EXAMPLE tsunami.logrotate
@@ -50,11 +60,3 @@
 #  missingok
 #  delaycompress
 #}
-
-# the grapher can generally be run a few times per day, depending
-# on your needs
-# it is not recommended to run the grapher too often as it is
-# very cpu-intensive and might affect polling data while running
-
-# the viewer can be run very quickly and can be run any time the
-# grapher runs

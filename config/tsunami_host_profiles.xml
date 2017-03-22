@@ -22,10 +22,11 @@
 		<query desc="Color Code"			id="COLOR_CODE"		oid="1.3.6.1.4.1.161.19.3.1.10.1.1.6.1"/> <!-- radioColorCode -->
 		<query desc="Firmware Version"		id="FW_VER"		oid="1.3.6.1.4.1.161.19.3.3.1.1.0"/> <!-- whispBoxSoftwareVer -->
 		<query desc="Hardware Version"		id="HW_VER"		oid="1.3.6.1.4.1.161.19.3.3.1.6.0"/> <!-- boxDeviceType -->
-		<query desc="Channel Frequency"		id="CHAN_FREQ"		oid="1.3.6.1.4.1.161.19.3.1.10.1.1.1.1"/> <!-- radioFreqCarrier -->
+		<query desc="Channel Frequency"		id="CHAN_FREQ"		oid="1.3.6.1.4.1.161.19.3.1.7.37.0"/> <!-- currentRadioFreqCarrier -->
 		<query desc="Downlink Percentage"	id="DL_PERCENT"		oid="1.3.6.1.4.1.161.19.3.1.10.1.1.2.1"/> <!-- radioDownlinkPercent -->
 		<query desc="Max Range"			id="MAX_RANGE"		oid="1.3.6.1.4.1.161.19.3.1.10.1.1.3.1"/> <!-- radioMaxRange -->
 		<query desc="Control Slots"		id="CONTROL_SLOTS"	oid="1.3.6.1.4.1.161.19.3.1.10.1.1.4.1"/> <!-- radioControlSlots -->
+		<query desc="Sync Source"		id="SYNC_SOURCE"	oid="1.3.6.1.4.1.161.19.3.1.3.1.0"/> <!-- gpsSyncSource -->
 
 		<walk>
 			<monitor desc="SUID"				id="SUID"		oid="1.3.6.1.4.1.161.19.3.1.4.1.20"/>
@@ -60,6 +61,7 @@
 			<query desc="MIR up"				id="MIR_UP"		oid="1.3.6.1.4.1.161.19.3.1.4.1.39"/> <!-- sesUpLinkLimit -->
 			<query desc="Link Reg"				id="LINK_REG"		oid="1.3.6.1.4.1.161.19.3.1.4.1.25"/> <!-- linkRegCount -->
 			<query desc="Link Rereg"			id="LINK_REREG"		oid="1.3.6.1.4.1.161.19.3.1.4.1.26"/> <!-- linkReRegCount -->
+			<query desc="Adapt Rate"			id="ADAPT_RATE"		oid="1.3.6.1.4.1.161.19.3.1.4.1.40"/> <!-- adaptRate -->
 		</walk>
 
 		<template type="hostPreview"	src="pmp450/host_preview.php"/>
@@ -314,5 +316,80 @@
 		<template type="subhostPreview"	src="trango900/subhost_preview.php"/>
 		<template type="hostPage"	src="trango900/host_page.php"/>
 		<template type="subhostPage"	src="trango900/subhost_page.php"/>
+	</hostProfile>
+
+	<hostProfile name="Cambium PMP100"> <!-- http://support.cambiumnetworks.com/framed/onlinetools/content.WHISP-APS-MIB.html -->
+		<monitor desc="Uptime"				id="UPTIME"		oid="1.3.6.1.2.1.1.3.0"/> <!-- sysUpTime -->
+		<monitor desc="Eth in (bits)"			id="ETH_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.1"/>
+		<monitor desc="Eth out (bits)"			id="ETH_OUT_B"		oid="1.3.6.1.2.1.2.2.1.16.1"/>
+		<monitor desc="RF in (bits)"			id="RF_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.2"/>
+		<monitor desc="RF out (bits)"			id="RF_OUT_B"		oid="1.3.6.1.2.1.2.2.1.16.2"/>
+		<monitor desc="GPS Status	"		id="GPS_STATUS"		oid="1.3.6.1.4.1.161.19.3.1.3.1.0"/> <!-- whispGPSStats -->
+		<monitor desc="RF Discards"			id="RF_DROP_P"		oid="1.3.6.1.2.1.2.2.1.19.2"/> <!-- outdiscards (wireless) -->
+		<monitor desc="SU count"			id="SU_COUNT"		oid="1.3.6.1.4.1.161.19.3.1.7.1.0"/> <!-- regCount -->
+<!--		<monitor desc="Frame Utilization Upstream"	id="FRAME_UTIL_UP"	oid="1.3.6.1.4.1.161.19.3.1.12.1.2.0"/> --><!-- frUtlLowTotalUplinkUtilization -->
+<!--		<monitor desc="Frame Utilization Downstream"	id="FRAME_UTIL_DN"	oid="1.3.6.1.4.1.161.19.3.1.12.1.1.0"/> --><!-- frUtlLowTotalDownlinkUtilization -->
+
+		<graph title="Uptime"					profile="UPTIME"/>
+		<graph title="Ethernet Traffic"				profile="ETH_TRAFFIC_B"		preview="yes"/>
+		<graph title="RF Traffic"				profile="RF_TRAFFIC_B"/>
+		<graph title="GPS Status"				profile="GPS_STATUS"		preview="yes"/>
+		<graph title="RF Dropped"				profile="RF_DROP"/>
+		<graph title="SU Count"					profile="SU_COUNT"		preview="yes"/>
+<!--		<graph title="RF Frame Utilization"			profile="FRAME_UTIL"		preview="yes"/> -->
+
+		<query desc="Color Code"			id="COLOR_CODE"		oid="1.3.6.1.4.1.161.19.3.1.10.1.1.6.1"/> <!-- radioColorCode -->
+		<query desc="Firmware Version"		id="FW_VER"		oid="1.3.6.1.4.1.161.19.3.3.1.1.0"/> <!-- whispBoxSoftwareVer -->
+		<query desc="Hardware Version"		id="HW_VER"		oid="1.3.6.1.4.1.161.19.3.3.1.6.0"/> <!-- boxDeviceType -->
+		<query desc="Channel Frequency"		id="CHAN_FREQ"		oid="1.3.6.1.4.1.161.19.3.1.7.37.0"/> <!-- currentRadioFreqCarrier -->
+		<query desc="Downlink Percentage"	id="DL_PERCENT"		oid="1.3.6.1.4.1.161.19.3.1.10.1.1.2.1"/> <!-- radioDownlinkPercent -->
+		<query desc="Max Range"			id="MAX_RANGE"		oid="1.3.6.1.4.1.161.19.3.1.10.1.1.3.1"/> <!-- radioMaxRange -->
+		<query desc="Control Slots"		id="CONTROL_SLOTS"	oid="1.3.6.1.4.1.161.19.3.1.10.1.1.4.1"/> <!-- radioControlSlots -->
+		<query desc="Desired RECV TARGET"	id="RECV_TARGET"	oid="1.3.6.1.4.161.19.3.1.1.73.0"/> <!-- fskSMRcvTargetLvl -->
+		<query desc="Sync Source"		id="SYNC_SOURCE"	oid="1.3.6.1.4.1.161.19.3.1.3.1.0"/> <!-- gpsSyncSource -->
+
+		<walk>
+			<monitor desc="SUID"				id="SUID"		oid="1.3.6.1.4.1.161.19.3.1.4.1.20"/>
+			<monitor desc="Association status"		id="ASSOCIATION"	oid="1.3.6.1.4.1.161.19.3.1.4.1.19"/>
+			<monitor desc="Session Uptime"			id="SES_UPTIME"		oid="1.3.6.1.4.1.161.19.3.1.4.1.46"/> <!-- smSessionTmr -->
+			<monitor desc="RSSI at AP (dB)"			id="SU_RSSI"		oid="1.3.6.1.4.1.161.19.3.1.4.1.35"/> <!--lastPowerLevel ... pmp100 doesn't have RSSI at SU -->
+			<monitor desc="RSSI at AP (dB)"			id="AP_RSSI"		oid="1.3.6.1.4.1.161.19.3.1.4.1.35"/> <!-- lastPowerLevel -->
+			<monitor desc="Average Jitter"			id="JITTER_AVG"		oid="1.3.6.1.4.1.161.19.3.1.4.1.22"/> <!-- linkAveJitter -->
+			<monitor desc="Current Jitter"			id="JITTER_CUR"		oid="1.3.6.1.4.1.161.19.3.1.4.1.23"/> <!-- linkLastJitter -->
+
+			<monitor desc="RF in (octets)"			id="RF_IN_O"		oid="1.3.6.1.4.1.161.19.3.1.4.1.7"/> <!-- linkInOctets -->
+			<monitor desc="RF out (octets)"			id="RF_OUT_O"		oid="1.3.6.1.4.1.161.19.3.1.4.1.13"/> <!-- linkOutOctets -->
+
+			<graph title="Association"			profile="ASSOCIATION"		preview="yes"/>
+			<graph title="Session Uptime"			profile="SES_UPTIME"		preview="yes"/>
+			<graph title="RSSI"				profile="RSSI_C_SU"		preview="yes"/>
+			<graph title="Jitter"				profile="JITTER_M"/>
+
+<!--			<graph title="SU Tx Power"			profile="SU_TXPOWER"/>
+			<graph title="Ethernet Traffic"			profile="ETH_TRAFFIC_B"		preview="yes"/>
+			<graph title="RF Dropped"			profile="RF_DROP"/>
+			<graph title="RF Retry"				profile="RF_RETRY"/>
+-->
+			<graph title="RF Traffic"			profile="RF_TRAFFIC_O"		preview="yes"/>
+
+			<query desc="MAC address"			id="MAC"		oid="1.3.6.1.4.1.161.19.3.1.4.1.3"/> <!-- linkPhysAddress -->
+			<query desc="IP address"			id="IP"			oid="1.3.6.1.4.1.161.19.3.1.4.1.69"/> <!-- linkManagementIP -->
+			<query desc="Site Name"				id="SITE_NAME"		oid="1.3.6.1.4.1.161.19.3.1.4.1.33"/> <!-- linkSiteName -->
+			<query desc="HW version"			id="HW_VER"		oid="1.3.6.1.4.1.161.19.3.1.4.1.32"/> <!-- fpgaVersion -->
+			<query desc="FW version"			id="FW_VER"		oid="1.3.6.1.4.1.161.19.3.1.4.1.30"/> <!-- softwareVersion -->
+			<query desc="Distance"				id="DISTANCE"		oid="1.3.6.1.4.1.161.19.3.1.4.1.66"/> <!-- linkAirDelayns -->
+			<query desc="CIR down"				id="CIR_DOWN"		oid="1.3.6.1.4.1.161.19.3.1.4.1.36"/> <!-- sesDownLinkRate -->
+			<query desc="CIR up"				id="CIR_UP"		oid="1.3.6.1.4.1.161.19.3.1.4.1.38"/> <!-- sesUpLinkRate -->
+			<query desc="MIR down"				id="MIR_DOWN"		oid="1.3.6.1.4.1.161.19.3.1.4.1.37"/> <!-- sesDownLinkLimit -->
+			<query desc="MIR up"				id="MIR_UP"		oid="1.3.6.1.4.1.161.19.3.1.4.1.39"/> <!-- sesUpLinkLimit -->
+			<query desc="Link Reg"				id="LINK_REG"		oid="1.3.6.1.4.1.161.19.3.1.4.1.25"/> <!-- linkRegCount -->
+			<query desc="Link Rereg"			id="LINK_REREG"		oid="1.3.6.1.4.1.161.19.3.1.4.1.26"/> <!-- linkReRegCount -->
+			<query desc="Adapt Rate"			id="ADAPT_RATE"		oid="1.3.6.1.4.1.161.19.3.1.4.1.40"/> <!-- adaptRate -->
+		</walk>
+
+		<template type="hostPreview"	src="pmp100/host_preview.php"/>
+		<template type="subhostPreview"	src="pmp100/subhost_preview.php"/>
+		<template type="hostPage"	src="pmp100/host_page.php"/>
+		<template type="subhostPage"	src="pmp100/subhost_page.php"/>
 	</hostProfile>
 </tsunami>
