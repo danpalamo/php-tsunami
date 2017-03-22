@@ -1,7 +1,7 @@
 <table class="host_info">
 	<tr>
 		<td>
-			<b style='font-size:20px;'><a href="."><?php _host(); ?></a></b> <span style="font-size:12px;line-height:20px;">(<a target="blank" href="//<?php _host('m_host'); ?>"><?php _host('m_host'); ?></a>)</span><br/>
+			<b style='font-size:20px;'><a href="."><?php _host(); ?></a></b> <span style="font-size:12px;line-height:20px;">(<a target="blank" href="http://<?php _host('m_host'); ?>"><?php _host('m_host'); ?></a>)</span><br/>
 			<?php _host('m_desc') ?><br/>
 			<b>Hardware</b> <?php _e("HW_VER"); ?><br/>
 			<b>Firmware</b> <?php _e("FW_VER"); ?><br/>

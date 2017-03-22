@@ -1,7 +1,7 @@
 <tr>
 	<td>
 		<b style='font-size:20px;'><a href="<?php _subhost(); ?>"><?php _subhost(); ?></a></b><br/>
-		<b>IP</b> <a target="blank" href="//<?php _e('IP', true); ?>"><?php _e('IP', true); ?></a><br/>
+		<b>IP</b> <a target="blank" href="http://<?php _e('IP', true); ?>"><?php _e('IP', true); ?></a><br/>
 		<b>Site Name</b> <?php _e('SITE_NAME', true); ?><br/>
 		<b>Status</b> <?php echo __e('ASSOCIATION', true) == 1 ? 'Associated' : 'Not Associated'; ?><br/>
 	</td>
