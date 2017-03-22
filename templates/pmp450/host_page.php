@@ -7,7 +7,9 @@
 			<b>Firmware</b> <?php _e("FW_VER"); ?><br/>
 			<b>Uptime</b> <?php printf("%.1f",__e("UPTIME")/(24*60*60*100)); ?> days<br/>
 			<b>GPS Status</b> <?php echo __e("GPS_STATUS") > 0 ? 'Up' : 'Down'; ?><br/>
-			<b>%/R/C</b> <?php _e("DL_PERCENT"); echo "/"; _e("MAX_RANGE"); echo "/"; _e("CONTROL_SLOTS"); ?><br/>
+			<b>Downlink Percentage</b> <?php _e("DL_PERCENT"); ?><br>
+			<b>Maximum Range</b> <?php _e("MAX_RANGE"); ?> miles<br>
+			<b>Control Slots</b> <?php _e("CONTROL_SLOTS"); ?><br>
 			<b>Color Code</b> <?php _e('COLOR_CODE'); ?><br/>
 			<b>SUs</b> <?php _e("SU_COUNT"); ?><br/>
 		</td>

@@ -2,11 +2,10 @@
 	<td>
 		<b style='font-size:20px;'><a href="<?php _host(); ?>"><?php _host(); ?></a></b> (<a target="blank" href="//<?php _host('m_host'); ?>"><?php _host('m_host'); ?></a>)<br/>
 		<?php _host('m_desc') ?><br/>
-		<b>Hardware</b> <?php _e("HW_VER"); ?><br/>
 		<b>Firmware</b> <?php _e("FW_VER"); ?><br/>
-		<b>Uptime</b> <?php printf("%.1f",__e("UPTIME")/(24*60*60*100)); ?> days
-		<b> GPS Status</b> <?php echo __e("GPS_STATUS") > 0 ? 'Up' : 'Down'; ?>
-		<b> SUs</b> <?php _e("SU_COUNT"); ?><br/>
+		<b>Uptime</b> <?php printf("%.1f",__e("UPTIME")/(24*60*60*100)); ?> days<br>
+		<b>GPS Status</b> <?php echo __e("GPS_STATUS") > 0 ? 'Up' : 'Down'; ?><br>
+		<b>SUs</b> <?php _e("SU_COUNT"); ?><br/>
 	</td>
 	<td class="center">
 		Ethernet Traffic<br>
