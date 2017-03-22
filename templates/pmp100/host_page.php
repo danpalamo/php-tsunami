@@ -32,10 +32,10 @@
 	<tr class="host_preview_header">
 		<td/>
 		<td>
-			Association
+			Session Uptime
 		</td>
 		<td>
-			Session Uptime
+			Jitter
 		</td>
 		<td>
 			RSSI

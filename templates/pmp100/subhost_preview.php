@@ -6,10 +6,10 @@
 		<b>Status</b> <?php echo __e('ASSOCIATION', true) == 1 ? 'Associated' : 'Not Associated'; ?><br/>
 	</td>
 	<td class="center">
-		<?php _g("ASSOCIATION", true, true); ?>
+		<?php _g("SES_UPTIME", true, true); ?>
 	</td>
 	<td class="center">
-		<?php _g("SES_UPTIME", true, true); ?>
+		<?php _g("JITTER_M", true, true); ?>
 	</td>
 	<td class="center">
 		<?php _g("RSSI_C_SU", true, true); ?>

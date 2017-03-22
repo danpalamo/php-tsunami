@@ -301,7 +301,7 @@
 			--start=$timeStart
 			--end=$timeEnd
 			--title="$title"
-			--vertical-label="jitter"
+			--vertical-label="milliseconds"
 			--base=1000
 			--height=$height
 			--width=$width
