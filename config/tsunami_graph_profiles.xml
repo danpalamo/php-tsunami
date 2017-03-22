@@ -307,7 +307,6 @@
 			--width=$width
 			--rigid
 			--lower-limit=0
-			--upper-limit=100
 			--alt-autoscale-max
 			--slope-mode
 			--disable-rrdtool-tag
