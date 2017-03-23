@@ -17,7 +17,7 @@
 			<?php _g("UPTIME"); ?><br/><hr/>
 			<?php _g("ETH_TRAFFIC_B"); ?><br/><hr/>
 			<?php _g("RF_TRAFFIC_B"); ?><br/><hr/>
-			<?php _g("FRAME_UTIL"); ?><br/>
+			<?php _g("FRAME_UTIL"); ?><br/><hr>
 			<?php _g("RF_DROP"); ?><br/><hr/>
 			<?php _g("GPS_STATUS"); ?><br/><hr/>
 			<?php _g("SU_COUNT"); ?><br/>
