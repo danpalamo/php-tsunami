@@ -157,10 +157,23 @@
 		<monitor desc="WLAN1 out (bits)"		id="WLAN1_OUT_B"	oid="1.3.6.1.2.1.2.2.1.16.3"/>
 		<monitor desc="WLAN2 in (bits)"			id="WLAN2_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.4"/>
 		<monitor desc="WLAN2 out (bits)"		id="WLAN2_OUT_B"	oid="1.3.6.1.2.1.2.2.1.16.24"/>
+		<monitor desc="WLAN1 SU count"			id="WLAN1_SU_COUNT"	oid="1.3.6.1.4.1.14988.1.1.1.3.1.6.3"/> <!-- mtxrWIApClientCount -->
+		<monitor desc="WLAN2 SU count"			id="WLAN2_SU_COUNT"	oid="1.3.6.1.4.1.14988.1.1.1.3.1.6.4"/> <!-- mtxrWIApClientCount -->
 
 		<query desc="Hardware Version"		id="HW_VER"		oid="1.3.6.1.2.1.1.1.0"/> <!-- sysDescr -->
+		<query desc="Firmware Version"		id="FW_VER"		oid="1.3.6.1.4.1.14988.1.1.7.4.0"/> <!-- mtxrFirmwareVersion -->
+		<query desc="Software Version"		id="SW_VER"		oid="1.3.6.1.4.1.14988.1.1.4.4.0"/> <!-- mtxrLicVersion -->
+		<query desc="Serial Number"		id="SERIAL_NUM"		oid="1.3.6.1.4.1.14988.1.1.7.3.0"/> <!-- mtxrSerialNumber -->
+		<query desc="Channel Frequency WLAN1"	id="WLAN1_CHAN_FREQ"	oid="1.3.6.1.4.1.14988.1.1.1.3.1.7.3"/> <!--  mtxrWIApFreq  -->
+		<query desc="Channel Frequency WLAN2"	id="WLAN2_CHAN_FREQ"	oid="1.3.6.1.4.1.14988.1.1.1.3.1.7.4"/> <!--  mtxrWIApFreq  -->
+		<query desc="Channel Band WLAN1"	id="WLAN1_CHAN_BAND"	oid="1.3.6.1.4.1.14988.1.1.1.3.1.8.3"/> <!-- mtxrWIApBand -->
+		<query desc="Channel Band WLAN2"	id="WLAN2_CHAN_BAND"	oid="1.3.6.1.4.1.14988.1.1.1.3.1.8.4"/> <!-- mtxrWIApBand -->
+		<query desc="SSID WLAN1"		id="WLAN1_SSID"		oid="1.3.6.1.4.1.14988.1.1.1.3.1.4.3"/> <!-- mtxrWIApSsid -->
+		<query desc="SSID WLAN2"		id="WLAN2_SSID"		oid="1.3.6.1.4.1.14988.1.1.1.3.1.4.4"/> <!-- mtxrWIApSsid -->
+
+
 		<walk>
-			<monitor desc="MAC address"			id="MAC"		oid=".1.3.6.1.4.1.14988.1.1.1.2.1.1"/> <!-- mtxrWIRtabAddr -->
+			<monitor desc="MAC address"			id="MAC"		oid="1.3.6.1.4.1.14988.1.1.1.2.1.1"/> <!-- mtxrWIRtabAddr -->
 		</walk>
 
 		<template type="hostPreview"	src="mtknm5/host_preview.php"/>
