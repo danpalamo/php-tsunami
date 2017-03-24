@@ -156,7 +156,7 @@
 		<monitor desc="WLAN1 in (bits)"			id="WLAN1_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.3"/>
 		<monitor desc="WLAN1 out (bits)"		id="WLAN1_OUT_B"	oid="1.3.6.1.2.1.2.2.1.16.3"/>
 		<monitor desc="WLAN2 in (bits)"			id="WLAN2_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.4"/>
-		<monitor desc="WLAN2 out (bits)"		id="WLAN2_OUT_B"	oid="1.3.6.1.2.1.2.2.1.16.24"/>
+		<monitor desc="WLAN2 out (bits)"		id="WLAN2_OUT_B"	oid="1.3.6.1.2.1.2.2.1.16.4"/>
 		<monitor desc="WLAN1 SU count"			id="WLAN1_SU_COUNT"	oid="1.3.6.1.4.1.14988.1.1.1.3.1.6.3"/> <!-- mtxrWIApClientCount -->
 		<monitor desc="WLAN2 SU count"			id="WLAN2_SU_COUNT"	oid="1.3.6.1.4.1.14988.1.1.1.3.1.6.4"/> <!-- mtxrWIApClientCount -->
 
