@@ -23,7 +23,8 @@ function ClassifySNMPResult($result)
 	//Counter
 	else if(preg_match("/^Counter[0-9]*/", $result))
 	{
-		$ret = "COUNTER";
+//		$ret = "COUNTER";
+		$ret = "DERIVE";
 	}
 
 	return $ret;
@@ -313,12 +314,18 @@ foreach($aHosts as $host)
 		//if its RRD does not exist, create it
 		if(!file_exists($filenameHostRRD))
 		{
-
 			$cmdLine = "rrdtool create $filenameHostRRD ";
-
+			
 			foreach($host->m_monitors as $monitor)
 			{
-				$cmdLine .= "DS:".$monitor->m_id.":".$monitor->m_type.":600:U:U ";
+				if ($monitor->m_type == "DERIVE") {
+//					echo "$monitor->m_id matches type DERIVE\n";
+					$cmdLine .= "DS:".$monitor->m_id.":".$monitor->m_type.":600:0:U "; //min=0 avoids messy resets-as-counter-wraps
+				}
+				else {
+//					echo "$monitor->m_id is type $monitor->m_type\n";
+					$cmdLine .= "DS:".$monitor->m_id.":".$monitor->m_type.":600:U:U ";
+				}
 			}
 
 			$cmdLine .= "RRA:AVERAGE:0.5:1:576 	\
@@ -392,7 +399,12 @@ foreach($aHosts as $host)
 
 				for($monitorKey = 1; $monitorKey < count($host->m_monitorsWalk); $monitorKey++)
 				{
+					if ($host->m_monitorsWalk[$monitorKey]->m_type == "DERIVE") {
+						$cmdLine .= "DS:".$host->m_monitorsWalk[$monitorKey]->m_id.":".$host->m_monitorsWalk[$monitorKey]->m_type.":600:0:U ";
+					}
+					else {
 					$cmdLine .= "DS:".$host->m_monitorsWalk[$monitorKey]->m_id.":".$host->m_monitorsWalk[$monitorKey]->m_type.":600:U:U ";
+					}
 				}
 
 				$cmdLine .= "RRA:AVERAGE:0.5:1:576 		\

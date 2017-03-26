@@ -60,3 +60,61 @@
 #  missingok
 #  delaycompress
 #}
+
+UPGRADING
+# Older versions of tsunami_collector.php stored counter-like data
+# as type COUNTER. Newer versions store this data as DERIVED.
+# This helps eliminate unwanted spikes when a counter goes backwards,
+# such as when a device reboots and the byte counter on an interface
+# is lower than the previous sample.
+
+# Upgrading from prior versions of collector requires manipulation
+# of the already-existing .rrd files directly in order to gain this
+# benefit. New data sources will be generated with the DERIVE data
+# type automatically.
+
+# At the same time, you will need to define the minimum values (0)
+# in the DERIVE DS's. The exact DS's will be different on each type
+# of equipment, so one must take care to find the right matching
+# query to identify the proper DS's.
+
+# Example DS types
+# ETH_IN_B
+# ETH_OUT_B
+# FRAME_AVAIL_DN
+# FRAME_AVAIL_UP
+# FRAME_USED_DN
+# FRAME_USED_UP
+# RF_DROP_P
+# RF_IN_B
+# RF_OUT_B
+# RF_IN_KBPS
+# RF_OUT_KBPS
+# RF_IN_O
+# RF_OUT_O
+# RF_IN_P
+# RF_OUT_P
+# SFP1_IN_B
+# SFP1_OUT_B
+# WLAN1_IN_B
+# WLAN1_OUT_B
+# WLAN1_SU_COUNT
+# WLAN2_IN_B
+# WLAN2_OUT_B
+# WLAN2_SU_COUNT
+
+# changing data store type:
+# rrdtool tune test.rrd --data-source-type some_ds:DERIVE
+
+# setting minimum value to zero for data store
+# rrdtool tune test.rrd -i some_ds:0
+
+# you can then dump each .rrd file to an .xml and restore it,
+# which should make the now-negative deltas become UNKNOWN or
+# zero.
+
+# /usr/local/tsunami/rrd# for EACH in $LIST \
+# do rrdtool dump $EACH > $EACH.xml \
+# mv $EACH $EACH.bak \
+# rrdtool restore $EACH.xml $EACH --range-check \
+# done
