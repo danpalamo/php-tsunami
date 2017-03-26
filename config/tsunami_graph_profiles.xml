@@ -52,6 +52,93 @@
 			GPRINT:cdefe:MAX:"Max\:%8.2lf %s"'
 	/>
 	<graphProfile
+		name="NM5_SFP1_TRAF"
+		desc="SFP1 traffic in bytes"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="bits per sec"
+			--base=1024
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--slope-mode
+			--disable-rrdtool-tag
+			DEF:a="$filenameRRD":SFP1_IN_B:AVERAGE
+			DEF:b="$filenameRRD":SFP1_OUT_B:AVERAGE
+			CDEF:cdefa=a,8,*
+			CDEF:cdefe=b,8,*
+			AREA:cdefa#00CF00:"Inbound"
+			GPRINT:cdefa:LAST:" Cur\:%8.2lf %s"
+			GPRINT:cdefa:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefa:MAX:"Max\:%8.2lf %s\l"
+			LINE1:cdefe#002A97:"Outbound"
+			GPRINT:cdefe:LAST:"Cur\:%8.2lf %s"
+			GPRINT:cdefe:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefe:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="NM5_WLAN1_TRAF"
+		desc="WLAN1 traffic in bytes"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="bits per sec"
+			--base=1024
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--slope-mode
+			--disable-rrdtool-tag
+			DEF:a="$filenameRRD":WLAN1_IN_B:AVERAGE
+			DEF:b="$filenameRRD":WLAN1_OUT_B:AVERAGE
+			CDEF:cdefa=a,8,*
+			CDEF:cdefe=b,8,*
+			AREA:cdefa#00CF00:"Inbound"
+			GPRINT:cdefa:LAST:" Cur\:%8.2lf %s"
+			GPRINT:cdefa:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefa:MAX:"Max\:%8.2lf %s\l"
+			LINE1:cdefe#002A97:"Outbound"
+			GPRINT:cdefe:LAST:"Cur\:%8.2lf %s"
+			GPRINT:cdefe:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefe:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="NM5_WLAN2_TRAF"
+		desc="WLAN2 traffic in bytes"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="bits per sec"
+			--base=1024
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--slope-mode
+			--disable-rrdtool-tag
+			DEF:a="$filenameRRD":WLAN2_IN_B:AVERAGE
+			DEF:b="$filenameRRD":WLAN2_OUT_B:AVERAGE
+			CDEF:cdefa=a,8,*
+			CDEF:cdefe=b,8,*
+			AREA:cdefa#00CF00:"Inbound"
+			GPRINT:cdefa:LAST:" Cur\:%8.2lf %s"
+			GPRINT:cdefa:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefa:MAX:"Max\:%8.2lf %s\l"
+			LINE1:cdefe#002A97:"Outbound"
+			GPRINT:cdefe:LAST:"Cur\:%8.2lf %s"
+			GPRINT:cdefe:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefe:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
 		name="ETH_TRAFFIC_KBPS"
 		desc="Ethernet traffic in kbps"
 		cmdline='rrdtool graph $filenamePNG
@@ -491,6 +578,36 @@
 			GPRINT:a:MAX:"Max\:%8.0lf SUs"'
 	/>
 	<graphProfile
+		name="NM5_SU_COUNT"
+		desc="NM5 SU Count"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="SUs"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--alt-autoscale-max
+			--slope-mode
+			--disable-rrdtool-tag
+			DEF:a="$filenameRRD":WLAN1_SU_COUNT:AVERAGE
+			DEF:b="$filenameRRD":WLAN2_SU_COUNT:AVERAGE
+			CDEF:cdefc=a,b,+
+			AREA:a#999999:"WLAN1"
+			GPRINT:a:LAST:"Cur\:%8.0lf"
+			GPRINT:a:MAX:"Max\:%8.0lf\l"
+			STACK:b#BBBBBB:"WLAN2"
+			GPRINT:b:LAST:"Cur\:%8.0lf"
+			GPRINT:b:MAX:"Max\:%8.0lf\l"
+			LINE1:cdefc#000000:"Total"
+			GPRINT:cdefc:LAST:"Cur\:%8.0lf"
+			GPRINT:cdefc:MAX:"Max\:%8.0lf\l"'
+	/>
+	<graphProfile
 		name="GPS_STATUS"
 		desc="GPS_STATUS"
 		cmdline='rrdtool graph $filenamePNG
@@ -572,7 +689,7 @@
 			--start=$timeStart
 			--end=$timeEnd
 			--title="$title"
-			--vertical-label="dBm"
+			--vertical-label="dB"
 			--base=1000
 			--height=$height
 			--width=$width
@@ -584,13 +701,36 @@
 			DEF:a="$filenameRRD":SU_SNR:AVERAGE
 			DEF:b="$filenameRRD":AP_SNR:AVERAGE
 			AREA:b#56D0E3:"SNR at AP"
-			GPRINT:b:LAST:"Cur\:%6.1lf dBm"
-			GPRINT:b:AVERAGE:"Avg\:%6.1lf dBm"
-			GPRINT:b:MAX:"Max\:%6.1lf dBm\l"
+			GPRINT:b:LAST:"Cur\:%6.1lf dB"
+			GPRINT:b:AVERAGE:"Avg\:%6.1lf dB"
+			GPRINT:b:MAX:"Max\:%6.1lf dB\l"
 			LINE2:a#9D8D89:"SNR at SU"
-			GPRINT:a:LAST:"Cur\:%6.1lf dBm"
-			GPRINT:a:AVERAGE:"Avg\:%6.1lf dBm"
-			GPRINT:a:MAX:"Max\:%6.1lf dBm"'
+			GPRINT:a:LAST:"Cur\:%6.1lf dB"
+			GPRINT:a:AVERAGE:"Avg\:%6.1lf dB"
+			GPRINT:a:MAX:"Max\:%6.1lf dB"'
+	/>
+	<graphProfile
+		name="NM5_SNR"
+		desc="NetMetal5 SNR Info"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="dB"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--alt-autoscale-max
+			--slope-mode
+			--disable-rrdtool-tag
+			DEF:a="$filenameRRD":AP_SNR:AVERAGE
+			AREA:a#56D0E3:"SNR at AP"
+			GPRINT:a:LAST:"Cur\:%6.1lf dB"
+			GPRINT:a:AVERAGE:"Avg\:%6.1lf dB"
+			GPRINT:a:MAX:"Max\:%6.1lf dB\l"'
 	/>
 	<graphProfile
 		name="EPMP_MCS"
