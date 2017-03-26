@@ -596,16 +596,16 @@
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":WLAN1_SU_COUNT:AVERAGE
 			DEF:b="$filenameRRD":WLAN2_SU_COUNT:AVERAGE
-			DEF:c=a,b,+
+			CDEF:cdefc=a,b,+
 			AREA:a#999999:"WLAN1"
 			GPRINT:a:LAST:"Cur\:%8.0lf"
 			GPRINT:a:MAX:"Max\:%8.0lf\l"
 			STACK:b#BBBBBB:"WLAN2"
 			GPRINT:b:LAST:"Cur\:%8.0lf"
 			GPRINT:b:MAX:"Max\:%8.0lf\l"
-			LINE1:c:000000:"Total"
-			GPRINT:c:LAST:"Cur\:%8.0lf"
-			GPRINT:c:MAX:"Max\:%8.0lf\l"'
+			LINE1:cdefc#000000:"Total"
+			GPRINT:cdefc:LAST:"Cur\:%8.0lf"
+			GPRINT:cdefc:MAX:"Max\:%8.0lf\l"'
 	/>
 	<graphProfile
 		name="GPS_STATUS"

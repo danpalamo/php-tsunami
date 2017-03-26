@@ -31,9 +31,32 @@ function ClassifySNMPResult($result)
 
 function CleanSNMPSUIDResult($result)
 {
-	return str_replace(" ", ".", trim(strtolower(CleanSNMPResult($result))));
+	return str_replace(" ", ".", strtolower(CleanMACs(trim($result))));
 }
 
+function CleanMACs($result)
+{
+	$ret = "";
+	if(preg_match("/^Hex-STRING/", $result))
+	{
+		$ret = strtolower(trim(str_replace("Hex-STRING: ", "", $result)));
+		if(
+			preg_match("/([0-9a-fA-F][0-9a-fA-F][\. :-]){5}([0-9a-fA-F][0-9a-fA-F])/", $ret)
+		)	{
+				$ret = str_replace(":", ".", $ret);
+				$ret = str_replace("-", ".", $ret);
+				$ret = str_replace(" ", ".", $ret);
+			}
+	}
+	elseif(preg_match("/([0-9a-fA-F][0-9a-fA-F][\. :-]){5}([0-9a-fA-F][0-9a-fA-F])/", $result))
+	{
+		$ret = str_replace(":", ".", $result);
+		$ret = str_replace("-", ".", $ret);
+		$ret = str_replace(" ", ".", $ret);
+	}
+	return $ret;
+}
+		
 function CleanSNMPResult($result)
 {
 	$ret = "";
@@ -62,9 +85,9 @@ function CleanSNMPResult($result)
 	//MAC
 	if(preg_match("/^Hex-STRING/", $result))
 	{
-		$ret = str_replace("Hex-STRING: ", "", $result);
+		$ret = strtolower(trim(str_replace("Hex-STRING: ", "", $result)));
 		if(
-			preg_match("/^([0-9a-fA-F][0-9a-fA-F][ :-]){5}([0-9a-fA-F][0-9a-fA-F])$/", $ret)
+			preg_match("/([0-9a-fA-F][0-9a-fA-F][\. :-]){5}([0-9a-fA-F][0-9a-fA-F])/", $ret)
 		)	{
 				$ret = str_replace(":", ".", $ret);
 				$ret = str_replace("-", ".", $ret);
@@ -96,7 +119,6 @@ function CleanSNMPResult($result)
 	{
 		$ret = str_replace("Gauge32: ", "", $result);
 	}
-
 	return $ret;
 }
 
@@ -308,7 +330,7 @@ foreach($aHosts as $host)
 				RRA:MAX:0.5:24:720 		\
 				RRA:MAX:0.5:288:730";
 
-			echo date("Ymd H:i:s")." Creating file '$filenameHostRRD' with command line '$cmdLine'\n";
+			echo date("Ymd H:i:s")." Creating tsunami_host file '$filenameHostRRD' with command line '$cmdLine'\n";
 			`$cmdLine`;
 		}
 
@@ -321,7 +343,7 @@ foreach($aHosts as $host)
 			$cmdLine .= ":$monitor->m_result";
 		}
 
-		echo date("Ymd H:i:s")." Updating file: ".$filenameHostRRD."\n";
+		echo date("Ymd H:i:s")." Updating tsunami_host file: ".$filenameHostRRD."\n";
                 echo "Command line:  $cmdLine\n";
                 
 		`$cmdLine`; // fix?
@@ -359,12 +381,12 @@ foreach($aHosts as $host)
 		{
 			//make the subhost filename
 			//$filenameWalkedRRD = $pathHost.$host->m_id."-".sprintf("%'03d", $monitorID).".rrd";
-			$filenameWalkedRRD = $pathHost.$host->m_id."-".$monitorID.".rrd";
+			$filenameWalkedRRD = $pathHost.$host->m_id."-".CleanSNMPSUIDResult($monitorID).".rrd";
 
 			//if file doesn't exist, make it
 			if(!file_exists($filenameWalkedRRD))
 			{
-				echo date("Ymd H:i:s")." Creating file: ".$filenameWalkedRRD."\n";
+				echo date("Ymd H:i:s")." Creating tsunami_subhost file: ".$filenameWalkedRRD."\n";
 
 				$cmdLine = "rrdtool create $filenameWalkedRRD ";
 
@@ -394,7 +416,7 @@ foreach($aHosts as $host)
 				$cmdLine .= ":".$host->m_monitorsWalk[$monitorKey]->m_result[$resultKey];
 			}
 
-			echo date("Ymd H:i:s")." Updating file: ".$filenameWalkedRRD."\n";
+			echo date("Ymd H:i:s")." Updating tsunami_subhost file: ".$filenameWalkedRRD."\n";
                         echo "Command line:  $cmdLine\n";
 			`$cmdLine`; // fix?
 
