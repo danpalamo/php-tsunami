@@ -18,7 +18,7 @@ if(isset($_GET["timeframe"]))
 <body>
 <div class="div_main">
 	<div class="div_header">
-		<a href="//<?php echo $wwwHostname ?>"><img src="/images/tsunami.png"></a>
+		<a href="//<?php echo $wwwHostname ?>"><img src="//<?php echo $wwwHostname ?>/images/tsunami.png"></a>
 	</div>
 
 	<div class="div_content">
