@@ -181,7 +181,7 @@
 		<walk>
 			<monitor desc="MAC address"			id="MAC"		oid="1.3.6.1.4.1.14988.1.1.1.2.1.1"/> <!-- mtxrWIRtabAddr -->
 			<monitor desc="Session Uptime"			id="SES_UPTIME"		oid="1.3.6.1.4.1.14988.1.1.1.2.1.11"/> <!-- mtxrWIRtabUptime -->
-			<monitor desc="Combined RSSI at SU (dB)"	id="SU_RSSI"		oid="1.3.6.1.4.1.14988.1.1.1.2.1.3"/> <!-- mtxrWIRtabTxStrength -->
+			<monitor desc="Combined RSSI at SU (dB)"	id="SU_RSSI"		oid="1.3.6.1.4.1.14988.1.1.1.2.1.19"/> <!-- mtxrWIRtabTxStrength -->
 			<monitor desc="Combined RSSI at AP (dB)"	id="AP_RSSI"		oid="1.3.6.1.4.1.14988.1.1.1.2.1.3"/> <!-- mtxrWIRtabStrength -->
 			<monitor desc="SNR at AP (dB)"			id="AP_SNR"		oid="1.3.6.1.4.1.14988.1.1.1.2.1.12"/> <!-- mtxrWIRtabSignalToNoise -->
 			<monitor desc="RF in (octets)"			id="RF_IN_O"		oid="1.3.6.1.4.1.14988.1.1.1.2.1.5"/> <!-- mtxrWIRtabRxBytes -->
