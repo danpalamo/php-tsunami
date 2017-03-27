@@ -24,7 +24,7 @@
 	/>
 	<graphProfile
 		name="ETH_TRAFFIC_B"
-		desc="Ethernet traffic in bytes"
+		desc="Ethernet traffic in bits"
 		cmdline='rrdtool graph $filenamePNG
 			--imgformat=PNG
 			--start=$timeStart
@@ -53,7 +53,7 @@
 	/>
 	<graphProfile
 		name="NM5_SFP1_TRAF"
-		desc="SFP1 traffic in bytes"
+		desc="SFP1 traffic in bits"
 		cmdline='rrdtool graph $filenamePNG
 			--imgformat=PNG
 			--start=$timeStart
@@ -69,6 +69,122 @@
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":SFP1_IN_B:AVERAGE
 			DEF:b="$filenameRRD":SFP1_OUT_B:AVERAGE
+			CDEF:cdefa=a,8,*
+			CDEF:cdefe=b,8,*
+			AREA:cdefa#00CF00:"Inbound"
+			GPRINT:cdefa:LAST:" Cur\:%8.2lf %s"
+			GPRINT:cdefa:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefa:MAX:"Max\:%8.2lf %s\l"
+			LINE1:cdefe#002A97:"Outbound"
+			GPRINT:cdefe:LAST:"Cur\:%8.2lf %s"
+			GPRINT:cdefe:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefe:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="ETH2_TRAFFIC_B"
+		desc="ETH2 traffic in bits"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="bits per sec"
+			--base=1024
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--slope-mode
+			--disable-rrdtool-tag
+			DEF:a="$filenameRRD":ETH2_IN_B:AVERAGE
+			DEF:b="$filenameRRD":ETH2_OUT_B:AVERAGE
+			CDEF:cdefa=a,8,*
+			CDEF:cdefe=b,8,*
+			AREA:cdefa#00CF00:"Inbound"
+			GPRINT:cdefa:LAST:" Cur\:%8.2lf %s"
+			GPRINT:cdefa:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefa:MAX:"Max\:%8.2lf %s\l"
+			LINE1:cdefe#002A97:"Outbound"
+			GPRINT:cdefe:LAST:"Cur\:%8.2lf %s"
+			GPRINT:cdefe:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefe:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="ETH3_TRAFFIC_B"
+		desc="ETH3 traffic in bits"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="bits per sec"
+			--base=1024
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--slope-mode
+			--disable-rrdtool-tag
+			DEF:a="$filenameRRD":ETH3_IN_B:AVERAGE
+			DEF:b="$filenameRRD":ETH3_OUT_B:AVERAGE
+			CDEF:cdefa=a,8,*
+			CDEF:cdefe=b,8,*
+			AREA:cdefa#00CF00:"Inbound"
+			GPRINT:cdefa:LAST:" Cur\:%8.2lf %s"
+			GPRINT:cdefa:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefa:MAX:"Max\:%8.2lf %s\l"
+			LINE1:cdefe#002A97:"Outbound"
+			GPRINT:cdefe:LAST:"Cur\:%8.2lf %s"
+			GPRINT:cdefe:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefe:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="ETH4_TRAFFIC_B"
+		desc="ETH4 traffic in bits"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="bits per sec"
+			--base=1024
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--slope-mode
+			--disable-rrdtool-tag
+			DEF:a="$filenameRRD":ETH4_IN_B:AVERAGE
+			DEF:b="$filenameRRD":ETH4_OUT_B:AVERAGE
+			CDEF:cdefa=a,8,*
+			CDEF:cdefe=b,8,*
+			AREA:cdefa#00CF00:"Inbound"
+			GPRINT:cdefa:LAST:" Cur\:%8.2lf %s"
+			GPRINT:cdefa:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefa:MAX:"Max\:%8.2lf %s\l"
+			LINE1:cdefe#002A97:"Outbound"
+			GPRINT:cdefe:LAST:"Cur\:%8.2lf %s"
+			GPRINT:cdefe:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefe:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
+		name="ETH5_TRAFFIC_B"
+		desc="ETH5 traffic in bits"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="bits per sec"
+			--base=1024
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--slope-mode
+			--disable-rrdtool-tag
+			DEF:a="$filenameRRD":ETH5_IN_B:AVERAGE
+			DEF:b="$filenameRRD":ETH5_OUT_B:AVERAGE
 			CDEF:cdefa=a,8,*
 			CDEF:cdefe=b,8,*
 			AREA:cdefa#00CF00:"Inbound"
