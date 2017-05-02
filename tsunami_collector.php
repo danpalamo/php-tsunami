@@ -37,7 +37,7 @@ function CleanSNMPSUIDResult($result)
 
 function CleanMACs($result)
 {
-	$ret = "";
+	$ret = "1";
 	if(preg_match("/^Hex-STRING/", $result))
 	{
 		$ret = strtolower(trim(str_replace("Hex-STRING: ", "", $result)));
@@ -57,7 +57,7 @@ function CleanMACs($result)
 	}
 	return $ret;
 }
-		
+
 function CleanSNMPResult($result)
 {
 	$ret = "";
@@ -95,7 +95,7 @@ function CleanSNMPResult($result)
 				$ret = str_replace(" ", ".", $ret);
 			}
 	}
-		
+
 	//IP
 	if(preg_match("/^IpAddress/", $result))
 	{
@@ -143,10 +143,10 @@ if(!file_exists($pathRRD))
 foreach($aHosts as $hostKey => $host)
 {
 	echo 'INFO - ' . $host->m_desc . ': v' . $host->m_snmpversion . "\n";
-	
+
 	$getFunction = $host->m_snmpversion == "1" ? 'snmpget' : 'snmp2_get';
 	$walkFunction = $host->m_snmpversion == "1" ? 'snmpwalk' : 'snmp2_walk';
-	
+
 	echo date("Ymd H:i:s")." HOST (" . $getFunction . "): ".$host->m_desc." (".$host->m_id.") - ".$host->m_host."\n";
 
 	if(is_array($host->m_monitors))
@@ -154,9 +154,9 @@ foreach($aHosts as $hostKey => $host)
 		foreach($host->m_monitors as $monitorKey => $monitor)
 		{
 			echo date("Ymd H:i:s")." \tMONITOR: ".$monitor->m_desc." (".$monitor->m_id.") - ".$monitor->m_oid." ... ";
-	
+
 			$result = $getFunction($host->m_host, $host->m_community, $monitor->m_oid);
-			
+
 			if($result)
 			{
 				echo "ok\n";
@@ -177,14 +177,14 @@ foreach($aHosts as $hostKey => $host)
 		foreach($host->m_monitorsWalk as $monitorKey => $monitor)
 		{
 			echo date("Ymd H:i:s")." \t\tMONITOR: ".$monitor->m_desc." (".$monitor->m_id.") - ".$monitor->m_oid." ... ";
-	
+
 			$aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result = $walkFunction($host->m_host, $host->m_community, $monitor->m_oid);
-	
+
 			if($aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result)
 			{
 				echo "ok, ".count($aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result)." results\n";
 				if(is_array($aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result))
-				{	
+				{
 					foreach($aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result as $resultKey => $result)
 					{
 						$aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_type = ClassifySNMPResult($result);
@@ -203,15 +203,15 @@ foreach($aHosts as $hostKey => $host)
 		}
 		echo "\n";
 	}
-	
+
 	if(is_array($host->m_queries))
 	{
 		foreach($host->m_queries as $queryKey => $query)
 		{
 			echo date("Ymd H:i:s")." \tQUERY: ".$query->m_desc." (".$query->m_id.") - ".$query->m_oid." ... ";
-	
+
 			$result = $getFunction($host->m_host, $host->m_community, $query->m_oid);
-			
+
 			if($result)
 			{
 				echo "ok\n";
@@ -232,14 +232,14 @@ foreach($aHosts as $hostKey => $host)
 		foreach($host->m_queriesWalk as $queryKey => $query)
 		{
 			echo date("Ymd H:i:s")." \t\tQUERY: ".$query->m_desc." (".$query->m_id.") - ".$query->m_oid." ... ";
-	
+
 			$aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result = $walkFunction($host->m_host, $host->m_community, $query->m_oid);
-	
+
 			if($aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result)
 			{
 				echo "ok, ".count($aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result)." results\n";
 				if(is_array($aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result))
-				{	
+				{
 					foreach($aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result as $resultKey => $result)
 					{
 						$aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_type = ClassifySNMPResult($result);
@@ -258,7 +258,7 @@ foreach($aHosts as $hostKey => $host)
 		}
 		echo "\n";
 	}
-	
+
 }
 
 ////////////////
@@ -315,7 +315,7 @@ foreach($aHosts as $host)
 		if(!file_exists($filenameHostRRD))
 		{
 			$cmdLine = "rrdtool create $filenameHostRRD ";
-			
+
 			foreach($host->m_monitors as $monitor)
 			{
 				if ($monitor->m_type == "DERIVE") {
@@ -352,7 +352,7 @@ foreach($aHosts as $host)
 
 		echo date("Ymd H:i:s")." Updating tsunami_host file: ".$filenameHostRRD."\n";
                 echo "Command line:  $cmdLine\n";
-                
+
 		`$cmdLine`; // fix?
 
 
@@ -367,10 +367,10 @@ foreach($aHosts as $host)
 		}
 
 		echo date("Ymd H:i:s")." Updating $filenameHostRRD with $rrData:  ";
-		if (!rrd_update($filenameHostRRD,$rrData)) { 
+		if (!rrd_update($filenameHostRRD,$rrData)) {
 		  $err = rrd_error();
                   echo "\t$err\n";
-		} else { 
+		} else {
 		  echo "\tOK\n";
         }
         */
@@ -442,10 +442,10 @@ foreach($aHosts as $host)
 				$rrData .= ":".$host->m_monitorsWalk[$monitorKey]->m_result[$resultKey];
 			}
 			echo date("Ymd H:i:s")." Updating $filenameWalkedRRD with $rrData:  ";
-			if (!rrd_update($filenameWalkedRRD,$rrData)) { 
+			if (!rrd_update($filenameWalkedRRD,$rrData)) {
 		  	  $err = rrd_error();
                   	  echo "\t$err".something."\n";
-			} else { 
+			} else {
 		    	  echo "\tOK\n";
             }
             */
@@ -482,7 +482,7 @@ foreach($aHosts as $host)
 	{
 		fwrite($fhCollected, "<host id=\"$idHost\" profile=\"$host->m_profile\"/>\n");
 	}
-	
+
 	file_put_contents($pathWWW . $wwwPathCache . $idHost . ".json", json_encode($host));
 }
 
