@@ -61,7 +61,7 @@
 #  delaycompress
 #}
 
-UPGRADING
+# UPGRADING
 # Older versions of tsunami_collector.php stored counter-like data
 # as type COUNTER. Newer versions store this data as DERIVED.
 # This helps eliminate unwanted spikes when a counter goes backwards,
