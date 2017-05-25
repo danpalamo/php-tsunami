@@ -61,6 +61,11 @@
 #  delaycompress
 #}
 
+# HTTPS SUPPORT
+# letsencrypt.org makes it very easy to secure your tsunami installation
+# $ apt install python-letsencrypt-apach
+# $ letsencrypt
+
 # UPGRADING
 # Older versions of tsunami_collector.php stored counter-like data
 # as type COUNTER. Newer versions store this data as DERIVED.
