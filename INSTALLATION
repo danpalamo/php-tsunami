@@ -63,7 +63,7 @@
 
 # HTTPS SUPPORT
 # letsencrypt.org makes it very easy to secure your tsunami installation
-# $ apt install python-letsencrypt-apach
+# $ apt install python-letsencrypt-apache
 # $ letsencrypt
 
 # UPGRADING
