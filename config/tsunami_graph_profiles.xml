@@ -42,11 +42,13 @@
 			DEF:b="$filenameRRD":ETH_OUT_B:AVERAGE
 			CDEF:cdefa=a,8,*
 			CDEF:cdefe=b,8,*
-			AREA:cdefa#00CF00:"Inbound"
+			LINE1:cdefa#00CF00:""
+			AREA:cdefa#00CF0044:"Inbound"
 			GPRINT:cdefa:LAST:" Cur\:%8.2lf %s"
 			GPRINT:cdefa:AVERAGE:"Avg\:%8.2lf %s"
 			GPRINT:cdefa:MAX:"Max\:%8.2lf %s\l"
-			LINE1:cdefe#002A97:"Outbound"
+			LINE1:cdefe#002A97:""
+			AREA:cdefe#002A9744:"Outbound"
 			GPRINT:cdefe:LAST:"Cur\:%8.2lf %s"
 			GPRINT:cdefe:AVERAGE:"Avg\:%8.2lf %s"
 			GPRINT:cdefe:MAX:"Max\:%8.2lf %s"'
