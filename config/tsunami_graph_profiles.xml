@@ -413,7 +413,7 @@
 			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
 			GPRINT:b:MAX:"Max\:%8.2lf %s"
 			LINE1:a#00CF00:""
-			LINE1:b:002A97:""'
+			LINE1:b#002A97:""'
 	/>
 	<graphProfile
 		name="RF_TRAFFIC_O"
