@@ -47,8 +47,8 @@
 
 # EXAMPLE crontab entries
 #*/5 * * * * /usr/bin/php /usr/local/tsunami/tsunami_collector.php >> /var/log/tsunami/tsunami_collector.log 2>&1
-#57 */4 * * * /usr/bin/php /usr/local/tsunami/tsunami_grapher.php >> /var/log/tsunami/tsunami_collector.log 2>&1
-#9 */4 * * * /usr/bin/php /usr/local/tsunami/tsunami_viewer.php >> /var/log/tsunami/tsunami_collector.log 2>&1
+#57 */4 * * * /usr/bin/php /usr/local/tsunami/tsunami_grapher.php >> /var/log/tsunami/tsunami_grapher.log 2>&1
+#9 */4 * * * /usr/bin/php /usr/local/tsunami/tsunami_viewer.php >> /var/log/tsunami/tsunami_viewer.log 2>&1
 
 # log rotation is needed to keep this file from growing
 # EXAMPLE tsunami.logrotate
@@ -61,7 +61,12 @@
 #  delaycompress
 #}
 
-UPGRADING
+# HTTPS SUPPORT
+# letsencrypt.org makes it very easy to secure your tsunami installation
+# $ apt install python-letsencrypt-apache
+# $ letsencrypt
+
+# UPGRADING
 # Older versions of tsunami_collector.php stored counter-like data
 # as type COUNTER. Newer versions store this data as DERIVED.
 # This helps eliminate unwanted spikes when a counter goes backwards,
