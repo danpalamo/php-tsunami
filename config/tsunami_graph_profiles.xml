@@ -42,16 +42,16 @@
 			DEF:b="$filenameRRD":ETH_OUT_B:AVERAGE
 			CDEF:cdefa=a,8,*
 			CDEF:cdefb=b,8,*
-			AREA:cdefa#00800044:"Inbound"
+			AREA:cdefa#00800044:""
+			AREA:cdefb#002A9733:""
+			LINE1:cdefa#008000:"Inbound"
 			GPRINT:cdefa:LAST:" Cur\:%8.2lf %s"
 			GPRINT:cdefa:AVERAGE:"Avg\:%8.2lf %s"
 			GPRINT:cdefa:MAX:"Max\:%8.2lf %s\l"
-			AREA:cdefb#002A9733:"Outbound"
+			LINE1:cdefb#002A97:"Outbound"
 			GPRINT:cdefb:LAST:"Cur\:%8.2lf %s"
 			GPRINT:cdefb:AVERAGE:"Avg\:%8.2lf %s"
-			GPRINT:cdefb:MAX:"Max\:%8.2lf %s"
-			LINE1:cdefa#008000:""
-			LINE1:cdefb#002A97:""'
+			GPRINT:cdefb:MAX:"Max\:%8.2lf %s"'
 	/>
 	<graphProfile
 		name="NM5_SFP1_TRAF"
@@ -404,16 +404,16 @@
 			DEF:defb="$filenameRRD":RF_OUT_B:AVERAGE
 			CDEF:a=defa,8,*
 			CDEF:b=defb,8,*
-			AREA:a#00800044:"Inbound"
+			AREA:a#00800044:""
+			AREA:b#002A9733:""
+			LINE1:a#008000:"Inbound"
 			GPRINT:a:LAST:" Cur\:%8.2lf %s"
 			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
 			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
-			AREA:b#002A9733:"Outbound"
+			LINE1:b#002A97:"Outbound"
 			GPRINT:b:LAST:"Cur\:%8.2lf %s"
 			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
-			GPRINT:b:MAX:"Max\:%8.2lf %s"
-			LINE1:a#008000:""
-			LINE1:b#002A97:""'
+			GPRINT:b:MAX:"Max\:%8.2lf %s"'
 	/>
 	<graphProfile
 		name="RF_TRAFFIC_O"
