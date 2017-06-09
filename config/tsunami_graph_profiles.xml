@@ -462,9 +462,9 @@
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":RF_IN_P:AVERAGE
 			DEF:b="$filenameRRD":RF_OUT_P:AVERAGE
-			AREA:a#C0611244:""
+			AREA:a#97080844:""
 			AREA:b#0B737344:""
-			LINE1:a#C06112:"Inbound"
+			LINE1:a#970808:"Inbound"
 			GPRINT:a:LAST:" Cur\:%8.2lf %s"
 			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
 			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
