@@ -464,7 +464,7 @@
 			DEF:b="$filenameRRD":RF_OUT_P:AVERAGE
 			AREA:a#C0861244:""
 			AREA:b#0B737344:""
-			LINE1:a#C08612:"Inbound
+			LINE1:a#C08612:"Inbound"
 			GPRINT:a:LAST:" Cur\:%8.2lf %s"
 			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
 			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
