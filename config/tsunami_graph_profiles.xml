@@ -506,7 +506,7 @@
 			GPRINT:aLim:AVERAGE:"Avg\:%6.1lf dBm"
 			GPRINT:aLim:MAX:"Max\:%6.1lf dBm\l
 			LINE1:-100
-			LINE1:cdefe#804815:RSSI at SU":STACK
+			LINE2:cdefe#804815:RSSI at SU":STACK
 			GPRINT:bLim:LAST:"Cur\:%6.1lf dBm"
 			GPRINT:bLim:AVERAGE:"Avg\:%6.1lf dBm"
 			GPRINT:bLim:MAX:"Max\:%6.1lf dBm"'
