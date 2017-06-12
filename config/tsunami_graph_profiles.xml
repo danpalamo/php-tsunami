@@ -16,11 +16,9 @@
 			--upper-limit=3
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":ASSOCIATION:AVERAGE
-			DEF:b="$filenameRRD":ASSOCIATION:AVERAGE
 			CDEF:aLim=a,0,1,LIMIT
-			CDEF:bLim=b,1.0001,4,LIMIT
-			AREA:aLim#6699FF:"Associated"
-			AREA:bLim#3366CC:"Unassociated"'
+			AREA:aLim#6699FF44:
+			LINE1:aLim#6699FF:"Associated"'
 	/>
 	<graphProfile
 		name="ETH_TRAFFIC_B"
@@ -701,7 +699,8 @@
 			--slope-mode
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":SU_COUNT:AVERAGE
-			AREA:a#999999:"SU Count"
+			AREA:a#99999944:""
+			LINE1:a#999999:"SU Count"
 			GPRINT:a:LAST:"Cur\:%8.0lf SUs"
 			GPRINT:a:MAX:"Max\:%8.0lf SUs"'
 	/>
