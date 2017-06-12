@@ -1003,7 +1003,8 @@
 			--disable-rrdtool-tag
 			DEF:defa="$filenameRRD":SES_UPTIME:AVERAGE
 			CDEF:a=defa,86400,/
-			AREA:a#6699FF:"Ses Uptime"
+			AREA:a#C6000044:""
+			LINE1:a#C60000:"Ses Uptime"
 			GPRINT:a:LAST:"Cur\:%4.1lf days"
 			GPRINT:a:AVERAGE:"Avg\:%4.1lf days"
 			GPRINT:a:MAX:"Max\:%4.1lf days"'
