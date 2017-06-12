@@ -699,7 +699,7 @@
 			--slope-mode
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":SU_COUNT:AVERAGE
-			AREA:a#99999944:""
+			AREA:a#999999AA:""
 			LINE1:a#999999:"SU Count"
 			GPRINT:a:LAST:"Cur\:%8.0lf SUs"
 			GPRINT:a:MAX:"Max\:%8.0lf SUs"'
