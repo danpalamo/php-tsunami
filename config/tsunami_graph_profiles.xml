@@ -752,7 +752,8 @@
 			--slope-mode
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":GPS_STATUS:AVERAGE
-			AREA:a#00FFFF:"GPS Status"
+			LINE1:a#00FFFF:"GPS Status"
+			AREA:a#00FFFF44:""
 			GPRINT:a:LAST:"Cur\:%8.0lf"
 			COMMENT:"1=sync, 2=lostsync, 3=gensync"'
 	/>
