@@ -649,12 +649,16 @@
 			CDEF:cdefa=aLim,100,+
 			CDEF:cdefe=bLim,100,+
 			LINE1:-100
-			AREA:cdefa#00CF00:"RSSI at AP":STACK
+			AREA:cdefa#3F307544:"":STACK
+			LINE1:-100
+			AREA:cdefe#80481544:"":STACK
+			LINE1:-100
+			LINE1:cdefa#3F3075:"RSSI at AP":STACK
 			GPRINT:aLim:LAST:"Cur\:%6.1lf dBm"
 			GPRINT:aLim:AVERAGE:"Avg\:%6.1lf dBm"
 			GPRINT:aLim:MAX:"Max\:%6.1lf dBm\l"
 			LINE1:-100
-			LINE2:cdefe#002A97:"RSSI at AP":STACK
+			LINE1:cdefe#804815:"RSSI at AP":STACK
 			GPRINT:bLim:LAST:"Cur\:%6.1lf dBm"
 			GPRINT:bLim:AVERAGE:"Avg\:%6.1lf dBm"
 			GPRINT:bLim:MAX:"Max\:%6.1lf dBm"'
