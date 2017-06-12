@@ -836,11 +836,13 @@
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":SU_SNR:AVERAGE
 			DEF:b="$filenameRRD":AP_SNR:AVERAGE
-			AREA:b#56D0E3:"SNR at AP"
+			AREA:b#56D0E344:""
+			AREA:a#9D8D8944:""
+			LINE1:b#56D0E3:"SNR at AP"
 			GPRINT:b:LAST:"Cur\:%6.1lf dB"
 			GPRINT:b:AVERAGE:"Avg\:%6.1lf dB"
 			GPRINT:b:MAX:"Max\:%6.1lf dB\l"
-			LINE2:a#9D8D89:"SNR at SU"
+			LINE1:a#9D8D89:"SNR at SU"
 			GPRINT:a:LAST:"Cur\:%6.1lf dB"
 			GPRINT:a:AVERAGE:"Avg\:%6.1lf dB"
 			GPRINT:a:MAX:"Max\:%6.1lf dB"'
@@ -887,11 +889,13 @@
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":SU_MCS:AVERAGE
 			DEF:b="$filenameRRD":AP_MCS:AVERAGE
-			AREA:b#E3B056:"MCS at AP"
+			AREA:b#E3B05644:""
+			AREA:a#9D8D8944:""
+			LINE1:b#E3B056:"MCS at AP"
 			GPRINT:b:LAST:"Cur\:%2.0lf"
 			GPRINT:b:AVERAGE:"Avg\:%2.0lf"
 			GPRINT:b:MAX:"Max\:%2.0lf\l"
-			LINE2:a#9D8D89:"MCS at SU"
+			LINE1:a#9D8D89:"MCS at SU"
 			GPRINT:a:LAST:"Cur\:%2.0lf"
 			GPRINT:a:AVERAGE:"Avg\:%2.0lf"
 			GPRINT:a:MAX:"Max\:%2.0lf"'
