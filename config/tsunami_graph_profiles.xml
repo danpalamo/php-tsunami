@@ -800,7 +800,7 @@
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":GPS_SATS_SEEN:AVERAGE
 			DEF:b="$filenameRRD":GPS_SATS_USED:AVERAGE
-			AREA:a#9D8D8944::""
+			AREA:a#9D8D8944:""
 			AREA:b#E3563344:""
 			LINE1:a#9D8D89:"Sats Seen"
 			GPRINT:a:LAST:"Cur\:%2.0lf"
