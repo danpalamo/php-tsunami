@@ -501,12 +501,12 @@
 			LINE1:-100
 			AREA:cdefe#80481544:"":STACK
 			LINE1:-100
-			LINE2:cdefa#3F3075:"RSSI at AP":STACK
+			LINE1:cdefa#3F3075:"RSSI at AP":STACK
 			GPRINT:aLim:LAST:"Cur\:%6.1lf dBm"
 			GPRINT:aLim:AVERAGE:"Avg\:%6.1lf dBm"
-			GPRINT:aLim:MAX:"Max\:%6.1lf dBm\l
+			GPRINT:aLim:MAX:"Max\:%6.1lf dBm\l"
 			LINE1:-100
-			LINE2:cdefe#804815:RSSI at SU":STACK
+			LINE1:cdefe#804815:RSSI at SU":STACK
 			GPRINT:bLim:LAST:"Cur\:%6.1lf dBm"
 			GPRINT:bLim:AVERAGE:"Avg\:%6.1lf dBm"
 			GPRINT:bLim:MAX:"Max\:%6.1lf dBm"'
