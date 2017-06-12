@@ -331,7 +331,8 @@
 			--slope-mode
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":RF_DROP_P:AVERAGE
-			AREA:a#FF4444:"Dropped"
+			LINE1:a#FF4444:"Dropped"
+			AREA:a#FF444444:""
 			GPRINT:a:LAST:" Cur\:%8.2lf %s"
 			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
 			GPRINT:a:MAX:"Max\:%8.2lf %s\l"'
@@ -496,12 +497,16 @@
 			CDEF:cdefa=aLim,100,+
 			CDEF:cdefe=bLim,100,+
 			LINE1:-100
-			AREA:cdefa#00CF00:"RSSI at AP":STACK
+			AREA:cdefa#3F307544:"":STACK
+			LINE1:-100
+			LINE2:cdefe#80481544:"":STACK
+			LINE1:-100
+			LINE1:cdefa#3F3075:"RSSI at AP":STACK
 			GPRINT:aLim:LAST:"Cur\:%6.1lf dBm"
 			GPRINT:aLim:AVERAGE:"Avg\:%6.1lf dBm"
-			GPRINT:aLim:MAX:"Max\:%6.1lf dBm\l"
+			GPRINT:aLim:MAX:"Max\:%6.1lf dBm\l
 			LINE1:-100
-			LINE2:cdefe#002A97:"RSSI at SU":STACK
+			LINE1:cdefe#804815:RSSI at SU":STACK
 			GPRINT:bLim:LAST:"Cur\:%6.1lf dBm"
 			GPRINT:bLim:AVERAGE:"Avg\:%6.1lf dBm"
 			GPRINT:bLim:MAX:"Max\:%6.1lf dBm"'
