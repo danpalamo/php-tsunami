@@ -18,7 +18,7 @@
 		<?php _g("MIMOSA_GPS_SATS_STATS", false, true); ?>
 	</td>
 	<td class="center">
-		SU Count<br>
+		RF PER<br>
 		<?php _g("RF_PER", false, true); ?>
 	</td>
 </tr>

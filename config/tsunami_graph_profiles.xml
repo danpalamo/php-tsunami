@@ -345,7 +345,7 @@
 			--start=$timeStart
 			--end=$timeEnd
 			--title="$title"
-			--vertical-label="packet error rate"
+			--vertical-label="pckt err rate"
 			--base=1000
 			--height=$height
 			--width=$width
@@ -852,7 +852,7 @@
 			--start=$timeStart
 			--end=$timeEnd
 			--title="$title"
-			--vertical-label="#satellites seen"
+			--vertical-label="#satellites"
 			--base=1000
 			--height=$height
 			--width=$width
