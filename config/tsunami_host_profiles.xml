@@ -16,10 +16,10 @@
 
 		<graph title="Uptime"					profile="UPTIME"/>
 		<graph title="Ethernet Traffic"				profile="ETH_TRAFFIC_B"		preview="yes"/>
-		<graph title="RF Traffic"				profile="RF_TRAFFIC_B"/>
-		<graph title="GPS Status"				profile="EPMP_GPS_STATUS"	preview="yes"/>
-		<graph title="GPS Sats Stats"				profile="EPMP_GPS_SATS_STATS"/>
-		<graph title="RF Dropped"				profile="RF_DROP"/>
+		<graph title="RF Traffic"				profile="RF_TRAFFIC_O"/>
+		<graph title="RF Packets"				profile="RF_TRAFFIC_P"/>
+		<graph title="RF Packet Error Rate"			profile="RF_PER"/>
+		<graph title="GPS Sats Stats"				profile="MIMOSA_GPS_SATS_STATS"/>
 <!--		<graph title="SU Count"					profile="SU_COUNT"		preview="yes"/> -->
 <!--		<graph title="RF Frame Up Usage"			profile="EPMP_FRAME_USED_UP"	preview="yes"/>
 		<graph title="RF Frame Down Usage"			profile="EPMP_FRAME_USED_DOWN"	preview="yes"/> -->

@@ -338,6 +338,29 @@
 			GPRINT:a:MAX:"Max\:%8.2lf %s\l"'
 	/>
 	<graphProfile
+		name="RF_PER"
+		desc="RF packet error rate"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="packet error rate"
+			--base=1000
+			--height=$height
+			--width=$width
+			--lower-limit=0
+			--upper-limit=20
+			--slope-mode
+			--disable-rrdtool-tag
+			DEF:a="$filenameRRD":RF_PER:AVERAGE
+			LINE1:a#FF4444:"PER"
+			AREA:a#FF444444:""
+			GPRINT:a:LAST:" Cur\:%8.2lf %s"
+			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:a:MAX:"Max\:%8.2lf %s\l"'
+	/>
+	<graphProfile
 		name="RF_RETRY"
 		desc="RF retry in packets"
 		cmdline='rrdtool graph $filenamePNG
@@ -817,6 +840,36 @@
 			GPRINT:a:AVERAGE:"Avg\:%2.0lf"
 			GPRINT:a:MAX:"Max\:%2.0lf\l"
 			LINE1:b#E35633:"Sats Used"
+			GPRINT:b:LAST:"Cur\:%2.0lf"
+			GPRINT:b:AVERAGE:"Avg\:%2.0lf"
+			GPRINT:b:MAX:"Max\:%2.0lf\l"'
+	/>
+	<graphProfile
+		name="MIMOSA_GPS_SATS_STATS"
+		desc="GPS Satellites Info"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="#satellites seen"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--alt-autoscale-max
+			--slope-mode
+			--disable-rrdtool-tag
+			DEF:a="$filenameRRD":GPS_SATS_SEEN:AVERAGE
+			DEF:b="$filenameRRD":GLONASS_SATS_SEEN:AVERAGE
+			AREA:a#9D8D8944:""
+			AREA:b#E3563344:""
+			LINE1:a#9D8D89:"GPS"
+			GPRINT:a:LAST:"Cur\:%2.0lf"
+			GPRINT:a:AVERAGE:"Avg\:%2.0lf"
+			GPRINT:a:MAX:"Max\:%2.0lf\l"
+			LINE1:b#E35633:"GLONASS"
 			GPRINT:b:LAST:"Cur\:%2.0lf"
 			GPRINT:b:AVERAGE:"Avg\:%2.0lf"
 			GPRINT:b:MAX:"Max\:%2.0lf\l"'
