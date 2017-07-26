@@ -20,7 +20,7 @@
 		<graph title="GPS Status"				profile="EPMP_GPS_STATUS"	preview="yes"/>
 		<graph title="GPS Sats Stats"				profile="EPMP_GPS_SATS_STATS"/>
 		<graph title="RF Dropped"				profile="RF_DROP"/>
-		<graph title="SU Count"					profile="SU_COUNT"		preview="yes"/>
+<!--		<graph title="SU Count"					profile="SU_COUNT"		preview="yes"/> -->
 <!--		<graph title="RF Frame Up Usage"			profile="EPMP_FRAME_USED_UP"	preview="yes"/>
 		<graph title="RF Frame Down Usage"			profile="EPMP_FRAME_USED_DOWN"	preview="yes"/> -->
 
@@ -33,32 +33,7 @@
 		<query desc="Traffic Split"		id="TRAF_SPLIT"		oid="1.3.6.1.4.1.43356.2.1.2.9.2.3.0"/> <!-- mimosaPtmpWirelessTrafficSplit -->
 		<query desc="Frame Time (MS)"		id="FRAME_TIME"		oid="1.3.6.1.4.1.43356.2.1.2.9.2.4.0"/> <!-- mimosaPtmpWirelessWindowLength -->
 
-		<walk>
-			<monitor desc="MAC address"			id="MAC"		oid="1.3.6.1.4.1.43356.2.1.2.9.5.1.1.2"/> <!-- mimosaPtmpClientInfoMacAddress -->
-			<monitor desc="Session Uptime"			id="SES_UPTIME"		oid="1.3.6.1.4.1.43356.2.1.2.9.5.1.1.6"/> <!-- mimosaPtmpClientAssociatedTime -->
-			<monitor desc="RSSI at SU (dB)"			id="SU_RSSI"		oid="1.3.6.1.4.1.43356.2.1.2.9.6.1.1.11"/> <!-- mimosaPtmpClientRssiAvg -->
-			<monitor desc="RF in (bytes)"			id="RF_IN_O"		oid="1.3.6.1.4.1.43356.2.1.2.9.6.1.1.4"/> <!-- mimosaPtmpClientRxBytes -->
-			<monitor desc="RF out (bytes)"			id="RF_OUT_O"		oid="1.3.6.1.4.1.43356.2.1.2.9.6.1.1.5"/> <!-- mimosaPtmpClientTxBytes -->
-			<monitor desc="RF in (packets)"			id="RF_IN_P"		oid="1.3.6.1.4.1.43356.2.1.2.9.6.1.1.6"/> <!-- mimosaPtmpClientRxPkts -->
-			<monitor desc="RF out (packets)"		id="RF_OUT_P"		oid="1.3.6.1.4.1.43356.2.1.2.9.6.1.1.7"/> <!-- mimosaPtmpClientTxPkts -->
-			<monitor desc="RF Packet Error Rate"		id="RF_PER"		oid="1.3.6.1.4.1.43356.2.1.2.9.6.1.1.10"/> <!-- mimosaPtmpClientTxAvgPer -->
 
-			<graph title="Session Uptime"			profile="EPMP_SES_UPTIME"	preview="yes"/>
-			<graph title="RSSI"				profile="RSSI"			preview="yes"/>
-			<graph title="RF Traffic"			profile="EPMP_RF_TRAFFIC_KBPS"	preview="yes"/>
-			<graph title="RF SNR"				profile="EPMP_SNR"		preview="yes"/>
-			<graph title="MCS Info"				profile="EPMP_MCS"/>
-			<graph title="RF Packets"			profile="RF_TRAFFIC_P"/>
-
-			<query desc="IP address"			id="IP"			oid="1.3.6.1.4.1.43356.2.1.2.9.5.1.1.5"/> <!-- mimosaPtmpClientIPAddress -->
-			<query desc="FW version"			id="FW_VER"		oid="1.3.6.1.4.1.43356.2.1.2.9.5.1.1.4"/> <!-- mimosaPtmpClientFWVersion -->
-			<query desc="MIR down"				id="MIR_DOWN"		oid="1.3.6.1.4.1.43356.2.1.2.9.5.1.1.11"/> <!-- mimosaPtmpClientDlPeak -->
-			<query desc="MIR up"				id="MIR_UP"		oid="1.3.6.1.4.1.43356.2.1.2.9.5.1.1.9"/> <!-- mimosaPtmpClientUlPeak -->
-			<query desc="CIR down"				id="CIR_DOWN"		oid="11.3.6.1.4.1.43356.2.1.2.9.5.1.1.10"/> <!-- mimosaPtmpClientDlCommitted -->
-			<query desc="CIR up"				id="CIR_UP"		oid="1.3.6.1.4.1.43356.2.1.2.9.5.1.1.8"/> <!-- mimosaPtmpClientUlCommitted -->
-			<query desc="Site Name"				id="SITE_NAME"		oid="1.3.6.1.4.1.43356.2.1.2.9.5.1.1.3"/> <!-- mimosaPtmpClientName -->
-			<query desc="Session Uptime"			id="SES_UPTIME"		oid="1.3.6.1.4.1.43356.2.1.2.9.5.1.1.6"/> <!-- mimosaPtmpClientAssociatedTime -->
-		</walk>
 
 		<template type="hostPreview"	src="ma5/host_preview.php"/>
 		<template type="subhostPreview"	src="ma5/subhost_preview.php"/>
