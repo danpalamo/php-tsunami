@@ -214,7 +214,7 @@ foreach($aHosts as $hostKey => $host)
 
 			if($result)
 			{
-				echo "ok\n";
+				echo "ok ... ";
 				$aHosts[$hostKey]->m_queries[$queryKey]->m_type = ClassifySNMPResult($result);
 				$aHosts[$hostKey]->m_queries[$queryKey]->m_result = CleanSNMPResult($result);
 				echo "$result\n";
