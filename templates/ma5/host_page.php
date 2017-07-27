@@ -17,7 +17,7 @@
 		</td>
 		<td class="center">
 			<?php _g("UPTIME"); ?><br/><hr/>
-			<?php _g("ETH_TRAFFIC_B"); ?><br/><hr/>
+			<!-- <?php _g("ETH_TRAFFIC_B"); ?><br/><hr/> -->
 			<?php _g("RF_TRAFFIC_O"); ?><br/><hr/>
 			<?php _g("RF_TRAFFIC_P"); ?><br/><hr>
 			<?php _g("RF_PER"); ?><br/><hr/>

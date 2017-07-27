@@ -6,8 +6,8 @@
 		<b>Uptime</b> <?php printf("%.1f",__e("UPTIME")/(24*60*60*100)); ?> days<br>
 	</td>
 	<td class="center">
-		Ethernet Traffic<br>
-		<?php _g("ETH_TRAFFIC_B", false, true); ?>
+		RF Bits<br>
+		<?php _g("RF_TRAFFIC_O", false, true); ?>
 	</td>
 	<td class="center">
 		RF Packets<br>
