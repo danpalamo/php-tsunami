@@ -732,7 +732,7 @@
 			--slope-mode
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":SU_RSSI:AVERAGE
-			CDEF:cdefa=a,100,/
+			CDEF:cdefa=a,10,/
 			CDEF:aLim=cdefa,-100,-35,LIMIT
 			CDEF:cdefz=aLim,100,+
 			LINE1:-100
