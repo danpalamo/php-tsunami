@@ -44,7 +44,7 @@
 		        <monitor desc="RF Packet Error Rate"		id="RF_PER"		oid="1.3.6.1.4.1.43356.2.1.2.9.6.1.1.10"/> <!-- mimosaPtmpClientTxAvgPer -->
 
 		        <graph title="Session Uptime"			profile="SES_UPTIME"		preview="yes"/>
-		        <graph title="SU RSSI at AP"			profile="RSSI_SU"		preview="yes"/>
+		        <graph title="SU RSSI at AP"			profile="MA5_RSSI_SU"		preview="yes"/>
 		        <graph title="RF Traffic"			profile="RF_TRAFFIC_O"		preview="yes"/>
 			<graph title="RF Packets"			profile="RF_TRAFFIC_P"/>
 		        <graph title="RF Packet Error Rate"		profile="RF_PER"		preview="yes"/>

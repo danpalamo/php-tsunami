@@ -714,6 +714,34 @@
 			GPRINT:aLim:MAX:"Max\:%6.1lf dBm\l"'
 	/>
 	<graphProfile
+		name="MA5_RSSI_SU"
+		desc="Mimosa RSSI in dB"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="dBm"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=-90
+			--upper-limit=-45
+			--alt-autoscale-max
+			--slope-mode
+			--disable-rrdtool-tag
+			DEF:a="$filenameRRD":SU_RSSI:AVERAGE
+			CDEF:cdefa=a,100,/
+			CDEF:aLim=cdefa,-100,-35,LIMIT
+			CDEF:cdefa2=aLim,100,+
+			LINE1:-100
+			AREA:cdefa2#00CF00:"RSSI at AP":STACK
+			GPRINT:aLim:LAST:"Cur\:%6.1lf dBm"
+			GPRINT:aLim:AVERAGE:"Avg\:%6.1lf dBm"
+			GPRINT:aLim:MAX:"Max\:%6.1lf dBm\l"'
+	/>
+	<graphProfile
 		name="SU_COUNT"
 		desc="SU Count"
 		cmdline='rrdtool graph $filenamePNG
@@ -863,13 +891,13 @@
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":GPS_SATS_SEEN:AVERAGE
 			DEF:b="$filenameRRD":GLONASS_SATS_SEEN:AVERAGE
-			AREA:a#9D8D8944:""
-			AREA:b#E3563344:""
-			LINE1:a#9D8D89:"GPS"
+			AREA:a#2175D930:""
+			AREA:b#FF393230:""
+			LINE1:a#2175D9:"GPS"
 			GPRINT:a:LAST:"Cur\:%2.0lf"
 			GPRINT:a:AVERAGE:"Avg\:%2.0lf"
 			GPRINT:a:MAX:"Max\:%2.0lf\l"
-			LINE1:b#E35633:"GLONASS"
+			LINE1:b#FF3932:"GLONASS"
 			GPRINT:b:LAST:"Cur\:%2.0lf"
 			GPRINT:b:AVERAGE:"Avg\:%2.0lf"
 			GPRINT:b:MAX:"Max\:%2.0lf\l"'
