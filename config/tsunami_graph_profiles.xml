@@ -734,9 +734,9 @@
 			DEF:a="$filenameRRD":SU_RSSI:AVERAGE
 			CDEF:cdefa=a,100,/
 			CDEF:aLim=cdefa,-100,-35,LIMIT
-			CDEF:cdefa2=aLim,100,+
+			CDEF:cdefz=aLim,100,+
 			LINE1:-100
-			AREA:cdefa2#00CF00:"RSSI at AP":STACK
+			AREA:cdefz#00CF00:"RSSI at AP":STACK
 			GPRINT:aLim:LAST:"Cur\:%6.1lf dBm"
 			GPRINT:aLim:AVERAGE:"Avg\:%6.1lf dBm"
 			GPRINT:aLim:MAX:"Max\:%6.1lf dBm\l"'
