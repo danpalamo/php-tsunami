@@ -732,11 +732,11 @@
 			--slope-mode
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":SU_RSSI:AVERAGE
-			CDEF:cdefa=a,10,/
+			CDEF:cdefa=a,10,/,100,+
 			CDEF:aLim=cdefa,-100,-35,LIMIT
 			CDEF:cdefz=aLim,100,+
 			LINE1:-100
-			AREA:cdefz#00CF00:"RSSI at AP":STACK
+			AREA:cdefa#00CF00:"RSSI at AP":STACK
 			GPRINT:aLim:LAST:"Cur\:%6.1lf dBm"
 			GPRINT:aLim:AVERAGE:"Avg\:%6.1lf dBm"
 			GPRINT:aLim:MAX:"Max\:%6.1lf dBm\l"'
