@@ -10,8 +10,7 @@
 			<b>GPS Satellites GPS/GLONASS</b> <?php echo _e("GPS_SATS_SEEN"); echo "/"; echo _e("GLONASS_SATS_SEEN"); ?><br>
 			<b>AP SSID</b> <?php _e("AP_SSID"); ?><br>
 			<b>Traffic Split</b> <?php _e("TRAF_SPLIT"); ?><br>
-			<b>Maximum Range</b> <?php _e("MAX_RANGE"); ?> miles<br>
-			<b>Frame Length</b> <?php _e("FRAME_TIME"); ?><br>
+			<b>Frame Length</b> <?php _e("FRAME_TIME"); ?> ms<br>
 			<b>Channel Center Freq</b> <?php _e("CHAN_5FREQ"); ?><br>
 			<b>Channel Width</b> <?php _e("CHAN_5WIDTH"); ?><br>
 		</td>

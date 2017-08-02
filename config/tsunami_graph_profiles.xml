@@ -345,7 +345,7 @@
 			--start=$timeStart
 			--end=$timeEnd
 			--title="$title"
-			--vertical-label="pckt err rate"
+			--vertical-label="percent"
 			--base=1000
 			--height=$height
 			--width=$width
@@ -354,6 +354,7 @@
 			--slope-mode
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":RF_PER:AVERAGE
+			CDEF:cdefa=a,100,/
 			LINE1:a#FF4444:"PER"
 			AREA:a#FF444444:""
 			GPRINT:a:LAST:" Cur\:%8.2lf %s"
