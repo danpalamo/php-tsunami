@@ -13,8 +13,8 @@
 		<td class="center">
 			<?php _g("SES_UPTIME", true, false); ?><br/><hr/>
 			<?php _g("MA5_RSSI_SU", true, false); ?><br/><hr/>
-			<?php _g("RF_TRAFFIC_O", true, false); ?><br/>
-			<?php _g("RF_TRAFFIC_P", true, false); ?><br/>
+			<?php _g("RF_TRAFFIC_O", true, false); ?><br/><hr>
+			<?php _g("RF_TRAFFIC_P", true, false); ?><br/><hr>
 			<?php _g("RF_PER", true, false); ?><br/>
 		</td>
 	</tr>
