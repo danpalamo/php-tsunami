@@ -21,7 +21,7 @@
 			<?php _g("RF_TRAFFIC_O"); ?><br/><hr/>
 			<?php _g("RF_TRAFFIC_P"); ?><br/><hr>
 			<?php _g("RF_PER"); ?><br/><hr/>
-			<?php _g("MIMOSA_GPS_SATS_STATS"); ?><br/><hr/>
+			<?php _g("MIMOSA_GPS_SATS_STATS"); ?><br/>
 		</td>
 	</tr>
 </table>
