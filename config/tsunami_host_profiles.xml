@@ -35,7 +35,7 @@
 
 		<walk>
 		        <monitor desc="MAC address"			id="MAC"		oid="1.3.6.1.4.1.43356.2.1.2.9.5.1.1.2"/> <!-- mimosaPtmpClientInfoMacAddress -->
-		        <monitor desc="Session Uptime"			id="SES_UPTIME"		oid="1.3.6.1.4.1.43356.2.1.2.9.5.1.1.6"/> <!-- mimosaPtmpClientAssociatedTime -->
+		        <monitor desc="Session Uptime"			id="MA5_SES_UPTIME"	oid="1.3.6.1.4.1.43356.2.1.2.9.5.1.1.6"/> <!-- mimosaPtmpClientAssociatedTime -->
 		        <monitor desc="SU RSSI at AP (dB)"		id="SU_RSSI"		oid="1.3.6.1.4.1.43356.2.1.2.9.6.1.1.11"/> <!-- mimosaPtmpClientRssiAvg -->
 		        <monitor desc="RF in (bytes)"			id="RF_IN_O"		oid="1.3.6.1.4.1.43356.2.1.2.9.6.1.1.4"/> <!-- mimosaPtmpClientRxBytes -->
 		        <monitor desc="RF out (bytes)"			id="RF_OUT_O"		oid="1.3.6.1.4.1.43356.2.1.2.9.6.1.1.5"/> <!-- mimosaPtmpClientTxBytes -->

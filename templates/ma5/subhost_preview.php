@@ -5,7 +5,7 @@
 		<b>Site Name</b> <?php _e('SITE_NAME', true); ?><br/>
 	</td>
 	<td class="center">
-		<?php _g("SES_UPTIME", true, true); ?>
+		<?php _g("MA5_SES_UPTIME", true, true); ?>
 	</td>
 	<td class="center">
 		<?php _g("RF_TRAFFIC_O", true, true); ?>
