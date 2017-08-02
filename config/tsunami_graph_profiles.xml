@@ -355,11 +355,11 @@
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":RF_PER:AVERAGE
 			CDEF:cdefa=a,100,/
-			LINE1:a#FF4444:"PER"
-			AREA:a#FF444444:""
-			GPRINT:a:LAST:" Cur\:%8.2lf %s"
-			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
-			GPRINT:a:MAX:"Max\:%8.2lf %s\l"'
+			LINE1:cdefa#FF4444:"PER"
+			AREA:cdefa#FF444444:""
+			GPRINT:cdefa:LAST:" Cur\:%8.2lf %s"
+			GPRINT:cdefa:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefa:MAX:"Max\:%8.2lf %s\l"'
 	/>
 	<graphProfile
 		name="RF_RETRY"
