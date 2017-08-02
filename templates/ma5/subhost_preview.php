@@ -11,7 +11,7 @@
 		<?php _g("RF_TRAFFIC_O", true, true); ?>
 	</td>
 	<td class="center">
-		<?php _g("RSSI_SU", true, true); ?>
+		<?php _g("MA5_RSSI_SU", true, true); ?>
 	</td>
 	<td class="center">
 		<?php _g("RF_PER", true, true); ?>
