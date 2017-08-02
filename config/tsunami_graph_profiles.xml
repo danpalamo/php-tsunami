@@ -1097,7 +1097,7 @@
 			--alt-autoscale-max
 			--slope-mode
 			--disable-rrdtool-tag
-			DEF:defa="$filenameRRD":MA5_SES_UPTIME:AVERAGE
+			DEF:defa="$filenameRRD":SES_UPTIME:AVERAGE
 			CDEF:a=defa,86400,/
 			AREA:a#2D872D44:""
 			LINE1:a#2D872D:"Ses Uptime"
