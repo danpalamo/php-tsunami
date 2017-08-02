@@ -38,7 +38,7 @@
 			RF Traffic
 		</td>
 		<td>
-			RSSI
+			RSSI at AP
 		</td>
 		<td>
 			RF PER
