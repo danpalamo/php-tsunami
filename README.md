@@ -11,6 +11,7 @@
 # Cambium PMP-100 (former Motorola Canopy)(FSK)
 # Cambium PMP-450 (requires release 14 or higher)
 # Mikrotik NetMetal5 (RB922)(issue with SU_COUNT data type, bug opened with Mikrotik)
+# Mimosa A5 (requires firmware 2.3.0 or higher)
 # Trango M900
 # Trango M2400 (same as M900, I believe)
 # Ubiquiti AirMax M-series
