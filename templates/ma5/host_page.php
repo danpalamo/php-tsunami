@@ -7,7 +7,7 @@
 			<b>Firmware</b> <?php _e("FW_VER"); ?><br>
 			<b>Serial Number</b> <?php _e("SN"); ?><br>
 			<b>Uptime</b> <?php printf("%.1f",__e("UPTIME")/(24*60*60*100)); ?> days<br>
-			<b>GPS Satellites GPS/GLONASS</b> <?php echo _e("GPS_SATS_SEEN"); echo "/"; echo _e("GLONASS_SATS_SEEN"); ?><br>
+			<b>GPS Satellites GPS / GLONASS</b> <?php echo _e("GPS_SATS_SEEN"); echo " / "; echo _e("GLONASS_SATS_SEEN"); ?><br>
 			<b>AP SSID</b> <?php _e("AP_SSID"); ?><br>
 			<b>Traffic Split</b> <?php _e("TRAF_SPLIT"); ?><br>
 			<b>Frame Length</b> <?php _e("FRAME_TIME"); ?> ms<br>
