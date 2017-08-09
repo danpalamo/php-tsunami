@@ -583,13 +583,13 @@
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":FRAME_UTIL_UP:AVERAGE
 			DEF:b="$filenameRRD":FRAME_UTIL_DN:AVERAGE
-			AREA:a#FFBF0044:""
+			AREA:a#A2570B44:""
 			AREA:b#0B62A444:""
 			LINE1:a#FFBF04:"Inbound"
 			GPRINT:a:LAST:" Cur\:%8.2lf %s"
 			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
 			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
-			LINE1:b#0B62A4:"Outbound"
+			LINE1:b#A2570B:"Outbound"
 			GPRINT:b:LAST:"Cur\:%8.2lf %s"
 			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
 			GPRINT:b:MAX:"Max\:%8.2lf %s"'
