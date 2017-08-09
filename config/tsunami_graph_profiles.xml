@@ -585,11 +585,11 @@
 			DEF:b="$filenameRRD":FRAME_UTIL_DN:AVERAGE
 			AREA:a#A2570B44:""
 			AREA:b#0B62A444:""
-			LINE1:a#FFBF04:"Inbound"
+			LINE1:a#A2570B:"Inbound"
 			GPRINT:a:LAST:" Cur\:%8.2lf %s"
 			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
 			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
-			LINE1:b#A2570B:"Outbound"
+			LINE1:b#0B62A4:"Outbound"
 			GPRINT:b:LAST:"Cur\:%8.2lf %s"
 			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
 			GPRINT:b:MAX:"Max\:%8.2lf %s"'
