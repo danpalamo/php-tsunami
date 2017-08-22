@@ -583,11 +583,13 @@
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":FRAME_UTIL_UP:AVERAGE
 			DEF:b="$filenameRRD":FRAME_UTIL_DN:AVERAGE
-			AREA:a#FFBF00:"Inbound":STACK
+			AREA:a#A2570B44:""
+			AREA:b#0B62A444:""
+			LINE1:a#A2570B:"Inbound"
 			GPRINT:a:LAST:" Cur\:%8.2lf %s"
 			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
 			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
-			LINE1:b#806000:"Outbound"
+			LINE1:b#0B62A4:"Outbound"
 			GPRINT:b:LAST:"Cur\:%8.2lf %s"
 			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
 			GPRINT:b:MAX:"Max\:%8.2lf %s"'
@@ -837,7 +839,7 @@
 			--disable-rrdtool-tag
 			DEF:a="$filenameRRD":GPS_STATUS:AVERAGE
 			LINE1:a#00FFFF:"GPS Status"
-			AREA:a#00FFFF88:""
+			AREA:a#00FFFF44:""
 			GPRINT:a:LAST:"Cur\:%1.0lf"
 			COMMENT:"\\n"
 			COMMENT:"0=init, 1=nosync, 2=sync, 3=holdoff, 4=regain, 5=freerun"'
