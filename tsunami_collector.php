@@ -152,13 +152,12 @@ foreach($aHosts as $hostKey => $host)
 	//if cannot reach uptime snmp query
 	try {
 		$snmpCheck = $getFunction($host->m_host, $host->m_community, ".1.3.6.1.2.1.1.3.0");
-		echo $snmpCheck."\n";
 		if ($snmpCheck == false) {
-			echo date("Ymd H:i:s")." HOST ".$host->m_host." not reachable...Skipping.\n";
+			echo date("Ymd H:i:s")." HOST ".$host->m_host." not responding to uptime OID query...Skipping.\n";
 			break;
 		}
 		else {
-
+			echo date("Ymd H:i:s")." HOST ".$host->m_host." responded to uptime OID query...Starting.\n";
 			if(is_array($host->m_monitors))
 			{
 				foreach($host->m_monitors as $monitorKey => $monitor)
