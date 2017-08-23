@@ -268,9 +268,10 @@ foreach($aHosts as $hostKey => $host)
 				echo "\n";
 			}
 		}
-		catch (Exception $e) {
-			// why?
-		}
+	}
+	catch (Exception $e) {
+		// why?
+	}
 }
 
 ////////////////
