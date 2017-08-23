@@ -152,7 +152,7 @@ foreach($aHosts as $hostKey => $host)
 	//if cannot reach uptime snmp query
 	try {
 		$snmpCheck = $getFunction($host->m_host->m_community, ".1.3.6.1.2.1.1.3.0");
-		echo $host->m_host."\n";
+		echo $snmpCheck."\n";
 		if ($snmpCheck == false) {
 			echo date("Ymd H:i:s")." HOST ".$host->m_host." not reachable...Skipping.\n";
 			break;
