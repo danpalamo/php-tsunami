@@ -149,116 +149,128 @@ foreach($aHosts as $hostKey => $host)
 
 	echo date("Ymd H:i:s")." HOST (" . $getFunction . "): ".$host->m_desc." (".$host->m_id.") - ".$host->m_host."\n";
 
-	if(is_array($host->m_monitors))
-	{
-		foreach($host->m_monitors as $monitorKey => $monitor)
-		{
-			echo date("Ymd H:i:s")." \tMONITOR: ".$monitor->m_desc." (".$monitor->m_id.") - ".$monitor->m_oid." ... ";
-
-			$result = $getFunction($host->m_host, $host->m_community, $monitor->m_oid);
-
-			if($result)
-			{
-				echo "ok ... ";
-				$aHosts[$hostKey]->m_monitors[$monitorKey]->m_type = ClassifySNMPResult($result);
-				$aHosts[$hostKey]->m_monitors[$monitorKey]->m_result = CleanSNMPResult($result);
-				echo "$result\n";
-			}
-			else
-			{
-				echo "error!\n";
-			}
+	//if cannot reach uptime snmp query
+	try {
+		$snmpCheck = $getFunction($host->m_host->m_community, .1.3.6.1.2.1.1.3.0);
+		if ($snmpCheck == false) {
+			echo date("Ymd H:i:s")." HOST ".$host->m_desc." not reachable...Skipping.\n";
+			break;
 		}
-	}
+		else {
 
-	if(is_array($host->m_monitorsWalk))
-	{
-		echo date("Ymd H:i:s")." \tWALK (". $walkFunction . "):\n";
-		foreach($host->m_monitorsWalk as $monitorKey => $monitor)
-		{
-			echo date("Ymd H:i:s")." \t\tMONITOR: ".$monitor->m_desc." (".$monitor->m_id.") - ".$monitor->m_oid." ... ";
-
-			$aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result = $walkFunction($host->m_host, $host->m_community, $monitor->m_oid);
-
-			if($aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result)
+			if(is_array($host->m_monitors))
 			{
-				echo "ok, ".count($aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result)." results\n";
-				if(is_array($aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result))
+				foreach($host->m_monitors as $monitorKey => $monitor)
 				{
-					foreach($aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result as $resultKey => $result)
+					echo date("Ymd H:i:s")." \tMONITOR: ".$monitor->m_desc." (".$monitor->m_id.") - ".$monitor->m_oid." ... ";
+
+					$result = $getFunction($host->m_host, $host->m_community, $monitor->m_oid);
+
+					if($result)
 					{
-						$aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_type = ClassifySNMPResult($result);
-						$aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result[$resultKey] = $monitor->m_id == 'SUID' ? CleanSNMPSUIDResult($result) : CleanSNMPResult($result);
+						echo "ok ... ";
+						$aHosts[$hostKey]->m_monitors[$monitorKey]->m_type = ClassifySNMPResult($result);
+						$aHosts[$hostKey]->m_monitors[$monitorKey]->m_result = CleanSNMPResult($result);
+						echo "$result\n";
+					}
+					else
+					{
+						echo "error!\n";
 					}
 				}
-				else
+			}
+
+			if(is_array($host->m_monitorsWalk))
+			{
+				echo date("Ymd H:i:s")." \tWALK (". $walkFunction . "):\n";
+				foreach($host->m_monitorsWalk as $monitorKey => $monitor)
 				{
-					echo date("Ymd H:i:s")." Error: could not walk monitor \"".$aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_desc."\" on host \"".$host->m_desc."\".\n";
-				}
-			}
-			else
-			{
-				echo "error!\n";
-			}
-		}
-		echo "\n";
-	}
+					echo date("Ymd H:i:s")." \t\tMONITOR: ".$monitor->m_desc." (".$monitor->m_id.") - ".$monitor->m_oid." ... ";
 
-	if(is_array($host->m_queries))
-	{
-		foreach($host->m_queries as $queryKey => $query)
-		{
-			echo date("Ymd H:i:s")." \tQUERY: ".$query->m_desc." (".$query->m_id.") - ".$query->m_oid." ... ";
+					$aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result = $walkFunction($host->m_host, $host->m_community, $monitor->m_oid);
 
-			$result = $getFunction($host->m_host, $host->m_community, $query->m_oid);
-
-			if($result)
-			{
-				echo "ok ... ";
-				$aHosts[$hostKey]->m_queries[$queryKey]->m_type = ClassifySNMPResult($result);
-				$aHosts[$hostKey]->m_queries[$queryKey]->m_result = CleanSNMPResult($result);
-				echo "$result\n";
-			}
-			else
-			{
-				echo "error!\n";
-			}
-		}
-	}
-
-	if(is_array($host->m_queriesWalk))
-	{
-		echo date("Ymd H:i:s")." \tWALK (". $walkFunction . "):\n";
-		foreach($host->m_queriesWalk as $queryKey => $query)
-		{
-			echo date("Ymd H:i:s")." \t\tQUERY: ".$query->m_desc." (".$query->m_id.") - ".$query->m_oid." ... ";
-
-			$aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result = $walkFunction($host->m_host, $host->m_community, $query->m_oid);
-
-			if($aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result)
-			{
-				echo "ok, ".count($aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result)." results\n";
-				if(is_array($aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result))
-				{
-					foreach($aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result as $resultKey => $result)
+					if($aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result)
 					{
-						$aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_type = ClassifySNMPResult($result);
-						$aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result[$resultKey] = CleanSNMPResult($result);
+						echo "ok, ".count($aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result)." results\n";
+						if(is_array($aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result))
+						{
+							foreach($aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result as $resultKey => $result)
+							{
+								$aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_type = ClassifySNMPResult($result);
+								$aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_result[$resultKey] = $monitor->m_id == 'SUID' ? CleanSNMPSUIDResult($result) : CleanSNMPResult($result);
+							}
+						}
+						else
+						{
+							echo date("Ymd H:i:s")." Error: could not walk monitor \"".$aHosts[$hostKey]->m_monitorsWalk[$monitorKey]->m_desc."\" on host \"".$host->m_desc."\".\n";
+						}
+					}
+					else
+					{
+						echo "error!\n";
 					}
 				}
-				else
+				echo "\n";
+			}
+
+			if(is_array($host->m_queries))
+			{
+				foreach($host->m_queries as $queryKey => $query)
 				{
-					echo date("Ymd H:i:s")." Error: could not walk query \"".$aHosts[$hostKey]->m_monitorsWalk[$queryKey]->m_desc."\" on host \"".$host->m_desc."\".\n";
+					echo date("Ymd H:i:s")." \tQUERY: ".$query->m_desc." (".$query->m_id.") - ".$query->m_oid." ... ";
+
+					$result = $getFunction($host->m_host, $host->m_community, $query->m_oid);
+
+					if($result)
+					{
+						echo "ok ... ";
+						$aHosts[$hostKey]->m_queries[$queryKey]->m_type = ClassifySNMPResult($result);
+						$aHosts[$hostKey]->m_queries[$queryKey]->m_result = CleanSNMPResult($result);
+						echo "$result\n";
+					}
+					else
+					{
+						echo "error!\n";
+					}
 				}
 			}
-			else
+
+			if(is_array($host->m_queriesWalk))
 			{
-				echo "error!\n";
+				echo date("Ymd H:i:s")." \tWALK (". $walkFunction . "):\n";
+				foreach($host->m_queriesWalk as $queryKey => $query)
+				{
+					echo date("Ymd H:i:s")." \t\tQUERY: ".$query->m_desc." (".$query->m_id.") - ".$query->m_oid." ... ";
+
+					$aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result = $walkFunction($host->m_host, $host->m_community, $query->m_oid);
+
+					if($aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result)
+					{
+						echo "ok, ".count($aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result)." results\n";
+						if(is_array($aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result))
+						{
+							foreach($aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result as $resultKey => $result)
+							{
+								$aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_type = ClassifySNMPResult($result);
+								$aHosts[$hostKey]->m_queriesWalk[$queryKey]->m_result[$resultKey] = CleanSNMPResult($result);
+							}
+						}
+						else
+						{
+							echo date("Ymd H:i:s")." Error: could not walk query \"".$aHosts[$hostKey]->m_monitorsWalk[$queryKey]->m_desc."\" on host \"".$host->m_desc."\".\n";
+						}
+					}
+					else
+					{
+						echo "error!\n";
+					}
+				}
+				echo "\n";
 			}
 		}
-		echo "\n";
-	}
-
+		catch (Exception $e) {
+			// why?
+		}
 }
 
 ////////////////
