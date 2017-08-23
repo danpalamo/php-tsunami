@@ -154,7 +154,6 @@ foreach($aHosts as $hostKey => $host)
 		$snmpCheck = $getFunction($host->m_host, $host->m_community, ".1.3.6.1.2.1.1.3.0");
 		if ($snmpCheck == false) {
 			echo date("Ymd H:i:s")." HOST ".$host->m_host." not responding to uptime OID query...Skipping.\n";
-			break;
 		}
 		else {
 			echo date("Ymd H:i:s")." HOST ".$host->m_host." responded to uptime OID query...Starting.\n";
