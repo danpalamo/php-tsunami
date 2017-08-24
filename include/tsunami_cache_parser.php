@@ -4,11 +4,11 @@
 //XML parser functions - parse the configuration files and populates the profiles/hosts/monitors arrays
 
 $bHostProfilesIsOpen	= false;	//whether a host profile open tag has been encountered
-$bWalkIsOpen			= false;	//whether a walk open tag has been encountered
+$bWalkIsOpen		= false;	//whether a walk open tag has been encountered
 
-$aHosts					= array();	//array of hosts to be monitored
-$aHostProfiles			= array();	//array of host profiles
-$aGraphProfiles			= array();	//array of graph profiles
+$aHosts			= array();	//array of hosts to be monitored
+$aHostProfiles		= array();	//array of host profiles
+$aGraphProfiles		= array();	//array of graph profiles
 
 function XMLOpenElement($parser, $name, $attrs)
 {
@@ -86,7 +86,7 @@ function XMLOpenElement($parser, $name, $attrs)
 		if(isset($attrs['PREVIEW']))
 			$newGraph->m_bPreview = $attrs['PREVIEW'];
 		$profileName = $attrs['PROFILE'];
-		
+
 		//if the graph has a profile name, try to find the profile and copy its data over.
 		if($profileName != "")
 		{
@@ -125,12 +125,12 @@ function XMLOpenElement($parser, $name, $attrs)
 		$newQuery->m_desc = $attrs['DESC'];
 		$newQuery->m_id = $attrs['ID'];
 		$newQuery->m_oid = $attrs['OID'];
-		
+
 		if(!$bWalkIsOpen)
 			$aHostProfiles[count($aHostProfiles) - 1]->m_queries[] = $newQuery;
 		else
 			$aHostProfiles[count($aHostProfiles) - 1]->m_queriesWalk[] = $newQuery;
-			
+
 		return;
 	}
 
@@ -175,7 +175,7 @@ function XMLOpenElement($parser, $name, $attrs)
 				if(!strcasecmp($profileName, $profile->m_name))
 				{
 					$profileFound = true;
-					
+
 					$newHost->m_snmpversion = $profile->m_snmpversion;
 
 					foreach($profile->m_monitors as $monitor)

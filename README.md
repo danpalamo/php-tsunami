@@ -28,4 +28,6 @@
 # Additional Notes:
 
 # php-tsunami will assume it's being hosted at a FQDN, nested web path structures may require local changes not supported in the main branch
+
+# starting with version 1.4.0, php-tsunami will attempt to get sysUptime (.1.3.6.1.2.1.1.3.0) on any host before performing any other snmp queries. In the event this initial query fails, the host will be skipped for further snmp queries.
 ###
