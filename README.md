@@ -1,4 +1,7 @@
 # php-tsunami
+
+![picture alt](https://github.com/danpalamo/php-tsunami/blob/master/misc/tsunami-front.png "tsunami-front.png")
+
 ## PHP scripts for SNMP monitoring of subscriber access network, RRDtool storage
 
 Original code written by Alan Horne circa 2007. Various edits / changes / templates / rewrites prior to github project by Jerimiah Cole, Josh Bettigole, Dan Parrish.
