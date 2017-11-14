@@ -457,16 +457,16 @@
 			DEF:defb="$filenameRRD":RF_OUT_O:AVERAGE
 			CDEF:a=defa,8,*
 			CDEF:b=defb,8,*
-			AREA:a#00CF0044:"Inbound"
+			AREA:a#0F9A0F44:""
+			AREA:b#002A9733:""
+			LINE1:a#0F9A0F:"Inbound"
 			GPRINT:a:LAST:" Cur\:%8.2lf %s"
 			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
 			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
-			AREA:b#002A9744:"Outbound"
+			LINE1:b#002A97:"Outbound"
 			GPRINT:b:LAST:"Cur\:%8.2lf %s"
 			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
-			GPRINT:b:MAX:"Max\:%8.2lf %s"
-			LINE1:a#00CF00:""
-			LINE1:b#002A97:""'
+			GPRINT:b:MAX:"Max\:%8.2lf %s"'
 	/>
 	<graphProfile
 		name="RF_TRAFFIC_P"
