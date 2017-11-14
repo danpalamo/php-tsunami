@@ -439,34 +439,34 @@
 			GPRINT:b:MAX:"Max\:%8.2lf %s"'
 	/>
 	<graphProfile
-		name="RF_TRAFFIC_O"
-		desc="RF traffic in octets"
-		cmdline='rrdtool graph $filenamePNG
-			--imgformat=PNG
-			--start=$timeStart
-			--end=$timeEnd
-			--title="$title"
-			--vertical-label="bits per sec"
-			--base=1000
-			--height=$height
-			--width=$width
-			--lower-limit=0
-			--slope-mode
-			--disable-rrdtool-tag
-			DEF:defa="$filenameRRD":RF_IN_O:AVERAGE
-			DEF:defb="$filenameRRD":RF_OUT_O:AVERAGE
-			CDEF:a=a,8,*
-			CDEF:b=b,8,*
-			AREA:a#0F9A0F44:""
-			AREA:b#002A9733:""
-			LINE1:a#0F9A0F:"Inbound"
-			GPRINT:a:LAST:" Cur\:%8.2lf %s"
-			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
-			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
-			LINE1:b#002A97:"Outbound"
-			GPRINT:b:LAST:"Cur\:%8.2lf %s"
-			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
-			GPRINT:b:MAX:"Max\:%8.2lf %s"'
+			name="RF_TRAFFIC_O"
+			desc="RF traffic in octets"
+			cmdline='rrdtool graph $filenamePNG
+				--imgformat=PNG
+				--start=$timeStart
+				--end=$timeEnd
+				--title="$title"
+				--vertical-label="bits per sec"
+				--base=1000
+				--height=$height
+				--width=$width
+				--lower-limit=0
+				--slope-mode
+				--disable-rrdtool-tag
+				DEF:defa="$filenameRRD":RF_IN_O:AVERAGE
+				DEF:defb="$filenameRRD":RF_OUT_O:AVERAGE
+				CDEF:a=defa,8,*
+				CDEF:b=defb,8,*
+				AREA:a#0F9A0F44:""
+				AREA:b#002A9733:""
+				LINE1:a#0F9A0F:"Inbound"
+				GPRINT:a:LAST:" Cur\:%8.2lf %s"
+				GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
+				GPRINT:a:MAX:"Max\:%8.2lf %s\l"
+				LINE1:b#002A97:"Outbound"
+				GPRINT:b:LAST:"Cur\:%8.2lf %s"
+				GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
+				GPRINT:b:MAX:"Max\:%8.2lf %s"'
 	/>
 	<graphProfile
 		name="RF_TRAFFIC_P"
