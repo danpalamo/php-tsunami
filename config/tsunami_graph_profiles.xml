@@ -455,18 +455,18 @@
 			--disable-rrdtool-tag
 			DEF:defa="$filenameRRD":RF_IN_O:AVERAGE
 			DEF:defb="$filenameRRD":RF_OUT_O:AVERAGE
-			CDEF:a=defa,8,*
-			CDEF:b=defb,8,*
-			AREA:a#0F9A0F44:""
-			AREA:b#002A9733:""
-			LINE1:a#0F9A0F:"Inbound"
-			GPRINT:a:LAST:" Cur\:%8.2lf %s"
-			GPRINT:a:AVERAGE:"Avg\:%8.2lf %s"
-			GPRINT:a:MAX:"Max\:%8.2lf %s\l"
-			LINE1:b#002A97:"Outbound"
-			GPRINT:b:LAST:"Cur\:%8.2lf %s"
-			GPRINT:b:AVERAGE:"Avg\:%8.2lf %s"
-			GPRINT:b:MAX:"Max\:%8.2lf %s"'
+			CDEF:cdefa=a,8,*
+			CDEF:cdefb=b,8,*
+			AREA:cdefa#0F9A0F44:""
+			AREA:cdefb#002A9733:""
+			LINE1:cdefa#0F9A0F:"Inbound"
+			GPRINT:cdefa:LAST:" Cur\:%8.2lf %s"
+			GPRINT:cdefa:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefa:MAX:"Max\:%8.2lf %s\l"
+			LINE1:cdefb#002A97:"Outbound"
+			GPRINT:cdefb:LAST:"Cur\:%8.2lf %s"
+			GPRINT:cdefb:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefb:MAX:"Max\:%8.2lf %s"'
 	/>
 	<graphProfile
 		name="RF_TRAFFIC_P"
