@@ -20,6 +20,14 @@
                                 '5' => 'freerun', );
                        	echo ($gpsstring = str_replace(array_keys($gpsarray), $gpsarray, __e("GPS_STATUS"))); ?></br>
 			<b>AP SSID</b> <?php _e('AP_SSID'); ?><br/>
+			<b>Up/Dn Ratio</b>
+			<?php $tddratio = array(
+				'1' => '75dn/25up',
+				'2' => '50dn/50up',
+				'3' => '30dn/70up',
+				'4' => 'flexible', );
+			echo ($tddratio = str_replace(array_keys($tddratio), $tddratio, __e("TDD_RATIO"))); ?></br>
+			<b>SM Target Receive Level</b> <?php _e('SM_TRL'); ?><br/>
 			<b>Channel Frequency</b> <?php _e('CHAN_FREQ'); ?><br/>
 			<b>Channel Width</b> <?php echo __e("CHAN_WIDTH") == 1 ? '20' : '40'; ?><br/>
 			<b>SUs</b> <?php _e("SU_COUNT"); ?><br/>

@@ -167,6 +167,8 @@
 		<query desc="Hardware Version"		id="HW_VER"		oid="1.3.6.1.4.1.17713.21.1.1.2.0"/> <!-- cambiumHWInfo -->
 		<query desc="Channel Frequency"		id="CHAN_FREQ"		oid="1.3.6.1.4.1.17713.21.1.2.1.0"/> <!-- cambiumSTAConnectedRFFrequency -->
 		<query desc="Channel Width"		id="CHAN_WIDTH"		oid="1.3.6.1.4.1.17713.21.1.2.2.0"/> <!-- cambiumSTAConnectedRFBandwidth -->
+		<query desc="TDD Up/Dn Ratio"		id="TDD_RATIO"		oid="1.3.6.1.4.1.17713.21.3.8.2.9.0"/> <!-- wirelessInterfaceTDDRatio -->
+		<query desc="SM Target Receive Level"	id="SM_TRL"		oid="1.3.6.1.4.1.17713.21.3.8.2.10.0"/> <!-- wirelessInterfaceTPCTRL -->
 
 		<walk>
 			<monitor desc="MAC address"			id="MAC"		oid="1.3.6.1.4.1.17713.21.1.2.30.1.1"/> <!-- connectedSTAMAC -->
