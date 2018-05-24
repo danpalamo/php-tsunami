@@ -344,9 +344,9 @@
 		<monitor desc="Uptime"					id="UPTIME"		oid="1.3.6.1.2.1.1.3.0"/>
 		<monitor desc="Eth in (bits)"				id="ETH_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.2"/> <!-- eth0 in -->
 		<monitor desc="Eth out (bits)"				id="ETH_OUT_B"		oid="1.3.6.1.2.1.2.2.1.16.2"/> <!-- eth0 out -->
-		<monitor desc="RF in (bits)"				id="RF_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.8"/> <!-- ath0 in -->
-		<monitor desc="RF out (bits)"				id="RF_OUT_B"		oid="1.3.6.1.2.1.2.2.1.16.2"/> <!-- ath0 out -->
-		<monitor desc="RF dropped (packets)"			id="RF_DROP_P"		oid="1.3.6.1.2.1.2.2.1.20.8"/> <!-- probably ath0 outerrors -->
+		<monitor desc="RF in (bits)"				id="RF_IN_B"		oid="1.3.6.1.2.1.2.2.1.10.5"/> <!-- ath0 in -->
+		<monitor desc="RF out (bits)"				id="RF_OUT_B"		oid="1.3.6.1.2.1.2.2.1.16.5"/> <!-- ath0 out -->
+		<monitor desc="RF dropped (packets)"			id="RF_DROP_P"		oid="1.3.6.1.2.1.2.2.1.20.5"/> <!-- probably ath0 outerrors -->
 		<monitor desc="SU count"				id="SU_COUNT"		oid="1.3.6.1.4.1.41112.1.4.5.1.15.1"/>
 		<monitor desc="AP AMQ"					id="U24_AP_AMQ"		oid="1.3.6.1.4.1.41112.1.4.6.1.3.1"/> <!-- ubntAirMaxQuality -->
 		<monitor desc="AP AMC"					id="U24_AP_AMC"		oid="1.3.6.1.4.1.41112.1.4.6.1.4.1"/> <!-- ubntAirMaxCapacity -->
