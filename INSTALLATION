@@ -25,6 +25,9 @@
 # tsunami graphs : /var/www/html/tsunami/graphs/
 # tsunami logs : /var/log/tsunami/
 
+# install php-tsunami with git:
+# git clone https://github.com/danpalamo/php-tsunami /usr/local/tsunami
+
 # copy the contents of php-tsunami/web/ to your web directory
 # example:
 # cp -r /usr/local/tsunami/web/* /var/www/html/tsunami/
