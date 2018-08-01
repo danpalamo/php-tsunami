@@ -32,6 +32,11 @@
 # example:
 # cp -r /usr/local/tsunami/web/* /var/www/html/tsunami/
 
+# copy and edit config files
+# cp /usr/local/tsunami/config/tsunami_config.php.example /usr/local/tsunami/config/tsunami_config.php
+# cp /usr/local/tsunami/config/tsunami_hosts.xml.example /usr/local/tsunami/config/tsunami_hosts.xml
+# edit these files to reflect your local configuration and equipment
+
 # tsunami assumes a 5-minute interval for polling
 # tsunami generally can poll several dozen hosts in this time
 # period, provided there are no down hosts
