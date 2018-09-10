@@ -2,6 +2,8 @@
 
 <?php
 
+$script_time_start = microtime(true);
+
 //TCI SNMP NETWORK MONITOR (TSNM)
 
 include 'include/tsunami_common.php';
@@ -502,7 +504,9 @@ fwrite($fhCollected, "</tsunami>\n");
 
 fclose($fhCollected);
 
+$script_time_end = microtime(true);
+$execution_time = ($script_time_end - $script_time_start)/60;
 
-echo date("Ymd H:i:s")." Done collecting SNMP data.\n";
+echo date("Ymd H:i:s")." Done collecting SNMP data. Execution time: ". number_format($execution_time, 2). " Mins \n";
 
 ?>
