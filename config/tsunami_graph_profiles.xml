@@ -651,6 +651,39 @@
 			GPRINT:b:MAX:"Max\:%6.1lf\l"'
 	/>
 	<graphProfile
+		name="EPMP_FRAME_UTIL"
+		desc="Layer 2 wireless frame utilization percentage"
+		cmdline='rrdtool graph $filenamePNG
+			--imgformat=PNG
+			--start=$timeStart
+			--end=$timeEnd
+			--title="$title"
+			--vertical-label="percent"
+			--base=1000
+			--height=$height
+			--width=$width
+			--rigid
+			--lower-limit=0
+			--upper-limit=100
+			--alt-autoscale-max
+			--slope-mode
+			--disable-rrdtool-tag
+			DEF:a="$filenameRRD":EPMP_FRAME_UTIL_UP:AVERAGE
+			DEF:b="$filenameRRD":EPMP_FRAME_UTIL_DN:AVERAGE
+			CDEF:cdefa=a,100,/
+			CDEF:cdefb=b,100,/
+			AREA:cdefa#A2570B44:""
+			AREA:cdefb#0B62A444:""
+			LINE1:cdefa#A2570B:"Inbound"
+			GPRINT:cdefa:LAST:" Cur\:%8.2lf %s"
+			GPRINT:cdefa:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefa:MAX:"Max\:%8.2lf %s\l"
+			LINE1:cdefb#0B62A4:"Outbound"
+			GPRINT:cdefb:LAST:"Cur\:%8.2lf %s"
+			GPRINT:cdefb:AVERAGE:"Avg\:%8.2lf %s"
+			GPRINT:cdefb:MAX:"Max\:%8.2lf %s"'
+	/>
+	<graphProfile
 		name="RSSI_C_SU"
 		desc="RSSI in dB"
 		cmdline='rrdtool graph $filenamePNG

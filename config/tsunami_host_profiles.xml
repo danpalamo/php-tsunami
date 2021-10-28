@@ -153,6 +153,8 @@
 		<monitor desc="Frame Used Downstream"		id="FRAME_USED_DN"	oid="1.3.6.1.4.1.17713.21.2.1.54.0"/> <!-- dlWLanTotalUsedFrameTimePerSecond -->
 		<monitor desc="SU count"			id="SU_COUNT"		oid="1.3.6.1.4.1.17713.21.1.2.10.0"/> <!-- cambiumAPNumberOfConnectedSTA -->
 		<monitor desc="RF Discards"			id="RF_DROP_P"		oid="1.3.6.1.2.1.2.2.1.19.2"/>  <!-- ifOutDiscards (.2, wireless) -->
+		<monitor desc="Frame Utilization Upstream"	id="EPMP_FRAME_UTIL_UP"	oid="1.3.6.1.4.1.161.19.3.1.12.1.2.0"/> <!--  ulWLanTotalAvailableFrameTimePercentage (x10) (not on epmp1000)-->
+		<monitor desc="Frame Utilization Downstream"	id="EPMP_FRAME_UTIL_DN"	oid="1.3.6.1.4.1.161.19.3.1.12.1.1.0"/> <!--  dlWLanTotalAvailableFrameTimePercentage (x10) (not on epmp1000)-->
 
 		<graph title="Uptime"					profile="UPTIME"/>
 		<graph title="Ethernet Traffic"				profile="ETH_TRAFFIC_B"		preview="yes"/>
@@ -161,8 +163,9 @@
 		<graph title="GPS Sats Stats"				profile="EPMP_GPS_SATS_STATS"/>
 		<graph title="RF Dropped"				profile="RF_DROP"/>
 		<graph title="SU Count"					profile="SU_COUNT"		preview="yes"/>
-<!--		<graph title="RF Frame Up Usage"			profile="EPMP_FRAME_USED_UP"	preview="yes"/>
-		<graph title="RF Frame Down Usage"			profile="EPMP_FRAME_USED_DOWN"	preview="yes"/> -->
+		<graph title="RF Frame Up Usage"			profile="EPMP_FRAME_USED_UP"	preview="yes"/>
+		<graph title="RF Frame Down Usage"			profile="EPMP_FRAME_USED_DOWN"	preview="yes"/>
+		<graph title="RF Frame Utilization"			profile="EPMP_FRAME_UTIL"	preview="yes"/>
 
 		<query desc="AP SSID"			id="AP_SSID"		oid="1.3.6.1.4.1.17713.21.3.8.2.2.0"/> <!-- wirelessInterfaceSSID -->
 		<query desc="Firmware Version"		id="FW_VER"		oid="1.3.6.1.4.1.17713.21.1.1.1.0"/> <!-- cambiumCurrentSWInfo -->
