@@ -153,8 +153,8 @@
 		<monitor desc="Frame Used Downstream"		id="FRAME_USED_DN"	oid="1.3.6.1.4.1.17713.21.2.1.54.0"/> <!-- dlWLanTotalUsedFrameTimePerSecond -->
 		<monitor desc="SU count"			id="SU_COUNT"		oid="1.3.6.1.4.1.17713.21.1.2.10.0"/> <!-- cambiumAPNumberOfConnectedSTA -->
 		<monitor desc="RF Discards"			id="RF_DROP_P"		oid="1.3.6.1.2.1.2.2.1.19.2"/>  <!-- ifOutDiscards (.2, wireless) -->
-		<monitor desc="Frame Utilization Upstream"	id="EPMP_FRAME_UTIL_UP"	oid="1.3.6.1.4.1.17713.21.2.1.112"/> <!--  ulWLanTotalAvailableFrameTimePercentage (x10) (not on epmp1000)-->
-		<monitor desc="Frame Utilization Downstream"	id="EPMP_FRAME_UTIL_DN"	oid="1.3.6.1.4.1.17713.21.2.1.113"/> <!--  dlWLanTotalAvailableFrameTimePercentage (x10) (not on epmp1000)-->
+		<monitor desc="Frame Utilization Upstream"	id="EPMP_FRAME_UTIL_UP"	oid="1.3.6.1.4.1.17713.21.2.1.112.0"/> <!--  ulWLanTotalAvailableFrameTimePercentage (x10) (not on epmp1000)-->
+		<monitor desc="Frame Utilization Downstream"	id="EPMP_FRAME_UTIL_DN"	oid="1.3.6.1.4.1.17713.21.2.1.113.0"/> <!--  dlWLanTotalAvailableFrameTimePercentage (x10) (not on epmp1000)-->
 
 		<graph title="Uptime"					profile="UPTIME"/>
 		<graph title="Ethernet Traffic"				profile="ETH_TRAFFIC_B"		preview="yes"/>
